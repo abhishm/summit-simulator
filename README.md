@@ -26,7 +26,7 @@ labor) leave feeling unheard.
    strict realism rules. High-power guests dominate plenaries, same-faction rooms only reinforce views,
    positions move only when a concern is acknowledged or a tradeoff is offered, red lines hold, and facilitation
    can't compel positions. Stance moves are capped in code.
-3. **An independent judge scores it.** `gemini-3.1-flash-lite` rates how heard each guest was. The final score
+3. **An independent judge scores it.** A skeptical `gemini-3.8-flash` judge rates how heard each guest was. The final score
    (0–100) combines:
    - **consensus (40):** stance-spread reduction plus agreements spanning 3+ factions
    - **inclusion (30):** the *minimum* felt-heard rating
@@ -42,6 +42,12 @@ labor) leave feeling unheard.
    visibly converge. A score chart compares the baseline with each Argon round. **Nothing is final until the
    organizer clicks Approve**, which exports a timed run of show: rooms, who sits where, facilitator prompts, the
    agreements reached in simulation and Argon's rationale.
+6. **Antigravity writes the briefing packets, and checks them.** After approval, the Antigravity managed agent
+   (`antigravity-preview-09-2026` running `gemini-4-argon`) works in a remote sandbox. It writes one packet per
+   delegate: their personal schedule, who they'll sit with, concrete openings that address each counterpart's
+   red lines, and a counterpart cheat sheet. It then writes and runs `check.py`, which confirms every packet
+   matches the approved schedule (times, rooms, co-participants), and fixes failures until the check passes.
+   The server re-verifies locally. (10/10 packets, both checks pass, about 5 minutes.)
 
 ## Why Argon
 
@@ -50,8 +56,17 @@ works out *why* a guest felt excluded or why two factions never converged, and r
 agenda (10 guests × 5 blocks × groupings × prompts) that satisfies hard constraints. Flash is fast enough to
 run each world. Argon is what makes the loop actually improve.
 
-It is also, notably, a very good reward hacker. Early on it learned to reorder speaker lists to game the
-airtime metric. Hardening the simulator against that became part of the build (see `docs/FEEDBACK.md`).
+It is also a very good reward hacker. Hardening the simulator became part of the build:
+
+1. **Lenient world (50 → 98.4 in one round).** Argon reordered speaker lists to game the airtime metric and told
+   guests to "state a compromise". Fix: facilitation can't compel positions, the closing plenary is mandatory,
+   and agreements must span 3+ factions.
+2. **Pre-drafted deal (34.9 → 99.6, every guest rated 10/10).** Argon wrote a 600-word treaty into the closing
+   plenary prompt, and the Flash delegates simply endorsed it. Fix: facilitation prompts are capped at 60 words,
+   drafts are contested per red lines, every session needs pushback, and a skeptical Flash judge asks what each
+   guest conceded.
+
+Both runs are kept in `data/archive/` as evidence.
 
 ## Run it
 
@@ -81,12 +96,12 @@ uv run python scripts/run_optimize.py --rounds 4 --blocks 5 --thinking high --na
 Deep Research (x10, background) ──> data/personas/*.md ──Flash──> persona JSON
                                                                    │
           ┌───────────────────────────── optimize loop ────────────┴──────────────┐
-          │ plan ──> simulate (Flash, rooms in parallel per block) ──> judge (Lite)│
+          │ plan ──> simulate (Flash, rooms in parallel per block) ──> judge (Flash)│
           │   ▲                                                         │ score   │
           │   └── repair() <── Revision{critique, changes, plan} <── Gemini 4 Argon│
           └────────────────────────────────────────────────────────────────────────┘
 FastAPI (SSE events: round_start / block / thinking / round_done) ──> Three.js venue + chart
-Approve ──> data/approved/<run>-r<round>.md (run of show) + .json
+Approve ──> data/approved/<run>-r<round>.md (run of show) ──> Antigravity+Argon sandbox ──> per-guest packets (self-checked)
 ```
 
 | File | Purpose |
@@ -95,7 +110,8 @@ Approve ──> data/approved/<run>-r<round>.md (run of show) + .json
 | `app/personas.py` | Brief → persona extraction (structured output) |
 | `app/simulate.py` | World rules, per-room simulation, judge, scoring |
 | `app/optimize.py` | Baseline plan, constraint repair, Argon critique/revise loop |
-| `app/server.py` | API, live SSE runs, replay, approval export, live Deep Research |
+| `app/server.py` | API, live SSE runs, replay, approval export, packets, live Deep Research |
+| `app/packets.py` | Antigravity briefing packets + in-sandbox and local verification |
 | `web/index.html` | Three.js venue, stance strip, score chart, critique panel |
 | `scripts/` | Persona research, CLI optimizer runs, API smoke test |
 

@@ -46,7 +46,7 @@
   #modal { position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; z-index:10; }
   #modal .box { background:var(--panel); border:1px solid var(--line); border-radius:12px; width:min(860px,92vw); max-height:86vh; display:flex; flex-direction:column; }
   #modal pre { margin:0; padding:14px 18px; overflow:auto; white-space:pre-wrap; font:12px/1.5 ui-monospace, Menlo, monospace; }
-  #modal .hd { padding:10px 14px; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:center; }
+  #modal .hd { padding:10px 14px; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:center; white-space:nowrap; } #modal .hd button { white-space:nowrap; } #pkStatus { white-space:normal; font-size:12px; }
   .spinner { display:inline-block; width:10px; height:10px; border:2px solid var(--accent); border-right-color:transparent; border-radius:50%; animation:spin .8s linear infinite; vertical-align:middle; margin-right:6px; }
   @keyframes spin { to { transform:rotate(360deg); } }
   svg text { fill:var(--dim); font-size:10px; }
@@ -112,7 +112,7 @@
     </div>
   </aside>
 </main>
-<div id="modal"><div class="box"><div class="hd"><b>Approved run of show</b><span id="pkStatus" class="muted"></span><span style="flex:1"></span><select id="pkSel" style="display:none"></select><button id="pkBtn" title="Antigravity managed agent (Gemini 4 Argon) writes and self-checks one briefing packet per guest">📨 Briefing packets (Antigravity)</button><button id="dl">⬇ Download .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
+<div id="modal"><div class="box"><div class="hd"><b style="white-space:nowrap">Run of show</b><span id="pkStatus" class="muted"></span><span style="flex:1"></span><select id="pkSel" style="display:none"></select><button id="pkBtn" title="Antigravity managed agent (Gemini 4 Argon) writes and self-checks one briefing packet per guest">📨 Packets (Antigravity)</button><button id="dl">⬇ .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
 
 <script type="module">
 import * as THREE from "three";
