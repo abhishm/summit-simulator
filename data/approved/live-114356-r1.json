@@ -1,0 +1,74 @@
+{
+ "name": "Cross-Faction Tradeoff Matrix",
+ "rationale": "Two rounds of small, high-diversity cross-faction breakouts maximize cross-faction exposure (31/38 pairs) and pair opposing stances on concrete negotiables (`evals_liability` and `benefit_sharing`). Ordering `labor_advocate` and `global_south_cso` first in the closing plenary and structuring the synthesis prompt around a 4-pillar package deal ensures civil society, open-weights, academia, industry, and sovereign governments all see their core red lines integrated into the final multi-faction agreement.",
+ "blocks": [
+  {
+   "title": "Pre-Deployment Evaluations & Liability Tradeoffs",
+   "format": "breakouts",
+   "topic": "evals_liability",
+   "prompt": "Each participant has equal speaking time in a structured round-robin. Negotiate a concrete tradeoff package on pre-deployment evaluations and developer liability: Under what exact conditions can industry offer pre-deployment model access, incident reporting, and open evaluation tooling in exchange for targeted regulatory predictability, while guaranteeing binding red lines against CBRN/autonomous replication, workplace surveillance, and ethics dumping in the Global South?",
+   "groups": [
+    [
+     "eu_regulator",
+     "us_natsec",
+     "big_tech_policy",
+     "labor_advocate"
+    ],
+    [
+     "uk_aisi",
+     "frontier_lab_ceo",
+     "global_south_cso"
+    ],
+    [
+     "china_policy",
+     "open_weights_lead",
+     "safety_researcher"
+    ]
+   ]
+  },
+  {
+   "title": "Benefit Sharing, Compute Access & Open Innovation",
+   "format": "breakouts",
+   "topic": "benefit_sharing",
+   "prompt": "Structured turn-taking: ensure every voice shapes the room's agreement. How do we balance frontier compute security and catastrophic risk thresholds (e.g., >10^26 FLOPs) with open-weight innovation, Global South compute capacity-building, and mandatory employer-funded worker transition and creative-consent frameworks? Identify specific concessions each side will make.",
+   "groups": [
+    [
+     "eu_regulator",
+     "china_policy",
+     "frontier_lab_ceo",
+     "safety_researcher"
+    ],
+    [
+     "us_natsec",
+     "open_weights_lead",
+     "global_south_cso"
+    ],
+    [
+     "uk_aisi",
+     "big_tech_policy",
+     "labor_advocate"
+    ]
+   ]
+  },
+  {
+   "title": "Closing Synthesis: The Multi-Pillar Accord",
+   "format": "plenary",
+   "topic": "synthesis",
+   "prompt": "The Chair will call on each of the 10 delegates in turn for equal airtime\u2014starting with Civil Society and Academia (`labor_advocate`, `global_south_cso`, `safety_researcher`), then Industry (`open_weights_lead`, `big_tech_policy`, `frontier_lab_ceo`), then Governments and Regulators (`uk_aisi`, `china_policy`, `us_natsec`, `eu_regulator`). We are drafting a single, unified 4-pillar Summit Accord that all 5 factions can endorse: (1) Sovereign coordination of national AI Safety Institutes on empirical pre-deployment CBRN/cyber/autonomy evals and incident hotlines; (2) Open-source safety evaluation benchmarks protecting responsible open-weight distribution below extreme capability red lines; (3) Binding prohibitions on Global South ethics dumping paired with regional public compute & capacity sharing; and (4) Mandatory workforce transition pipelines, creative consent/residuals, and bans on covert workplace biometric surveillance. State your concrete reciprocal commitment to adopt this unified package.",
+   "groups": [
+    [
+     "eu_regulator",
+     "us_natsec",
+     "uk_aisi",
+     "china_policy",
+     "frontier_lab_ceo",
+     "open_weights_lead",
+     "big_tech_policy",
+     "safety_researcher",
+     "global_south_cso",
+     "labor_advocate"
+    ]
+   ]
+  }
+ ]
+}

@@ -102,11 +102,13 @@ async def _do_run(run_id: str, req: RunReq):
             runs = _run_list()
             if not runs:
                 raise RuntimeError("DEMO_MODE but no saved runs")
-            src = max(runs, key=lambda r: max(r["scores"]))
+            demos = [r for r in runs if r["id"].startswith("demo")] or runs
+            src = max(demos, key=lambda r: max(r["scores"]))
             for kind, data in _replay_events(_saved(src["id"]))[:-1]:
                 await asyncio.sleep(2.5 if kind == "thinking" else 1.2)
                 await _push(run_id, kind, data)
-            out = _saved(src["id"])
+            await _push(run_id, "done", {"run_id": src["id"], "best": _saved(src["id"])["best"]})
+            return
         else:
             out = await optimize(P.load(), rounds=req.rounds, n_blocks=req.blocks, thinking=req.thinking,
                                  emit=lambda k, d: _push(run_id, k, d))
