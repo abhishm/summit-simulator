@@ -32,7 +32,7 @@ Plain-language script: short sentences, no jargon. Say it like you'd explain it 
 | 0:50 | Switch to **Tab B**, click **Replay** | "Here's one we ran earlier." Point at the chart: "The first agenda scored 29. After Gemini 4 Argon fixed it: 77." |
 | 1:05 | Critique panel | "Argon read every conversation and found the problem: people only talked to their own side. Only 5 of 38 possible cross-group pairs ever met. So it mixed up the rooms. Next try, all 38 met." |
 | 1:25 | 3D venue plus the dots | "Each dot is a guest's opinion. Watch them move closer together. That's agreement actually happening." |
-| 1:40 | Switch to **Tab C**, point at the ✅/❌ list, click a picture | "Argon also looks at pictures of the rooms, like a human organizer would. It spots problems: this person is outnumbered, that room is empty. Then it checks the next version to see if its fixes worked. Here, 2 of 3 did." |
+| 1:40 | Switch to **Tab C**, point at the ✅/❌ list, click a picture | "Argon also looks at pictures of the rooms, like a human organizer would. It spots problems: this person is outnumbered, these people only talk to their own side. Then it checks the next version to see if its fixes worked. Here, 2 of 3 did." |
 | 2:00 | Just talk | "Fun fact: Argon cheated at first. It found loopholes in our test to get a high score. We closed them twice. The numbers you see are the honest ones." |
 | 2:15 | Tab B: chart bar **R2**, then **Approve** | "Nothing goes out until I approve it." |
 | 2:25 | Dropdown → `global_south_cso` | "Then an AI agent writes a briefing for every guest: their schedule, who they'll meet, and what to say to each person. It checks its own work. It also makes calendar invites and PDFs, ready for me to send." |
