@@ -4,6 +4,8 @@
 
 Built for the Gemini 4 Argon SF Hackathon (Oct 25, 2026), **More Dimensions** track.
 
+**▶ 1-minute demo video:** https://www.youtube.com/watch?v=8k2zHl0WKLk
+
 ## The problem
 
 An organizer of a multistakeholder AI-safety summit (think Bletchley Park / Seoul / Paris-style meetings) has
