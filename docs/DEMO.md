@@ -14,7 +14,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 ```
 
 - Two browser tabs on `localhost:8000`, zoomed to 90%, with the dock and notifications hidden.
-  - **Tab A (live):** 3 blocks, **1 round**, `medium` thinking. It finishes in about 2:50, so click **Run live** by 0:15.
+  - **Tab A (live):** 3 blocks, **1 round**, `medium` thinking. It finishes in about 2:50, so click **Run live** by 0:15. Leave **👁 visual critic unticked** for the live run: it adds 15–30s per round. The demo shows the cached critique instead.
   - **Tab B (pre-run):** run selector on `demo-5block · 29→72→77→74→76` at speed 8×.
 - Have a phone hotspot ready. If the Wi-Fi is bad, restart the server with `DEMO_MODE=1`.
 - Before 5 PM, check the repo is public and the README renders.
@@ -29,7 +29,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 | 0:50 | Switch to **Tab B**, click **Replay** | "Here's a pre-run with four Argon rounds at high thinking." Point at the chart: **28.9 → 77.3**. |
 | 1:05 | Critique panel | "Argon reads 20–40K tokens of multi-room transcripts plus the scores, and diagnoses: *only 5 of 38 cross-faction pairs ever met*. It redesigns the groupings, and on the re-simulation 38 of 38 meet." |
 | 1:25 | 3D venue plus stance strip | "Watch the dots on each issue converge. That's consensus actually forming, not being declared." |
-| 1:40 | `[P0]` Visual critic panel | "It also renders the venue, screenshots each block and has Argon critique the picture (an isolated guest, a room that never mixes), and that feeds the next redesign. Render, watch, critique, fix." |
+| 1:40 | Click chart bar **R2**, scroll to the **Visual critic** panel (6.5/10), click the B3 thumbnail | "It also renders the venue, screenshots every block and Argon critiques the picture. Here it says Global South civil society is outnumbered 4-to-1 by high-power guests, and that the closing plenary is seated in faction clusters. Those flaws go into the next redesign. Render, watch, critique, fix." |
 | 2:00 | Say it, no screen change | "Argon is also a great reward hacker. Its first run hit 98 by reordering speakers. Its second wrote a 600-word treaty into the closing prompt, and everyone signed it. We hardened the simulator twice; the honest curve is this one." |
 | 2:15 | **Approve round 2 (best)** | "Nothing ships until I approve. Approve exports a run of show…" |
 | 2:25 | Packet selector → `global_south_cso` | "…and the Antigravity agent, running Argon in a sandbox, writes a briefing packet per guest, then writes and runs its own checker until all 50 guest-block assertions pass. We verify it again locally." `[P1]` "It also generates calendar invites and PDFs as one bundle the organizer signs off on." |
@@ -68,6 +68,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 - **"Are these real people?"** No. Personas are *roles* grounded in public positions, with cited Deep Research briefs. They aren't psychological profiles.
 - **"How noisy is the score?"** Each plan is scored from one stochastic run, so ±3 points is noise. The 29 → 72 jump (segregated rooms → full mixing) is structural. Next step: average 3 runs per plan.
 - **"Real product?"** It's a pre-mortem for any high-stakes multistakeholder meeting: summits, standards bodies, union negotiations, or co-design workshops. Swap the personas and the issue axes.
+- **"Does the visual critic change anything?"** Yes. Its flaws are injected into the next `revise()` prompt, and in the `visual-test` run Argon's critique cited it directly: *"confirmed by both simulation metrics and the visual critic"*. It's a second, independent signal: it catches spatial and power imbalances that the numeric score doesn't measure.
 - **"Cost / time?"**
   - a 5-block simulation takes about 90s
   - an Argon revision takes about 1 min at medium thinking and 6–10 min at high
@@ -77,4 +78,5 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 
 | Time | Config | Result | Notes |
 |---|---|---|---|
+| 13:12 | 1-min video draft v2 (scripted) | 53.5s | Playwright recording + `gemini-3.8-flash-tts` (voice Kore) + ffmpeg. At `~/Desktop/summit-simulator-1min-draft.mp4` |
 | 12:57 | live: 3 blocks, 2 rounds, medium | 26.3 → 60.0 → 62.4 | Round 1 ends at 168s, round 2 at 264s. Too long for 2 rounds, so use **1 round** live. Argon's critique named 10 missing cross-faction pairs (saved as `rehearsal-live`) |
