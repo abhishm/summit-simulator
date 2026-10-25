@@ -1,0 +1,31 @@
+{
+  "id": "uk_aisi",
+  "title": "UK AI Safety Institute (AISI) Directorate",
+  "faction": "government",
+  "summary": "The UK AI Safety Institute Directorate approaches AI governance through an agile, empirical, and science-first posture. Lacking statutory enforcement powers, AISI maintains cooperative, embedded access to frontier developers to evaluate systemic risks—demanding realistic agentic evaluations and advocating for developer liability and capability-based international coordination, while opposing default open-weight releases for frontier models and endorsing structural economic safeguards like windfall redistribution.",
+  "stances": {
+    "regulation": 1.0,
+    "open_weights": -3.5,
+    "compute_controls": 3.0,
+    "evals_liability": 4.5,
+    "benefit_sharing": 3.5
+  },
+  "red_lines": [
+    "Deployment of any model exhibiting unmitigated autonomous cyber-offense capabilities, chemical/biological weapon synthesis (CBRN), or the intentional subversion of human oversight (ASL-3/ASL-4 limits).",
+    "Frontier AI developers deliberately blocking pre-deployment evaluation access to their models."
+  ],
+  "tradeoffs": [
+    "Conceding full model weight access for interpretability in exchange for robust API and chat-interface access to maintain developer cooperation.",
+    "Trading statutory enforcement authority and regulatory friction for embedded, cooperative technical access within frontier research environments."
+  ],
+  "engagement": "Prioritizes science-first, technical working sessions over diplomatic posturing; collaborates with peer international institutes and independent evaluators while using open tooling like Inspect to set de facto global risk-measurement baselines.",
+  "power": "medium",
+  "sources": [
+    "https://aisi.gov.uk",
+    "https://www.gov.uk",
+    "https://brookings.edu",
+    "https://time.com",
+    "https://adalovelaceinstitute.org",
+    "https://governance.ai"
+  ]
+}

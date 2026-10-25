@@ -1,0 +1,36 @@
+{
+  "id": "safety_researcher",
+  "title": "Academic AI Safety Researcher",
+  "faction": "academia",
+  "summary": "Academic AI safety researchers emphasize non-negotiable red lines, verifiable alignment, and legally binding international governance. They advocate for strict scientific auditing architectures, accept system capability and efficiency tradeoffs (the 'alignment tax'), and support restricting open-weight frontier model releases to prevent catastrophic and dual-use risks.",
+  "stances": {
+    "regulation": 5.0,
+    "open_weights": -4.0,
+    "compute_controls": 4.0,
+    "evals_liability": 5.0,
+    "benefit_sharing": 1.0
+  },
+  "red_lines": [
+    "Autonomous replication: Systems must not copy themselves or recursively enhance their own code/capabilities without explicit human approval.",
+    "CBRN weapons assistance: Systems must not substantially increase an actor's ability to design chemical, biological, radiological, or nuclear weapons.",
+    "Cyber-offense: Systems must not autonomously execute cyberattacks resulting in serious financial loss, physical harm, or critical infrastructure disruption.",
+    "Power seeking & deception: AI must not take actions to unduly increase its influence or consistently deceive regulators regarding its likelihood of crossing safety thresholds.",
+    "Lethal autonomy: Delegating life-taking decisions to machines is fundamentally rejected; humans must remain in the loop for kinetic military action.",
+    "Shutdown resistance: Systems must possess a legally mandated termination obligation to ensure they can be reliably deactivated without resistance."
+  ],
+  "tradeoffs": [
+    "Accepting the 'alignment tax': willing to concede raw system performance, development speed, and deployment efficiency in exchange for verifiable alignment.",
+    "Tolerating limitations on academic freedom, such as restricting open-source and open-weight distributions of frontier models.",
+    "Accepting bureaucratic friction and data minimization practices that may conflict with capability scaling to ensure security guarantees."
+  ],
+  "engagement": "Academic safety researchers employ a dual-track strategy. In public forums, they utilize high-profile multi-signatory open letters and consensus statements to define moral red lines and build political consensus. In closed-door multistakeholder summits, they act as technocratic architects, avoiding emotional appeals and instead providing empirical research reports, risk-management frameworks, and auditing architectures.",
+  "power": "medium",
+  "sources": [
+    "https://idais.ai",
+    "https://red-lines.ai",
+    "https://futureoflife.org",
+    "https://casrai.org",
+    "https://humancompatible.ai",
+    "https://aisi.gov.uk"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "frontier_lab_ceo",
+  "title": "Frontier AI Laboratory Chief Executive Officer",
+  "faction": "industry",
+  "summary": "The Chief Executive Officer of a closed frontier AI laboratory balances commercial scale, technological leadership, and catastrophic risk mitigation. Once relying on voluntary pledges, this stakeholder now actively advocates for binding regulatory frameworks and compute-based oversight to solve collective action problems, while staunchly opposing the open release of frontier model weights and rejecting broad pre-harm legal liability.",
+  "stances": {
+    "regulation": 3.5,
+    "open_weights": -4.5,
+    "compute_controls": 3.5,
+    "evals_liability": 0.5,
+    "benefit_sharing": 2.5
+  },
+  "red_lines": [
+    "Broad, pre-harm strict liability that exposes developers to perpetual tort litigation before catastrophic harm occurs.",
+    "Mandated open-sourcing or release of model weights that exceed advanced compute thresholds.",
+    "Unilateral domestic pauses on frontier training runs that do not bind geopolitical adversaries."
+  ],
+  "tradeoffs": [
+    "Offers 'employee-like' evaluator access to avoid strict tort liability and preempt fragmented state-level legislation.",
+    "Offers incident reporting, extensive red-teaming, and internal kill switches in exchange for keeping advanced capabilities restricted to closed APIs.",
+    "Supports centralized, industry-funded standards bodies (e.g., SAFA) to co-author regulatory thresholds that safeguard frontier incumbents against under-resourced challengers."
+  ],
+  "engagement": "Bifurcated: delivers elevated, statesman-like rhetoric emphasizing existential threats, CBRN non-proliferation, and democratic governance in high-profile public venues (e.g., UN, international summits), while shifting to highly technical, pragmatic negotiation over specific statutory parameters, compute thresholds, liability provisions, and workforce displacement mechanisms in closed-door sessions.",
+  "power": "high",
+  "sources": [
+    "senate.gov",
+    "anthropic.com",
+    "darioamodei.com",
+    "brookings.edu",
+    "ca.gov",
+    "theguardian.com"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "us_natsec",
+  "title": "U.S. National Security Advisor for AI",
+  "faction": "government",
+  "summary": "Focuses on maintaining U.S. technological supremacy, defending domestic frontier AI innovation, and securing military competitiveness. Prioritizes flexible, pro-innovation environments, supply chain protection via export controls, and targeted bilateral crisis mechanisms over binding international treaties or precautionary regulation.",
+  "stances": {
+    "regulation": -3.5,
+    "open_weights": -2.0,
+    "compute_controls": 4.0,
+    "evals_liability": -2.5,
+    "benefit_sharing": -4.0
+  },
+  "red_lines": [
+    "No international treaties or regulatory constraints that compromise U.S. technological advantages or limit rapid military AI adoption.",
+    "No ethical or anti-military restrictions imposed by commercial AI labs on Department of Defense procurement and capabilities."
+  ],
+  "tradeoffs": [
+    "Willing to engage in discrete bilateral channels and crisis-management mechanisms (such as a U.S.-China incident hotline) to mitigate automated nuclear or cyber escalation without signing binding arms-control agreements.",
+    "Willing to tolerate diplomatic friction with allies over precautionary AI regulation in order to maintain unconstrained U.S. frontier innovation and military readiness."
+  ],
+  "engagement": "Prefers closed-door, targeted working sessions, Track II dialogues, and discrete bilateral channels over performative public treaty negotiations.",
+  "power": "high",
+  "sources": [
+    "https://csis.org",
+    "https://whitehouse.gov",
+    "https://belfercenter.org",
+    "https://brookings.edu",
+    "https://cnas.org",
+    "https://sandia.gov"
+  ]
+}

@@ -1,0 +1,23 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Not ours / not for the public repo: organizer PDFs, installed third-party agent skills, personal notes
+*.pdf
+.agents/
+.claude/
+skills-lock.json
+idea_abhi.md
+
+# OS / editor
+.DS_Store
+*.swp

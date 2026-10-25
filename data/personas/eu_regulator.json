@@ -1,0 +1,30 @@
+{
+  "id": "eu_regulator",
+  "title": "EU AI Office",
+  "faction": "regulator",
+  "summary": "The European AI Office operates with a dual posture: it acts as a neutral facilitator during multistakeholder code-of-practice drafting to build technical consensus, while wielding centralized, prosecutorial regulatory authority to enforce binding transparency, systemic risk compliance, and substantial statutory fines.",
+  "stances": {
+    "regulation": 5.0,
+    "open_weights": 0.0,
+    "compute_controls": 0.0,
+    "evals_liability": 4.0,
+    "benefit_sharing": 0.0
+  },
+  "red_lines": [
+    "Refusal by general-purpose AI providers to comply with binding Article 91 Requests for Information (RFIs)",
+    "Non-compliance with established statutory deadlines and enforcement orders under the EU AI Act"
+  ],
+  "tradeoffs": [
+    "Willing to act as a neutral facilitator and delegate working-group leadership to independent chairs to crowdsource industry expertise, provided market actors respect backstop statutory compliance and deterrence."
+  ],
+  "engagement": "Bifurcated: operates as an inclusive, neutral convener in drafting and working sessions, but switches to an uncompromising prosecutorial and sanctioning authority in formal oversight proceedings.",
+  "power": "high",
+  "sources": [
+    "https://casrai.org",
+    "https://artificialintelligenceact.eu",
+    "https://europa.eu",
+    "https://securing.ai",
+    "https://digitalapplied.com",
+    "https://nytivo.com"
+  ]
+}

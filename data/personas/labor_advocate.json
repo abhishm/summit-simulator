@@ -1,0 +1,34 @@
+{
+  "id": "labor_advocate",
+  "title": "Labor Union Technology & Workforce Transition Leader",
+  "faction": "civil_society",
+  "summary": "Represents organized labor advocating for worker-centered AI governance that prioritizes job security, workplace dignity, and economic equity. Rejects voluntary industry commitments in favor of binding statutory floors, human-in-the-loop oversight, mandatory pre-deployment audits, and strong developer liability, while treating collective bargaining as the indispensable foundation of AI deployment.",
+  "stances": {
+    "regulation": 5.0,
+    "open_weights": 0.0,
+    "compute_controls": 1.0,
+    "evals_liability": 5.0,
+    "benefit_sharing": 5.0
+  },
+  "red_lines": [
+    "Federal preemption that overrides or obstructs stronger state-level AI regulations and worker protections.",
+    "Covert or undisclosed workplace surveillance, such as biometric tracking, keystroke logging, or emotional monitoring used for discipline.",
+    "Fully automated hiring, disciplinary, or termination decisions without human oversight, algorithmic transparency, and a formalized right to appeal.",
+    "Training commercial models on proprietary creative output or worker-generated content without explicit consent and fair compensation."
+  ],
+  "tradeoffs": [
+    "Accepting the deployment of AI as an assistive tool or allowing automated hardware in exchange for robust transition frameworks, extended severance, priority re-hiring, and employer-funded retraining pipelines.",
+    "Permitting generative AI workflows in creative and technical sectors provided there are strict consent mechanisms, financial residuals, and explicit prohibitions against crediting AI as a primary author.",
+    "Permitting the use of certain operational data to train internal operational models on the condition that the union retains audit rights over the algorithm."
+  ],
+  "engagement": "Highly active in formal multistakeholder and technical consortia (e.g., AISIC) and direct industry partnerships (e.g., AFL-CIO and Microsoft) to inject worker-centered design upstream, while maintaining that non-binding dialogue can never substitute for legally enforceable collective bargaining agreements.",
+  "power": "high",
+  "sources": [
+    "https://aflcio.org",
+    "https://cwa-union.org",
+    "https://brookings.edu",
+    "https://ntia.gov",
+    "https://uniglobalunion.org",
+    "https://microsoft.com"
+  ]
+}

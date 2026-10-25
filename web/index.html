@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Summit Simulator: Gemini 4 Argon designs your AI-safety summit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root { --bg:#0e1117; --panel:#161b24; --line:#262d3a; --text:#e6e9ef; --dim:#8b93a5; --accent:#8ab4f8; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:13px/1.45 Inter, system-ui, -apple-system, sans-serif; }
+  header { display:flex; align-items:center; gap:14px; padding:10px 16px; border-bottom:1px solid var(--line); }
+  header h1 { font-size:16px; margin:0; font-weight:650; }
+  header .tag { color:var(--dim); }
+  header .sp { flex:1; }
+  button, select, input, textarea { background:#1f2633; color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
+  button { cursor:pointer; } button:hover { border-color:var(--accent); }
+  button.primary { background:#1a73e8; border-color:#1a73e8; font-weight:600; }
+  button.approve { background:#188038; border-color:#188038; font-weight:600; }
+  button:disabled { opacity:.45; cursor:default; }
+  main { display:grid; grid-template-columns: 1fr 440px; height:calc(100vh - 51px); }
+  #left { display:grid; grid-template-rows: 1fr 210px; min-width:0; }
+  #stage { position:relative; min-height:0; }
+  #stage canvas { display:block; }
+  #status { position:absolute; left:14px; top:12px; background:rgba(14,17,23,.85); border:1px solid var(--line); border-radius:8px; padding:8px 12px; max-width:60%; }
+  #status b { color:var(--accent); }
+  #agenda { position:absolute; left:14px; bottom:12px; display:flex; gap:6px; flex-wrap:wrap; max-width:96%; }
+  .blk { background:rgba(22,27,36,.9); border:1px solid var(--line); border-radius:6px; padding:5px 8px; max-width:230px; }
+  .blk.on { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+  .blk .f { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); }
+  #legend { position:absolute; right:14px; top:12px; background:rgba(14,17,23,.85); border:1px solid var(--line); border-radius:8px; padding:6px 10px; }
+  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; vertical-align:middle; }
+  #bottom { border-top:1px solid var(--line); display:grid; grid-template-columns: 1.2fr 1fr; min-height:0; }
+  #stances { padding:8px 14px; border-right:1px solid var(--line); }
+  #stances h3, aside h3 { margin:0 0 6px; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); font-weight:600; }
+  #feed { padding:8px 14px; overflow:auto; font-size:12px; }
+  #feed .t { margin:2px 0; } #feed .sp { font-weight:600; } #feed .room { color:var(--dim); font-size:11px; }
+  #feed .agr { color:#81c995; margin:4px 0; }
+  aside { border-left:1px solid var(--line); overflow:auto; padding:12px 14px; display:flex; flex-direction:column; gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 12px; }
+  .row { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  #critique { white-space:pre-wrap; max-height:240px; overflow:auto; }
+  #changes li { margin:3px 0; }
+  .muted { color:var(--dim); }
+  .pers { display:grid; grid-template-columns: 14px 1fr 70px; gap:6px; align-items:center; padding:3px 0; cursor:pointer; }
+  .bar { height:6px; background:#2a3242; border-radius:3px; overflow:hidden; } .bar i { display:block; height:100%; background:#81c995; transition:width .6s; }
+  #modal { position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; z-index:10; }
+  #modal .box { background:var(--panel); border:1px solid var(--line); border-radius:12px; width:min(860px,92vw); max-height:86vh; display:flex; flex-direction:column; }
+  #modal pre { margin:0; padding:14px 18px; overflow:auto; white-space:pre-wrap; font:12px/1.5 ui-monospace, Menlo, monospace; }
+  #modal .hd { padding:10px 14px; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:center; }
+  .spinner { display:inline-block; width:10px; height:10px; border:2px solid var(--accent); border-right-color:transparent; border-radius:50%; animation:spin .8s linear infinite; vertical-align:middle; margin-right:6px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  svg text { fill:var(--dim); font-size:10px; }
+  .chartbar { cursor:pointer; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/web/vendor/three.module.js",
+               "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }
+</script>
+</head>
+<body>
+<header>
+  <h1>Summit Simulator</h1>
+  <span class="tag">Deep Research personas · Flash simulates the summit · <b>Gemini 4 Argon</b> redesigns the agenda</span>
+  <span class="sp"></span>
+  <select id="runSel" title="Saved runs"></select>
+  <button id="replayBtn">▶ Replay</button>
+  <select id="speed" title="Playback speed"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option><option value="8">8×</option></select>
+  <span class="muted">|</span>
+  <select id="rounds" title="Argon rounds"><option>1</option><option>2</option><option selected>3</option><option>4</option></select>
+  <select id="blocks" title="Blocks per day"><option value="3" selected>3 blocks</option><option value="5">5 blocks</option></select>
+  <select id="thinking" title="Argon thinking level"><option>low</option><option selected>medium</option><option>high</option></select>
+  <button class="primary" id="liveBtn">⚡ Run live</button>
+</header>
+<main>
+  <div id="left">
+    <div id="stage">
+      <div id="status">Pick a saved run and press <b>Replay</b>, or <b>Run live</b>.</div>
+      <div id="legend"></div>
+      <div id="agenda"></div>
+    </div>
+    <div id="bottom">
+      <div id="stances"><h3>Stances per issue (dots converge = consensus)</h3><svg id="stSvg" width="100%" height="170"></svg></div>
+      <div id="feed"><h3 style="margin:0 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)">Live transcript</h3><div id="feedBody"></div></div>
+    </div>
+  </div>
+  <aside>
+    <div class="card">
+      <h3>Summit score by round (click a bar to replay that round)</h3>
+      <svg id="chart" width="100%" height="170"></svg>
+      <div class="row" style="margin-top:6px">
+        <button id="showBase">Baseline</button><button id="showBest">Best plan</button>
+        <span class="sp" style="flex:1"></span>
+        <button class="approve" id="approveBtn" disabled>✓ Approve plan</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Gemini 4 Argon critique <span id="critRound" class="muted"></span></h3>
+      <div id="critique" class="muted">Argon reviews each simulated summit, then revises the agenda: groupings, formats, facilitation prompts.</div>
+      <ul id="changes" style="padding-left:18px;margin:8px 0 0"></ul>
+    </div>
+    <div class="card">
+      <h3>Guests (Deep Research role briefs) · felt heard</h3>
+      <div id="personas"></div>
+      <div id="pdetail" class="muted" style="margin-top:6px"></div>
+    </div>
+    <div class="card">
+      <h3>Add a guest (live Deep Research)</h3>
+      <div class="row"><input id="rId" placeholder="id e.g. india_meity" style="flex:1" />
+        <select id="rFac"><option>regulator</option><option>government</option><option>industry</option><option>academia</option><option selected>civil_society</option></select></div>
+      <textarea id="rDesc" rows="2" style="width:100%;margin-top:6px" placeholder="Role description, e.g. Senior official at India's MeitY shaping national AI policy"></textarea>
+      <div class="row" style="margin-top:6px"><button id="rBtn">🔎 Research role</button><span id="rStatus" class="muted"></span></div>
+    </div>
+  </aside>
+</main>
+<div id="modal"><div class="box"><div class="hd"><b>Approved run of show</b><span style="flex:1"></span><button id="dl">⬇ Download .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "/web/vendor/OrbitControls.js";
+
+const FAC = { regulator:"#4e79a7", government:"#f28e2b", industry:"#e15759", academia:"#76b7b2", civil_society:"#59a14f" };
+const $ = (id) => document.getElementById(id);
+let META, PERSONAS = [], PBY = {}, RUN_ID = null, ROUNDS = {}, BEST = null, VIEW_ROUND = null, PICK = null, es = null;
+const speed = () => +$("speed").value;
+const sleep = (ms) => new Promise(r => setTimeout(r, ms / speed()));
+const short = (id) => id.replace(/_/g, " ");
+
+// ---------- Three.js venue ----------
+const stage = $("stage");
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(devicePixelRatio);
+stage.prepend(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color("#0e1117");
+const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 500);
+cam.position.set(34, 34, 34); cam.lookAt(0, 0, 0);
+const controls = new OrbitControls(cam, renderer.domElement); controls.enableDamping = true; controls.maxPolarAngle = 1.35;
+scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+const sun = new THREE.DirectionalLight(0xffffff, 1.1); sun.position.set(20, 40, 10); scene.add(sun);
+function resize() {
+  const w = stage.clientWidth, h = stage.clientHeight, a = w / h, f = 20;
+  renderer.setSize(w, h); Object.assign(cam, { left: -f * a, right: f * a, top: f, bottom: -f }); cam.updateProjectionMatrix();
+}
+addEventListener("resize", resize);
+
+function label(text, size = 48, color = "#e6e9ef", bg = null) {
+  const c = document.createElement("canvas"), x = c.getContext("2d");
+  x.font = `600 ${size}px Inter, system-ui, sans-serif`;
+  const w = Math.ceil(x.measureText(text).width) + 24; c.width = w; c.height = size + 20;
+  x.font = `600 ${size}px Inter, system-ui, sans-serif`;
+  if (bg) { x.fillStyle = bg; x.roundRect(0, 0, w, c.height, 10); x.fill(); }
+  x.fillStyle = color; x.textBaseline = "middle"; x.fillText(text, 12, c.height / 2);
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthTest: false }));
+  s.scale.set(w / c.height * 1.1, 1.1, 1); s.renderOrder = 5; return s;
+}
+const ROOMDEF = {
+  "Plenary Hall": { x: -6, z: -6, w: 24, d: 12, c: "#1d2533" },
+  "Lounge": { x: 14, z: -6, w: 12, d: 12, c: "#262033" },
+  "Breakout A": { x: -15, z: 8, w: 9, d: 8, c: "#1b2a26" }, "Breakout B": { x: -5, z: 8, w: 9, d: 8, c: "#1b2a26" },
+  "Breakout C": { x: 5, z: 8, w: 9, d: 8, c: "#1b2a26" }, "Breakout D": { x: 15, z: 8, w: 9, d: 8, c: "#1b2a26" },
+};
+const floor = new THREE.Mesh(new THREE.BoxGeometry(46, 0.4, 32), new THREE.MeshLambertMaterial({ color: "#131822" }));
+floor.position.y = -0.3; scene.add(floor);
+const roomMesh = {};
+for (const [name, r] of Object.entries(ROOMDEF)) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(r.w, 0.2, r.d), new THREE.MeshLambertMaterial({ color: r.c }));
+  m.position.set(r.x, 0, r.z); scene.add(m); roomMesh[name] = m;
+  const edge = new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry), new THREE.LineBasicMaterial({ color: "#3a4560" }));
+  edge.position.copy(m.position); scene.add(edge);
+  const l = label(name, 40, "#8b93a5"); l.position.set(r.x - r.w / 2 + 2.2, 0.6, r.z - r.d / 2 + 0.8); scene.add(l);
+}
+const AV = {}; // id -> {g, body, ring, target, base}
+function buildAvatars() {
+  for (const a of Object.values(AV)) scene.remove(a.g);
+  for (const k in AV) delete AV[k];
+  PERSONAS.forEach((p, i) => {
+    const g = new THREE.Group(), col = new THREE.Color(FAC[p.faction] || "#aaa");
+    const mat = new THREE.MeshStandardMaterial({ color: col, emissive: col, emissiveIntensity: 0.1, roughness: .5 });
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.6, 1.4, 20), mat); body.position.y = 0.8;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.42, 20, 16), mat); head.position.y = 1.9;
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.85, 1.15, 32), new THREE.MeshBasicMaterial({ color: "#81c995", transparent: true, opacity: 0, side: THREE.DoubleSide }));
+    ring.rotation.x = -Math.PI / 2; ring.position.y = 0.12;
+    const l = label(short(p.id), 34, "#fff", "rgba(0,0,0,.55)"); l.position.y = 3.0; l.scale.multiplyScalar(0.8);
+    g.add(body, head, ring, l);
+    const x = -20 + (i % 10) * 4.4, z = 14.5; g.position.set(x, 0, z);
+    scene.add(g);
+    AV[p.id] = { g, mat, ring, target: new THREE.Vector3(x, 0, z), bounce: 0 };
+  });
+  $("legend").innerHTML = Object.entries(FAC).map(([f, c]) => `<span style="margin-right:10px"><span class="dot" style="background:${c}"></span>${f.replace("_", " ")}</span>`).join("");
+}
+function slots(room, n, gi = 0, ng = 1) {
+  const r = ROOMDEF[room]; let cx = r.x, cz = r.z, rad = Math.min(r.w, r.d) / 2 - 1.3;
+  if (room === "Lounge") { // pairs: 2x3 grid of mini-clusters
+    const col = gi % 2, row = Math.floor(gi / 2), rows = Math.ceil(ng / 2);
+    cx = r.x - r.w / 4 + col * r.w / 2; cz = r.z - r.d / 2 + (row + 0.5) * r.d / rows; rad = 1.1;
+  }
+  if (room === "Plenary Hall") rad = 4.6;
+  return Array.from({ length: n }, (_, k) => {
+    const a = (k / n) * Math.PI * 2 + 0.3;
+    return new THREE.Vector3(cx + Math.cos(a) * rad * (room === "Plenary Hall" ? 1.9 : 1), 0, cz + Math.sin(a) * rad);
+  });
+}
+const lines = [];
+function talkLine(a, b) {
+  if (!AV[a] || !AV[b] || a === b) return;
+  const geo = new THREE.BufferGeometry().setFromPoints([AV[a].g.position.clone().setY(1.9), AV[b].g.position.clone().setY(1.9)]);
+  const l = new THREE.Line(geo, new THREE.LineBasicMaterial({ color: FAC[PBY[a]?.faction] || "#fff", transparent: true, opacity: 1 }));
+  scene.add(l); lines.push({ l, t: 1 });
+}
+let last = performance.now();
+function loop(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  for (const a of Object.values(AV)) {
+    a.g.position.lerp(a.target, 1 - Math.pow(0.02, dt * speed()));
+    a.bounce = Math.max(0, a.bounce - dt * 2.5 * speed());
+    a.g.children[0].position.y = 0.8 + Math.sin(a.bounce * Math.PI) * 0.5; a.g.children[1].position.y = 1.9 + Math.sin(a.bounce * Math.PI) * 0.5;
+    a.mat.emissiveIntensity = 0.1 + a.bounce * 0.9;
+  }
+  for (let i = lines.length - 1; i >= 0; i--) {
+    lines[i].t -= dt * 0.7 * speed(); lines[i].l.material.opacity = Math.max(0, lines[i].t);
+    if (lines[i].t <= 0) { scene.remove(lines[i].l); lines[i].l.geometry.dispose(); lines.splice(i, 1); }
+  }
+  controls.update(); renderer.render(scene, cam); requestAnimationFrame(loop);
+}
+
+// ---------- panels ----------
+function renderPersonas(ratings = null) {
+  const R = Object.fromEntries((ratings || []).map(r => [r.id, r]));
+  $("personas").innerHTML = PERSONAS.map(p => {
+    const r = R[p.id];
+    return `<div class="pers" data-id="${p.id}"><span class="dot" style="background:${FAC[p.faction]}"></span>
+      <span>${p.title} <span class="muted">· ${p.power}${p.researched || (p.sources||[]).length ? " · 🔎" : ""}</span></span>
+      <span title="${r ? r.reason.replace(/"/g, "'") : ""}"><div class="bar"><i style="width:${r ? r.felt_heard * 10 : 0}%;background:${r && r.felt_heard < 6 ? "#f28b82" : "#81c995"}"></i></div><span class="muted">${r ? r.felt_heard + "/10" : ""}</span></span></div>`;
+  }).join("");
+  document.querySelectorAll(".pers").forEach(el => el.onclick = () => {
+    const p = PBY[el.dataset.id], r = R[p.id];
+    $("pdetail").innerHTML = `<b>${p.title}</b>: ${p.summary}<br><b>Red lines:</b> ${(p.red_lines || []).slice(0, 3).join("; ")}<br><b>Would trade:</b> ${(p.tradeoffs || []).slice(0, 2).join("; ")}` +
+      (r ? `<br><b>Judge:</b> ${r.reason}` : "") + ((p.sources || []).length ? `<br><b>Sources:</b> ${p.sources.slice(0, 4).map(s => s.startsWith("http") ? `<a style="color:var(--accent)" href="${s}" target="_blank">${new URL(s).hostname}</a>` : s).join(", ")}` : "");
+  });
+}
+function renderAgenda(plan, on = -1) {
+  $("agenda").innerHTML = (plan?.blocks || []).map((b, i) =>
+    `<div class="blk ${i === on ? "on" : ""}"><div class="f">${i + 1} · ${b.format} · ${b.topic}</div>${b.title}</div>`).join("");
+}
+const ST = { W: 0, rows: [] };
+function renderStanceAxes() {
+  const svg = $("stSvg"), W = svg.clientWidth || 600, issues = Object.keys(META.issues), rh = 160 / issues.length;
+  ST.W = W;
+  svg.innerHTML = issues.map((k, i) => {
+    const y = 10 + i * rh + rh / 2;
+    return `<line x1="120" x2="${W - 40}" y1="${y}" y2="${y}" stroke="#2a3242"/><line x1="${(120 + W - 40) / 2}" x2="${(120 + W - 40) / 2}" y1="${y - 6}" y2="${y + 6}" stroke="#3a4560"/>
+      <text x="0" y="${y + 3}">${k.replace("_", " ")}</text><text x="${W - 34}" y="${y + 3}" id="sd-${k}"></text>` +
+      PERSONAS.map(p => `<circle r="5" cx="0" cy="0" fill="${FAC[p.faction]}" fill-opacity=".85" stroke="#0e1117" id="st-${p.id}-${k}" style="transition:transform .9s; transform:translate(${(120 + W - 40) / 2}px,${y}px)"><title>${p.id}</title></circle>`).join("");
+  }).join("");
+}
+function setStances(st) {
+  const issues = Object.keys(META.issues), rh = 160 / issues.length, W = ST.W;
+  issues.forEach((k, i) => {
+    const y = 10 + i * rh + rh / 2, vals = [];
+    for (const p of PERSONAS) {
+      const v = st?.[p.id]?.[k]; if (v === undefined) continue; vals.push(v);
+      const el = document.getElementById(`st-${p.id}-${k}`);
+      const jitter = ((p.id.charCodeAt(0) + p.id.length) % 5 - 2) * 1.6;
+      if (el) el.style.transform = `translate(${120 + (v + 5) / 10 * (W - 160)}px,${y + jitter}px)`;
+    }
+    const m = vals.reduce((a, b) => a + b, 0) / vals.length, sd = Math.sqrt(vals.reduce((a, b) => a + (b - m) ** 2, 0) / vals.length);
+    const t = document.getElementById(`sd-${k}`); if (t) t.textContent = `σ ${sd.toFixed(2)}`;
+  });
+}
+const COMP = [["consensus", 40, "#8ab4f8"], ["inclusion", 30, "#81c995"], ["airtime", 15, "#fdd663"], ["cross_faction", 15, "#c58af9"]];
+function renderChart() {
+  const svg = $("chart"), W = svg.clientWidth || 400, H = 170, rs = Object.keys(ROUNDS).map(Number).filter(r => ROUNDS[r].score).sort((a, b) => a - b);
+  const bw = Math.min(56, (W - 40) / Math.max(rs.length, 1) - 12), y = v => H - 22 - v / 100 * (H - 40);
+  let s = [0, 25, 50, 75, 100].map(v => `<line x1="28" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="#222a38"/><text x="2" y="${y(v) + 3}">${v}</text>`).join("");
+  rs.forEach((r, i) => {
+    const x = 36 + i * (bw + 12), sc = ROUNDS[r].score; let acc = 0;
+    s += `<g class="chartbar" data-r="${r}">` + COMP.map(([k, , c]) => { const v = sc[k]; const rect = `<rect x="${x}" y="${y(acc + v)}" width="${bw}" height="${y(acc) - y(acc + v)}" fill="${c}" opacity="${VIEW_ROUND === r ? 1 : .75}"><title>${k}: ${v}</title></rect>`; acc += v; return rect; }).join("") +
+      `<text x="${x + bw / 2 - 10}" y="${y(sc.total) - 4}" style="fill:#e6e9ef;font-weight:600">${sc.total}</text><text x="${x + bw / 2 - 12}" y="${H - 6}">${r === 0 ? "base" : "R" + r}${r === BEST ? " ★" : ""}</text></g>`;
+  });
+  s += COMP.map(([k, m, c], i) => `<rect x="${W - 92}" y="${6 + i * 12}" width="8" height="8" fill="${c}"/><text x="${W - 80}" y="${14 + i * 12}">${k.replace("_", "-")} /${m}</text>`).join("");
+  svg.innerHTML = s;
+  svg.querySelectorAll(".chartbar").forEach(g => g.onclick = () => replayRound(+g.dataset.r));
+}
+function feed(html) { const b = $("feedBody"); b.insertAdjacentHTML("beforeend", html); $("feed").scrollTop = 1e9; while (b.children.length > 300) b.firstChild.remove(); }
+function status(html) { $("status").innerHTML = html; }
+
+// ---------- event handling (single code path for live + replay) ----------
+const Q = []; let busy = false;
+function enqueue(k, d) { Q.push([k, d]); pump(); }
+async function pump() { if (busy) return; busy = true; while (Q.length) { const [k, d] = Q.shift(); try { await handle(k, d); } catch (e) { console.error(e); } } busy = false; }
+
+async function handle(kind, d) {
+  if (kind === "round_start") {
+    ROUNDS[d.round] = { ...(ROUNDS[d.round] || {}), plan: d.plan, critique: d.critique, changes: d.changes, blocks: [] };
+    VIEW_ROUND = d.round; renderChart();
+    renderAgenda(d.plan); setStances(Object.fromEntries(PERSONAS.map(p => [p.id, p.stances])));
+    for (const a of Object.values(AV)) a.ring.material.opacity = 0;
+    $("critRound").textContent = d.round ? `(round ${d.round})` : "(baseline)";
+    $("critique").textContent = d.critique || "Baseline: the typical summit design. Plenary statements and breakouts grouped by faction.";
+    $("changes").innerHTML = (d.changes || []).map(c => `<li>${c}</li>`).join("");
+    status(`<b>${d.round ? "Round " + d.round : "Baseline"}</b>: ${d.plan.name}`);
+    feed(`<div class="room" style="margin-top:8px">━━ ${d.round ? "Round " + d.round : "Baseline"}: ${d.plan.name} ━━</div>`);
+    await sleep(600);
+  } else if (kind === "thinking") {
+    status(`<span class="spinner"></span><b>Gemini 4 Argon</b> is critiquing round ${d.round - 1} and redesigning the agenda…`);
+    $("critique").innerHTML = `<span class="spinner"></span>thinking…`; $("changes").innerHTML = "";
+    await sleep(900);
+  } else if (kind === "block") {
+    const R = ROUNDS[d.round]; R.blocks[d.block] = d; const b = R.plan.blocks[d.block];
+    renderAgenda(R.plan, d.block);
+    status(`<b>${d.round ? "Round " + d.round : "Baseline"}</b> · block ${d.block + 1}/${R.plan.blocks.length}: ${b.title} <span class="muted">(${b.format})</span>`);
+    const placed = new Set();
+    d.groups.forEach((g, gi) => {
+      const pos = slots(g.room, g.members.length, gi, d.groups.length);
+      g.members.forEach((m, k) => { if (AV[m]) { AV[m].target.copy(pos[k]); placed.add(m); } });
+    });
+    await sleep(1100);
+    const maxT = Math.max(...d.groups.map(g => g.transcript.length), 0), prev = {};
+    for (let t = 0; t < maxT; t++) {
+      d.groups.forEach((g, gi) => {
+        const turn = g.transcript[t]; if (!turn) return;
+        if (AV[turn.speaker]) AV[turn.speaker].bounce = 1;
+        if (prev[gi]) talkLine(turn.speaker, prev[gi]); prev[gi] = turn.speaker;
+        if (d.groups.length === 1 || gi === 0 || t < 4)
+          feed(`<div class="t"><span class="room">[${g.room}${g.room === "Lounge" ? " " + (gi + 1) : ""}]</span> <span class="sp" style="color:${FAC[PBY[turn.speaker]?.faction]}">${short(turn.speaker)}</span>: ${turn.text}</div>`);
+      });
+      await sleep(380);
+    }
+    d.groups.forEach(g => g.agreements.forEach(a => feed(`<div class="agr">✓ Agreement (${a.parties.map(short).join(", ")}): ${a.text}</div>`)));
+    setStances(d.stances);
+    await sleep(500);
+  } else if (kind === "round_done") {
+    ROUNDS[d.round] = { ...(ROUNDS[d.round] || {}), score: d.score, ratings: d.ratings };
+    renderChart(); renderPersonas(d.ratings);
+    for (const r of d.ratings) if (AV[r.id]) {
+      AV[r.id].ring.material.opacity = 0.9; AV[r.id].ring.material.color.set(r.felt_heard >= 8 ? "#81c995" : r.felt_heard >= 6 ? "#fdd663" : "#f28b82");
+      AV[r.id].ring.scale.setScalar(0.6 + r.felt_heard / 10);
+    }
+    const s = d.score;
+    status(`<b>${d.round ? "Round " + d.round : "Baseline"} score: ${s.total}/100</b> · least heard: ${(s.detail.least_heard || []).map(short).join(", ")} (${s.detail.min_heard}/10) · cross-faction pairs met ${s.detail.cross_pairs_met}/${s.detail.cross_pairs_total}`);
+    await sleep(1400);
+  } else if (kind === "done") {
+    if (d.run_id) RUN_ID = d.run_id;
+    BEST = d.best; PICK = null; approveLabel(); renderChart(); $("approveBtn").disabled = false; $("liveBtn").disabled = false;
+    const bs = ROUNDS[BEST]?.score?.total, b0 = ROUNDS[0]?.score?.total;
+    status(`<b>Done.</b> Best plan: ${BEST === 0 ? "baseline" : "round " + BEST} · ${b0} → <b>${bs}</b>/100. Review it, then <b>Approve</b>.`);
+    loadRuns();
+  } else if (kind === "error") {
+    status(`<b style="color:#f28b82">Error:</b> ${d.message}`); $("liveBtn").disabled = false;
+  }
+}
+async function replayRound(r) {
+  const R = ROUNDS[r]; if (!R || busy) return;
+  PICK = r; approveLabel();
+  enqueue("round_start", { round: r, plan: R.plan, critique: R.critique, changes: R.changes });
+  R.blocks.forEach(b => b && enqueue("block", b));
+  if (R.score) enqueue("round_done", { round: r, score: R.score, ratings: R.ratings });
+}
+function approveLabel() { const r = PICK ?? BEST; $("approveBtn").textContent = `✓ Approve ${r === null ? "plan" : r === 0 ? "baseline" : "round " + r}${r === BEST ? " (best)" : ""}`; }
+function reset() { if (es) es.close(); Q.length = 0; ROUNDS = {}; BEST = null; VIEW_ROUND = null; PICK = null; approveLabel(); $("feedBody").innerHTML = ""; $("approveBtn").disabled = true; renderChart(); }
+function listen(url) {
+  es = new EventSource(url);
+  for (const k of ["round_start", "thinking", "block", "round_done", "done", "error"])
+    es.addEventListener(k, ev => { enqueue(k, JSON.parse(ev.data)); if (k === "done" || k === "error") es.close(); });
+  es.onerror = () => es.close();
+}
+async function setPersonas(list) { PERSONAS = list; PBY = Object.fromEntries(list.map(p => [p.id, p])); buildAvatars(); renderPersonas(); renderStanceAxes(); setStances(Object.fromEntries(list.map(p => [p.id, p.stances]))); }
+
+$("replayBtn").onclick = async () => {
+  const id = $("runSel").value; if (!id) return; reset(); RUN_ID = id;
+  const run = await (await fetch(`/api/runs/${id}`)).json(); await setPersonas(run.personas);
+  listen(`/api/runs/${id}/events?speed=50`);
+};
+$("liveBtn").onclick = async () => {
+  reset(); await setPersonas(await (await fetch("/api/personas")).json());
+  $("liveBtn").disabled = true;
+  const r = await (await fetch("/api/runs", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ rounds: +$("rounds").value, blocks: +$("blocks").value, thinking: $("thinking").value }) })).json();
+  RUN_ID = r.run_id; status(`<span class="spinner"></span>Live run <b>${r.run_id}</b>${r.demo_mode ? " (demo mode)" : ""}: Flash is simulating the baseline summit…`);
+  listen(`/api/runs/${r.run_id}/events`);
+};
+$("showBase").onclick = () => replayRound(0);
+$("showBest").onclick = () => replayRound(BEST ?? 0);
+let lastMd = "";
+$("approveBtn").onclick = async () => {
+  const round = PICK ?? BEST;
+  lastMd = await (await fetch("/api/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).text();
+  $("ros").textContent = lastMd; $("modal").style.display = "flex";
+};
+$("closeM").onclick = () => $("modal").style.display = "none";
+$("dl").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lastMd], { type: "text/markdown" })); a.download = `run-of-show-${RUN_ID}.md`; a.click(); };
+$("rBtn").onclick = async () => {
+  const id = $("rId").value.trim().replace(/\W+/g, "_").toLowerCase(), desc = $("rDesc").value.trim(); if (!id || !desc) return;
+  $("rStatus").innerHTML = `<span class="spinner"></span>starting Deep Research…`;
+  const r = await fetch("/api/research", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, faction: $("rFac").value, description: desc }) });
+  if (!r.ok) { $("rStatus").textContent = "failed to start: " + (await r.text()).slice(0, 120); return; }
+  const t0 = Date.now();
+  const poll = async () => {
+    const j = await (await fetch(`/api/research/${id}`)).json();
+    if (j.status === "persona") { $("rStatus").textContent = `✓ persona extracted (${Math.round((Date.now() - t0) / 1000)}s), joins the next live run`; setPersonas(await (await fetch("/api/personas")).json()); return; }
+    if (j.status === "failed") { $("rStatus").textContent = "research failed"; return; }
+    $("rStatus").innerHTML = `<span class="spinner"></span>Deep Research ${j.status}… ${Math.round((Date.now() - t0) / 1000)}s`; setTimeout(poll, 10000);
+  };
+  poll();
+};
+async function loadRuns() {
+  const runs = await (await fetch("/api/runs")).json(), cur = $("runSel").value;
+  $("runSel").innerHTML = runs.map(r => `<option value="${r.id}">${r.id} · ${r.scores.map(Math.round).join("→")}</option>`).join("") || `<option value="">no saved runs</option>`;
+  if (cur && runs.some(r => r.id === cur)) $("runSel").value = cur;
+  return runs;
+}
+
+(async () => {
+  META = await (await fetch("/api/meta")).json();
+  resize(); requestAnimationFrame(loop);
+  await setPersonas(await (await fetch("/api/personas")).json());
+  renderChart();
+  const runs = await loadRuns();
+  const demo = runs.find(r => r.id.startsWith("demo")) || runs[0]; if (demo) $("runSel").value = demo.id;
+  if (META.demo_mode) $("liveBtn").title = "DEMO_MODE: replays the best saved run";
+})();
+</script>
+</body>
+</html>

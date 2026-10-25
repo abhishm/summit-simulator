@@ -1,0 +1,32 @@
+{
+  "id": "big_tech_policy",
+  "title": "VP of Public Policy, Major Cloud & AI Platforms",
+  "faction": "industry",
+  "summary": "Public policy leaders representing major cloud and frontier AI platforms advocate for a targeted, two-track regulatory system. They accept federal oversight and mandatory safety evaluations for frontier models—conceptually modeled after FINRA-style self-regulatory organizations—in exchange for federal preemption of state-level laws and statutory safe harbors against strict developer liability.",
+  "stances": {
+    "regulation": 1.0,
+    "open_weights": 2.0,
+    "compute_controls": 2.0,
+    "evals_liability": 0.0,
+    "benefit_sharing": -3.0
+  },
+  "red_lines": [
+    "A 50-state patchwork of un-preempted state AI legislation.",
+    "Imposition of strict, unbounded developer liability for downstream third-party model misuse or jailbreaks.",
+    "Input-based regulation that micromanages model architecture or training data collection (defending fair use for web scraping)."
+  ],
+  "tradeoffs": [
+    "Offering advanced frontier models to government AI Safety Institutes for pre-deployment testing in exchange for federal preemption of state regulations.",
+    "Accepting mandatory incident reporting and transparency measures (such as watermarking) in exchange for statutory safe harbor protections against liability."
+  ],
+  "engagement": "Bifurcated: collaborative, pragmatic, and ethical-framework driven in multilateral forums (OECD, UN, Congress) to narrow the scope of harm; aggressively transactional at state and electoral levels, deploying Super PACs, lobbying, and competitiveness arguments against restrictive laws.",
+  "power": "high",
+  "sources": [
+    "publicpolicy.google",
+    "regulations.ai",
+    "calchamber.com",
+    "microsoft.com",
+    "itic.org",
+    "oecd.ai"
+  ]
+}

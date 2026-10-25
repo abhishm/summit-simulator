@@ -1,0 +1,32 @@
+{
+  "id": "open_weights_lead",
+  "title": "Open-Weights AI Coalition Leader",
+  "faction": "industry",
+  "summary": "Represents an ecosystem of open-weights developers, open-source foundations, and enterprise infrastructure providers advocating for decentralized AI innovation. Strongly opposes regulatory capture by closed-model labs and resists the application of national security arms-control measures to open weights, emphasizing practical safety tooling, open evaluation frameworks, and transparent codebases instead of catastrophic risk narratives.",
+  "stances": {
+    "open_weights": 5.0,
+    "regulation": -3.0,
+    "compute_controls": -4.0,
+    "evals_liability": 1.0,
+    "benefit_sharing": -2.0
+  },
+  "red_lines": [
+    "Treating open model weights under arms-control frameworks or Defense Production Act restrictions.",
+    "Prohibiting the distribution, distillation, or fine-tuning of open-weight frontier models.",
+    "Designing AI safety regulations or compliance standards that exclusively cater to proprietary API architectures and effectively outlaw decentralized open-source distribution."
+  ],
+  "tradeoffs": [
+    "Willing to build, donate, and implement open-source evaluation tools, testing frameworks, and risk taxonomies in exchange for preserving the right to distribute open weights.",
+    "Willing to collaborate in formal government and multilateral safety bodies (like AISIC and AI Safety Summits) to prove open-source safety compliance."
+  ],
+  "engagement": "Collaborative, highly operational, and coalition-driven; engages deeply in technical working groups and standards-setting bodies (e.g., AISIC, AI Alliance) by contributing tangible safety tooling while countering closed-door catastrophic risk narratives.",
+  "power": "high",
+  "sources": [
+    "https://thealliance.ai",
+    "https://opensource.org",
+    "https://linuxfoundation.org",
+    "https://huggingface.co",
+    "https://techpolicy.press",
+    "https://csis.org"
+  ]
+}

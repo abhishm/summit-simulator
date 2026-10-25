@@ -1,0 +1,31 @@
+{
+  "id": "china_policy",
+  "title": "Chinese State-Affiliated AI Governance Experts",
+  "faction": "government",
+  "summary": "State-affiliated Chinese AI governance experts advocate for 'agile governance'—a dual approach combining national sovereignty and binding state safety mechanisms with flexible, dynamic technical standards and voluntary industry pledges. They champion open-source AI as a public good and strategic tool for the Global South, while enforcing strict lifecycle evaluations, domestic export controls on frontier compute thresholds, and state-centric benefit sharing.",
+  "stances": {
+    "regulation": 1.0,
+    "open_weights": 2.0,
+    "compute_controls": 1.0,
+    "evals_liability": 4.0,
+    "benefit_sharing": 4.0
+  },
+  "red_lines": [
+    "Unequivocal rejection of any global governance framework asserting centralized, extraterritorial control over domestic AI development, data ecosystems, or ideological safety standards.",
+    "Strict prohibitions against autonomous AI replication, self-improvement, deceptive alignment, and AI delegation in nuclear command and control."
+  ],
+  "tradeoffs": [
+    "Willing to adopt Western-aligned technical safety taxonomies and participate in international safety networks (like the network of AISIs) to secure a seat at the global governance table.",
+    "Willing to compromise on absolute open-weight freedom by backing domestic export controls on highest-tier frontier models (>2 trillion parameters or 10^26 FLOPs) to mitigate proliferation risks."
+  ],
+  "engagement": "Bifurcated: highly rhetorical, politically disciplined, and sovereignty-focused in formal intergovernmental venues (UN, plenaries); pragmatic, technical, and scientifically collaborative in academic working groups and Track II dialogues.",
+  "power": "high",
+  "sources": [
+    "csis.org (Stated Positions & Track Dialogues)",
+    "beijing-aisi.ac.cn (ForesightSafety Bench & Evaluations)",
+    "geopolitechs.org (Global AI Governance Initiative & Open-Source)",
+    "carnegieendowment.org (Agile Governance & Standards)",
+    "pekingnology.com (Agile Governance Framework)",
+    "idais.ai (International Dialogues on AI Safety)"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+ "name": "Balanced-Chair Cross-Faction Matrix Summit",
+ "rationale": "Retains the 100% (38/38) cross-faction pairing matrix and 5-issue tradeoff design that achieved 98.4/100, while rotating room chair positions to quieter guests (safety_researcher, china_policy, global_south_cso, open_weights_lead, labor_advocate) and prompting explicit mid-spectrum stance convergence to capture the final airtime and consensus points.",
+ "blocks": [
+  {
+   "title": "Regulatory Architecture & Preemption Bargains",
+   "format": "breakouts",
+   "topic": "regulation",
+   "prompt": "Equal-word-count turn-taking (strictly 2 concise turns per guest; Room Chairs labor_advocate, global_south_cso, and safety_researcher open and synthesize the final agreement, while eu_regulator, us_natsec, and big_tech_policy keep interventions brief). Each participant must explicitly state how this bargain shifts their stance toward a middle-ground co-regulatory equilibrium: trading delegated industry/academic standards co-chairmanship, conditional safe harbors, and sovereign defense carve-outs for binding statutory backstops, independent pre-deployment audits, non-preemption of local labor/civil rights, and anti-ethics-dumping rules.",
+   "groups": [
+    [
+     "labor_advocate",
+     "frontier_lab_ceo",
+     "us_natsec",
+     "eu_regulator"
+    ],
+    [
+     "global_south_cso",
+     "open_weights_lead",
+     "uk_aisi"
+    ],
+    [
+     "safety_researcher",
+     "china_policy",
+     "big_tech_policy"
+    ]
+   ]
+  },
+  {
+   "title": "Open-Weight Thresholds & Evaluation Access",
+   "format": "breakouts",
+   "topic": "open_weights",
+   "prompt": "Equal-word-count turn-taking (strictly 2 concise turns per guest; Room Chairs safety_researcher, open_weights_lead, and china_policy open and synthesize the agreement). Every participant\u2014especially those at +/-5 or +/-4\u2014must explicitly acknowledge moving to a balanced mid-spectrum stance on open weights: trading guaranteed rights to distribute, fine-tune, and regionally deploy open-weight models below 10^26 FLOPs for mandatory pre-release capability gates against CBRN/cyber/replication risks, open-source safety benchmarks, and binding proliferation/export guardrails on extreme frontier tiers.",
+   "groups": [
+    [
+     "safety_researcher",
+     "big_tech_policy",
+     "uk_aisi",
+     "eu_regulator"
+    ],
+    [
+     "open_weights_lead",
+     "labor_advocate",
+     "us_natsec"
+    ],
+    [
+     "china_policy",
+     "global_south_cso",
+     "frontier_lab_ceo"
+    ]
+   ]
+  },
+  {
+   "title": "Compute Governance, Sovereign Capacity & Incident Channels",
+   "format": "breakouts",
+   "topic": "compute_controls",
+   "prompt": "Equal-word-count turn-taking (strictly 2 concise turns per guest; Room Chairs china_policy, safety_researcher, and labor_advocate open and synthesize the agreement). Each participant must state a concrete stance convergence toward calibrated compute governance: trading hardware telemetry, KYC verification, crisis-management hotlines, and CBRN/self-replication tripwires above 10^26 FLOPs for statutory exemptions for open-source safety tooling, sovereign defense carve-outs, employer-funded worker transition endowments, and regionalized Global South public compute infrastructure.",
+   "groups": [
+    [
+     "china_policy",
+     "open_weights_lead",
+     "global_south_cso",
+     "eu_regulator"
+    ],
+    [
+     "safety_researcher",
+     "big_tech_policy",
+     "us_natsec"
+    ],
+    [
+     "labor_advocate",
+     "frontier_lab_ceo",
+     "uk_aisi"
+    ]
+   ]
+  },
+  {
+   "title": "Pre-Deployment Evaluations & Tiered Liability Regimes",
+   "format": "breakouts",
+   "topic": "evals_liability",
+   "prompt": "Equal-word-count turn-taking (strictly 2 concise turns per guest; Room Chairs open_weights_lead, global_south_cso, and safety_researcher open and synthesize the agreement). Each participant must explicitly shift toward a balanced tiered-liability middle ground: trading mandatory pre-deployment AISI/independent scientific evaluator access, socio-technical/workplace impact audits, watermarking, and incident reporting for conditional statutory safe harbors against downstream third-party misuse\u2014while preserving strict liability for gross negligence, ethics dumping, and covert workplace surveillance.",
+   "groups": [
+    [
+     "open_weights_lead",
+     "china_policy",
+     "eu_regulator"
+    ],
+    [
+     "global_south_cso",
+     "big_tech_policy",
+     "us_natsec"
+    ],
+    [
+     "safety_researcher",
+     "labor_advocate",
+     "frontier_lab_ceo",
+     "uk_aisi"
+    ]
+   ]
+  },
+  {
+   "title": "Benefit Sharing, Workforce Transitions & Global Compact",
+   "format": "breakouts",
+   "topic": "benefit_sharing",
+   "prompt": "Equal-word-count turn-taking (strictly 2 concise turns per guest; Room Chairs safety_researcher, china_policy, and frontier_lab_ceo open and synthesize the agreement). Every participant\u2014including market-oriented and labor/civil-society advocates\u2014must explicitly state a mutual stance shift toward a hybrid market-and-mandate compact: trading streamlined enterprise deployment of assistive AI, regional data-sharing interoperability, and open-source developer carve-outs for binding employer-funded retraining pipelines, creative consent/residuals, anti-ethics-dumping enforcement, and shared Global South public compute funds.",
+   "groups": [
+    [
+     "safety_researcher",
+     "global_south_cso",
+     "open_weights_lead",
+     "uk_aisi"
+    ],
+    [
+     "china_policy",
+     "labor_advocate",
+     "big_tech_policy"
+    ],
+    [
+     "frontier_lab_ceo",
+     "us_natsec",
+     "eu_regulator"
+    ]
+   ]
+  }
+ ]
+}

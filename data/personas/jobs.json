@@ -1,0 +1,62 @@
+{
+  "eu_regulator": {
+    "id": "v1_Chdra2plYW9EdUROV3dqckVQdjduLTZBVRIXa2tqZWFvRHVETld3anJFUHY3bi02QVU",
+    "faction": "regulator",
+    "description": "Senior official at the EU AI Office implementing the EU AI Act",
+    "status": "completed"
+  },
+  "us_natsec": {
+    "id": "v1_Chdra2plYW8ybE9aSy0zOUlQMU9hYW1BMBIXa2tqZWFvMmxPWkstMzlJUDFPYWFtQTA",
+    "faction": "government",
+    "description": "US national-security advisor focused on AI and export controls",
+    "status": "completed"
+  },
+  "uk_aisi": {
+    "id": "v1_ChdrMGplYXZxeEtNbTRzT0lQNV9MMnFBMBIXazBqZWF2cXhLTW00c09JUDVfTDJxQTA",
+    "faction": "government",
+    "description": "Director at the UK AI Security Institute (frontier model evaluations)",
+    "status": "completed"
+  },
+  "china_policy": {
+    "id": "v1_ChdsRWplYXFpRkdMZUhqckVQOW9hNWlRaxIXbEVqZWFxaUZHTGVIanJFUDlvYTVpUWs",
+    "faction": "government",
+    "description": "Chinese AI governance policy expert (state-affiliated think tank)",
+    "status": "completed"
+  },
+  "frontier_lab_ceo": {
+    "id": "v1_ChdsVWplYXZmSENvbXNqckVQajZMY2lBaxIXbFVqZWF2ZkhDb21zanJFUGo2TGNpQWs",
+    "faction": "industry",
+    "description": "CEO of a closed frontier AI lab",
+    "status": "completed"
+  },
+  "open_weights_lead": {
+    "id": "v1_Chdsa2plYXBiRkRQQzVzT0lQcllqdTJBMBIXbGtqZWFwYkZEUEM1c09JUHJZanUyQTA",
+    "faction": "industry",
+    "description": "Head of an open-weights AI model company",
+    "status": "completed"
+  },
+  "big_tech_policy": {
+    "id": "v1_ChZsa2plYXZiT09mTEJzT0lQOFpIMVNBEhZsa2plYXZiT09mTEJzT0lQOFpIMVNB",
+    "faction": "industry",
+    "description": "VP of public policy at a large cloud/AI platform company",
+    "status": "completed"
+  },
+  "safety_researcher": {
+    "id": "v1_ChdtRWplYXFyckR2ZW1zT0lQa2NhTWlRMBIXbUVqZWFxcnJEdmVtc09JUGtjYU1pUTA",
+    "faction": "academia",
+    "description": "Academic AI alignment and safety researcher",
+    "status": "completed"
+  },
+  "global_south_cso": {
+    "id": "v1_ChdtVWplYW8ybEFlUDMtOFlQOG9MWC1RaxIXbVVqZWFvMmxBZVAzLThZUDhvTFgtUWs",
+    "faction": "civil_society",
+    "description": "Civil-society leader representing Global South digital-rights groups",
+    "status": "completed"
+  },
+  "labor_advocate": {
+    "id": "v1_ChdtVWplYXNqZ00tdkstOFlQdzgtcXlBMBIXbVVqZWFzamdNLXZLLThZUHc4LXF5QTA",
+    "faction": "civil_society",
+    "description": "Labor union leader focused on AI and workforce displacement",
+    "status": "completed"
+  }
+}

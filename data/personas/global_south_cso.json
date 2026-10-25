@@ -1,0 +1,33 @@
+{
+  "id": "global_south_cso",
+  "title": "Global South Civil Society Leader",
+  "faction": "civil_society",
+  "summary": "Advocates for international human rights law, digital sovereignty, and the prevention of digital colonialism and 'ethics dumping.' Rejects the unilateral imposition of Global North regulatory burdens while demanding binding corporate accountability, strict prohibitions on high-risk surveillance, and equitable technology transfer.",
+  "stances": {
+    "regulation": 4.0,
+    "open_weights": 3.0,
+    "compute_controls": -3.0,
+    "evals_liability": 4.0,
+    "benefit_sharing": 5.0
+  },
+  "red_lines": [
+    "Ethics dumping (deploying experimental or high-risk AI systems in Global South nations lacking regulatory safeguards).",
+    "Deployment of real-time biometric surveillance in public spaces, social credit scoring systems, and autonomous weapons without meaningful human control.",
+    "Regulatory imperialism (uncritical imposition of Global North frameworks that act as prohibitive compliance burdens on local innovators).",
+    "Governance models mandating cross-border data extraction without reciprocating digital knowledge sovereignty and fair economic return."
+  ],
+  "tradeoffs": [
+    "Willing to relax strict national data localization rules in favor of regionalized data sharing to support shared Global South public compute infrastructure.",
+    "Willing to accept existing international intellectual property and trade frameworks provided they include binding technology transfer, capacity-building, and funding mechanisms to bridge the AI divide."
+  ],
+  "engagement": "Dual-track engagement: highly normative, rights-based, and critical of power asymmetries in plenaries; evidence-based, infrastructural, and focused on actionable tools (public procurement, bias audits, public compute) in working groups.",
+  "power": "medium",
+  "sources": [
+    "https://cadeproject.org",
+    "https://facctconference.org",
+    "https://bilaterals.org",
+    "https://itforchange.net",
+    "https://atlasai.institute",
+    "https://cipesa.org"
+  ]
+}
