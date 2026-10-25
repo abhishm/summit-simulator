@@ -87,6 +87,8 @@ def repair(plan: Plan, personas: list[Persona]) -> tuple[Plan, list[str]]:
 class Revision(BaseModel):
     critique: str = Field(description="Diagnosis of what went wrong, citing specific guests, blocks and score terms")
     changes: list[str] = Field(description="Concrete changes made to the plan and why")
+    critique_plain: str = Field(description="The same diagnosis in 2-3 sentences for a general audience: short sentences, everyday words, no jargon, acronyms or score-term names")
+    changes_plain: list[str] = Field(description="Each change in under 15 everyday words, for a general audience: short sentences, everyday words, no jargon, acronyms or score-term names")
     plan: Plan
 
 
@@ -203,10 +205,12 @@ async def optimize(personas: list[Persona], rounds: int = 4, n_blocks: int = 5, 
         rev, prev_id = await revise(personas, res, n_blocks, thinking, prev_id, vis)
         plan, fixes = repair(rev.plan, personas)
         await e("round_start", {"round": rnd, "plan": plan.model_dump(), "critique": rev.critique,
-                                "changes": rev.changes + fixes})
+                                "changes": rev.changes + fixes, "critique_plain": rev.critique_plain,
+                                "changes_plain": rev.changes_plain})
         res = await simulate(personas, plan, emit=lambda k, d, r=rnd: e(k, {**d, "round": r}))
         history.append({"round": rnd, "plan": plan.model_dump(), "result": res.model_dump(),
-                        "critique": rev.critique, "changes": rev.changes + fixes})
+                        "critique": rev.critique, "changes": rev.changes + fixes,
+                        "critique_plain": rev.critique_plain, "changes_plain": rev.changes_plain})
         await e("round_done", {"round": rnd, "score": res.score.model_dump(),
                                "ratings": [r.model_dump() for r in res.ratings]})
         if res.score.total > history[best]["result"]["score"]["total"]:

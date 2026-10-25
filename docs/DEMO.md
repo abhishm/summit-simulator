@@ -39,6 +39,8 @@ Plain-language script: short sentences, no jargon. Say it like you'd explain it 
 | 2:45 | Back to **Tab A** | "And the one we started three minutes ago just finished. Argon already made it better." |
 | 2:55 | — | "Summit Simulator. Test your meeting before you hold it." |
 
+**Extra, if there's time or a judge asks "what happened in that room?":** after a replay finishes, click any agenda block card. Guests walk to that block's rooms and the transcript shows exactly what each room said. Keep **plain English** ticked.
+
 **Rules on stage:** never wait on a spinner. Tab A runs in the background, and every other beat uses cached results. If Tab A errors, skip the 2:45 beat.
 
 ## 1-minute video (about 140 spoken words)

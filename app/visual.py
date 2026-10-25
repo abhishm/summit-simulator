@@ -25,6 +25,7 @@ class Flaw(BaseModel):
     block: int = Field(description="1-based block number the flaw is visible in")
     issue: str = Field(description="What is visibly wrong, naming guests/rooms/factions")
     fix: str = Field(description="A concrete change to groupings, format or facilitation that fixes it")
+    plain: str = Field(default="", description="The problem and the fix in one or two short sentences for a general audience: short sentences, everyday words, no jargon, acronyms or score-term names")
 
 
 class FlawCheck(BaseModel):
@@ -32,6 +33,7 @@ class FlawCheck(BaseModel):
     issue: str = Field(description="The previous flaw, restated in under 15 words")
     fixed: bool = Field(description="True only if the NEW screenshots show the flaw is gone")
     evidence: str = Field(description="What the new screenshots/plan show, naming guests and rooms")
+    plain: str = Field(default="", description="The previous problem in under 12 everyday words")
 
 
 class VisualCritique(BaseModel):
@@ -40,6 +42,7 @@ class VisualCritique(BaseModel):
     score: float = Field(description="0-10: how well the rendered seating actually mixes, includes and balances guests")
     flaws: list[Flaw] = Field(description="At least 3 specific flaws, most damaging first")
     summary: str = Field(description="One or two sentences: the overall visual verdict")
+    summary_plain: str = Field(default="", description="The verdict in 1-2 sentences for a general audience: short sentences, everyday words, no jargon, acronyms or score-term names")
 
 
 def _d(x) -> dict:

@@ -702,7 +702,8 @@
          "us_natsec",
          "uk_aisi",
          "china_policy"
-        ]
+        ],
+        "plain": "National safety institutes will coordinate tests for major security threats like chemical weapons and cyberattacks, while letting each country enforce its own laws."
        }
       ]
      },
@@ -771,7 +772,8 @@
          "big_tech_policy",
          "frontier_lab_ceo",
          "open_weights_lead"
-        ]
+        ],
+        "plain": "Create national safety tests for extreme digital and biological risks, protecting tech makers who pass from legal liability across all states."
        }
       ]
      },
@@ -845,7 +847,8 @@
          "safety_researcher",
          "labor_advocate",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Require strict safety tests, hold tech creators liable for downstream harm, ban workplace surveillance firings, and allow regions to pass stricter worker protections."
        }
       ]
      },
@@ -1006,7 +1009,8 @@
          "us_natsec",
          "uk_aisi",
          "china_policy"
-        ]
+        ],
+        "plain": "Require safety testing for major biological and hacking risks, holding model creators legally liable if gross negligence bypasses national standards."
        }
       ]
      },
@@ -1072,7 +1076,8 @@
          "frontier_lab_ceo",
          "open_weights_lead",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Require safety testing for catastrophic biological and cyber threats, shielding developers from downstream lawsuits and blocking state-level liability laws if passed."
        }
       ]
      },
@@ -1131,7 +1136,8 @@
          "safety_researcher",
          "labor_advocate",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Require independent checks on catastrophic and social harms, holding developers accountable for foreseeable problems while opening test results to the public."
        }
       ]
      },
@@ -1227,7 +1233,8 @@
          "uk_aisi",
          "china_policy",
          "frontier_lab_ceo"
-        ]
+        ],
+        "plain": "Government safety institutes will align testing standards for catastrophic biological and cyber threats while leaving actual legal enforcement to individual countries."
        }
       ]
      }
@@ -1471,17 +1478,20 @@
      {
       "block": 2,
       "issue": "Complete faction segregation in breakouts: Breakout A has only government and regulator (eu_regulator, us_natsec, uk_aisi, china_policy), Breakout B has exclusively industry (frontier_lab_ceo, open_weights_lead, big_tech_policy), and Breakout C isolates civil society and academia (safety_researcher, global_south_cso, labor_advocate) at the kids' table with all red rings.",
-      "fix": "Create cross-faction mixed breakouts so each room has 1 government/regulator, 1 industry, and 1 civil society/academia guest (e.g., Breakout A: eu_regulator, frontier_lab_ceo, global_south_cso; Breakout B: us_natsec, open_weights_lead, labor_advocate; Breakout C: uk_aisi, china_policy, big_tech_policy, safety_researcher)."
+      "fix": "Create cross-faction mixed breakouts so each room has 1 government/regulator, 1 industry, and 1 civil society/academia guest (e.g., Breakout A: eu_regulator, frontier_lab_ceo, global_south_cso; Breakout B: us_natsec, open_weights_lead, labor_advocate; Breakout C: uk_aisi, china_policy, big_tech_policy, safety_researcher).",
+      "plain": "Small group sessions completely separate government officials, tech leaders, and activists from each other, so each room should be remixed to include one person from each background."
      },
      {
       "block": 4,
       "issue": "Exact repetition of the segregated Block 2 groupings: the exact same siloed groups are placed into Breakouts A, B, and C again, while Breakout D sits completely empty in both breakout blocks.",
-      "fix": "Use all four Breakout rooms (A-D) in Block 4 to create smaller groups of 2-3 guests and rotate pairings so no two guests repeat their Block 2 room."
+      "fix": "Use all four Breakout rooms (A-D) in Block 4 to create smaller groups of 2-3 guests and rotate pairings so no two guests repeat their Block 2 room.",
+      "plain": "The afternoon repeats the exact same divided groups while leaving an extra breakout room empty, so organizers should split people into smaller, fresh groups across all four rooms."
      },
      {
       "block": 3,
       "issue": "Three of the five blocks (Blocks 1, 3, and 5) are 10-person plenaries where medium-power guests and non-government voices (global_south_cso, labor_advocate, safety_researcher, open_weights_lead, big_tech_policy) are drowned out by high-power officials, resulting in red felt-heard rings (<6) for half the attendees.",
-      "fix": "Replace the Block 3 plenary on open_weights (and/or Block 1) with a 'pairs' format in the Lounge or 4 small mixed breakouts (Breakouts A-D), pairing low-heard guests like global_south_cso and labor_advocate directly with decision-makers like us_natsec or frontier_lab_ceo."
+      "fix": "Replace the Block 3 plenary on open_weights (and/or Block 1) with a 'pairs' format in the Lounge or 4 small mixed breakouts (Breakouts A-D), pairing low-heard guests like global_south_cso and labor_advocate directly with decision-makers like us_natsec or frontier_lab_ceo.",
+      "plain": "Too many huge all-hands meetings drown out community and worker voices, so the middle session should be replaced with one-on-one chats that pair quieter guests directly with key leaders."
      }
     ],
     "summary": "The agenda is heavily siloed and plenary-heavy: three 10-person plenaries drown out half the guests (5 red rings), while both breakout blocks identically segregate government/regulators, industry, and civil society/academia into separate echo chambers and leave Breakout D and the Lounge completely unused.",
@@ -1494,8 +1504,10 @@
      "data/visual/visual-loop-v3/r0-b4.jpg"
     ],
     "render_seconds": 1.1,
-    "seconds": 11.4
-   }
+    "seconds": 11.4,
+    "summary_plain": "Too many giant all-hands meetings are drowning out quieter guests. Meanwhile, smaller discussions segregate government, tech companies, and civil society into separate bubbles while leaving spaces empty."
+   },
+   "changes_plain": []
   },
   {
    "round": 1,
@@ -1812,7 +1824,8 @@
          "big_tech_policy",
          "global_south_cso",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Companies ban secret worker tracking and testing unsafe tools abroad, while workers support helpful office tools and shared research computing."
        }
       ]
      },
@@ -1883,7 +1896,8 @@
          "uk_aisi",
          "open_weights_lead",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Parties agree to ban covert worker monitoring and fund retrainings, while allowing workplace AI evaluated by open, transparent tests."
        }
       ]
      },
@@ -1949,7 +1963,8 @@
          "frontier_lab_ceo",
          "safety_researcher",
          "china_policy"
-        ]
+        ],
+        "plain": "Leaders ban hidden employee surveillance and fund displaced workers, while unlocking shared computing power and approvals for business AI."
        }
       ]
      },
@@ -2021,7 +2036,8 @@
          "open_weights_lead",
          "global_south_cso",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Developers cannot release models capable of cyberattacks or bioweapons, but earn legal protection if open models pass verified safety tests."
        }
       ]
      },
@@ -2090,7 +2106,8 @@
          "frontier_lab_ceo",
          "us_natsec",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Huge or dangerous models cannot be released openly, but safe sub-threshold models receive narrow legal shields without overriding local labor laws."
        }
       ]
      },
@@ -2159,7 +2176,8 @@
          "uk_aisi",
          "big_tech_policy",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Clear safety limits block dangerous open model releases, granting complying creators a legal defense against misuse caused by third parties."
        }
       ]
      },
@@ -2229,7 +2247,8 @@
          "uk_aisi",
          "global_south_cso",
          "frontier_lab_ceo"
-        ]
+        ],
+        "plain": "Supercomputers over a set size face monitoring and crisis hotlines, while smaller public scientific computers remain free from export curbs."
        }
       ]
      },
@@ -2298,7 +2317,8 @@
          "china_policy",
          "big_tech_policy",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Nations will monitor mega-clusters and ban autonomous nuclear weapons, while protecting emerging countries' civilian supercomputers from trade bans."
        }
       ]
      },
@@ -2378,7 +2398,8 @@
          "open_weights_lead",
          "safety_researcher",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Suppliers will report on massive supercomputers and establish crisis hotlines, while keeping public science infrastructure free from export limits."
        }
       ]
      },
@@ -2450,7 +2471,8 @@
          "big_tech_policy",
          "safety_researcher",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Developers open powerful models to safety institutes for dangerous-capability audits, earning legal protection against outside misuse while remaining liable for workplace harms."
        }
       ]
      },
@@ -2516,7 +2538,8 @@
          "eu_regulator",
          "frontier_lab_ceo",
          "china_policy"
-        ]
+        ],
+        "plain": "Creators submit frontier models to certified pre-release audits, gaining a basic legal defense against downstream misuse while keeping local protections intact."
        }
       ]
      },
@@ -2586,7 +2609,8 @@
          "us_natsec",
          "open_weights_lead",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Passing mandatory independent safety checks gives developers standard liability protections against disasters, while preserving ordinary worker, civil rights, and damage claims."
        }
       ]
      },
@@ -2696,7 +2720,8 @@
          "safety_researcher",
          "global_south_cso",
          "labor_advocate"
-        ]
+        ],
+        "plain": "The four-part accord mandates safety audits for frontier models, protects compliant open-source builders, shields responsible developers from catastrophic misuse, and bans workplace surveillance."
        }
       ]
      }
@@ -2957,19 +2982,22 @@
       "block": 2,
       "issue": "Complete faction segregation in Block 2 breakouts with civil society/academia isolated",
       "fixed": true,
-      "evidence": "In the new Block 2 screenshot and plan, all three active rooms mix factions: Breakout A mixes government (china_policy), industry (open_weights_lead), civil society (global_south_cso), and academia (safety_researcher); Breakout B mixes us_natsec, frontier_lab_ceo, and labor_advocate; Breakout C mixes uk_aisi, big_tech_policy, and eu_regulator."
+      "evidence": "In the new Block 2 screenshot and plan, all three active rooms mix factions: Breakout A mixes government (china_policy), industry (open_weights_lead), civil society (global_south_cso), and academia (safety_researcher); Breakout B mixes us_natsec, frontier_lab_ceo, and labor_advocate; Breakout C mixes uk_aisi, big_tech_policy, and eu_regulator.",
+      "plain": "Isolating civil society and researchers in separate rooms."
      },
      {
       "block": 4,
       "issue": "Exact repetition of segregated Block 2 groupings in Block 4 and empty Breakout D",
       "fixed": false,
-      "evidence": "While Block 4 no longer repeats the segregated Block 2 groupings (now mixing uk_aisi, big_tech_policy, safety_researcher, and labor_advocate in Breakout A, etc.), Breakout D still sits visibly empty in Block 4 as well as in Blocks 1, 2, and 3."
+      "evidence": "While Block 4 no longer repeats the segregated Block 2 groupings (now mixing uk_aisi, big_tech_policy, safety_researcher, and labor_advocate in Breakout A, etc.), Breakout D still sits visibly empty in Block 4 as well as in Blocks 1, 2, and 3.",
+      "plain": "Repeating identical divided groups while leaving one room empty."
      },
      {
       "block": 3,
       "issue": "Three 10-person plenaries (Blocks 1, 3, 5) drowning out medium-power/non-government guests",
       "fixed": true,
-      "evidence": "Blocks 1 and 3 have been converted from plenaries to breakouts, leaving only the mandatory closing Block 5 in the Plenary Hall, and all red rings (<6) are gone."
+      "evidence": "Blocks 1 and 3 have been converted from plenaries to breakouts, leaving only the mandatory closing Block 5 in the Plenary Hall, and all red rings (<6) are gone.",
+      "plain": "Large group sessions letting powerful officials dominate smaller groups."
      }
     ],
     "score": 7.5,
@@ -2977,17 +3005,20 @@
      {
       "block": 4,
       "issue": "Breakout D sits completely empty across all four breakout blocks (Blocks 1, 2, 3, and 4) while one room in every block is forced to hold 4 guests\u2014leaving big_tech_policy (6.0), eu_regulator (7.0), and global_south_cso (7.0) with yellow rings because they repeatedly get placed into the more crowded 4-person rooms.",
-      "fix": "Use Breakout D in at least two blocks (or convert one block to the Lounge pairs format) so guests can meet in smaller 2- and 3-person groups instead of always crowding 4 people into one room while Breakout D goes unused."
+      "fix": "Use Breakout D in at least two blocks (or convert one block to the Lounge pairs format) so guests can meet in smaller 2- and 3-person groups instead of always crowding 4 people into one room while Breakout D goes unused.",
+      "plain": "A spare breakout room sits empty while other rooms cram four people together, leaving the tech lobbyist, EU regulator, and Global South advocate feeling unheard; the fix is to use the extra room to keep groups to two or three people."
      },
      {
       "block": 4,
       "issue": "Breakout B in Block 4 (eu_regulator, frontier_lab_ceo, china_policy) completely excludes civil society and academia from the pre-deployment evaluations and liability discussion, concentrating three high-power state/corporate elites together while Breakout C (us_natsec, open_weights_lead, global_south_cso) repeats the exact us_natsec + open_weights_lead pairing from Block 3 Breakout C.",
-      "fix": "Swap global_south_cso (or safety_researcher from Breakout A) with china_policy or frontier_lab_ceo in Block 4 so every room on evaluations and liability includes an independent civil society or academic voice and us_natsec is not paired with open_weights_lead in back-to-back blocks."
+      "fix": "Swap global_south_cso (or safety_researcher from Breakout A) with china_policy or frontier_lab_ceo in Block 4 so every room on evaluations and liability includes an independent civil society or academic voice and us_natsec is not paired with open_weights_lead in back-to-back blocks.",
+      "plain": "One advanced safety session includes only state and corporate leaders, leaving out public interest voices; the fix is to swap the Chinese policy adviser with an independent advocate or researcher so every room is balanced."
      },
      {
       "block": 2,
       "issue": "Repeated pairings across consecutive blocks reduce cross-pollination: uk_aisi, big_tech_policy, and eu_regulator are grouped together in Block 2 Breakout C, and then uk_aisi and big_tech_policy are paired again in Block 4 Breakout A; similarly, global_south_cso is placed in the 4-person room in both Block 1 and Block 2 and never shares a small breakout room with labor_advocate across the entire day.",
-      "fix": "Convert Block 2 or Block 3 into a 'pairs' session in the Lounge (5 pairs of 2) to give big_tech_policy (lowest felt-heard at 6.0), global_south_cso (7.0), and eu_regulator (7.0) dedicated 1-on-1 airtime and allow civil society peers or unacquainted cross-faction pairs to connect directly."
+      "fix": "Convert Block 2 or Block 3 into a 'pairs' session in the Lounge (5 pairs of 2) to give big_tech_policy (lowest felt-heard at 6.0), global_south_cso (7.0), and eu_regulator (7.0) dedicated 1-on-1 airtime and allow civil society peers or unacquainted cross-faction pairs to connect directly.",
+      "plain": "The same people repeatedly meet in back-to-back sessions while other natural allies never talk; the fix is to turn one block into private one-on-one chats to connect new pairs directly."
      }
     ],
     "summary": "The revised agenda is a major visual and structural improvement\u2014eliminating all red rings and replacing the segregated rooms and excessive plenaries with cross-faction breakouts\u2014though it still leaves Breakout D and the Lounge completely unused across the day, resulting in yellow rings for big_tech_policy, eu_regulator, and global_south_cso.",
@@ -3003,8 +3034,17 @@
      "data/visual/visual-loop-v3/r1-b4.jpg"
     ],
     "render_seconds": 1.0,
-    "seconds": 15.9
-   }
+    "seconds": 15.9,
+    "summary_plain": "The schedule is much better balanced and breaks down previous divides. However, leaving two rooms completely unused makes several attendees feel overlooked."
+   },
+   "critique_plain": "The original plan failed because large group sessions let powerful government and corporate officials drown out grassroots and labor advocates. Breakout rooms segregated people by faction instead of mixing opposing views, preventing crucial compromise deals. Leaving major issues like worker impact and computing power off the table also kept participants divided.",
+   "changes_plain": [
+    "Replaced large group sessions with small, mixed breakout groups across early rounds.",
+    "Mixed government, industry, and civil society in every small group room.",
+    "Added neglected topics like worker benefits and computing power limits.",
+    "Rewrote discussion prompts around clear, direct compromises between guests.",
+    "Let civil society and researchers speak first in the final session."
+   ]
   },
   {
    "round": 2,
@@ -3341,7 +3381,8 @@
          "labor_advocate",
          "open_weights_lead",
          "china_policy"
-        ]
+        ],
+        "plain": "Ban secret worker tracking and unfair foreign testing, while funding retraining programs and sharing evaluation tools globally."
        }
       ]
      },
@@ -3407,7 +3448,8 @@
          "us_natsec",
          "frontier_lab_ceo",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Fund worker retraining programs and expand secure computing access, while banning civilian biometric surveillance and protecting national defense autonomy."
        }
       ]
      },
@@ -3477,7 +3519,8 @@
          "uk_aisi",
          "big_tech_policy",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Require shared safety checks for all exported models, halt public facial surveillance, and fund computing resources for developing nations."
        }
       ]
      },
@@ -3550,7 +3593,8 @@
          "us_natsec",
          "open_weights_lead",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Shield open-source developers from legal liability if their models pass rigorous safety tests for biological, chemical, and cyber risks."
        }
       ]
      },
@@ -3619,7 +3663,8 @@
          "china_policy",
          "big_tech_policy",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Bar public release of models that can launch cyberattacks or replicate themselves, while protecting compliant developers from downstream lawsuits."
        }
       ]
      },
@@ -3679,7 +3724,8 @@
         "parties": [
          "uk_aisi",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Protect open-source creators from misuse penalties if they prove safety compliance and answer regulator information requests."
        }
       ]
      },
@@ -3739,7 +3785,8 @@
         "parties": [
          "frontier_lab_ceo",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Block the public release of dangerous high-power models while preserving local worker rights, union bargaining, and official disclosure rules."
        }
       ]
      },
@@ -3807,7 +3854,8 @@
          "open_weights_lead",
          "safety_researcher",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Track energy use at massive data centers to prevent automated military breakouts while guaranteeing fair access to open research tools."
        }
       ]
      },
@@ -3873,7 +3921,8 @@
          "us_natsec",
          "big_tech_policy",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Monitor large data centers for biological and cyber risks, set up diplomatic emergency hotlines, and streamline global scientific hardware exports."
        }
       ]
      },
@@ -3935,7 +3984,8 @@
          "china_policy",
          "frontier_lab_ceo",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Track massive computing hardware and build emergency military hotlines, while ensuring fair access to scientific computing for developing nations."
        }
       ]
      },
@@ -4002,7 +4052,8 @@
          "eu_regulator",
          "safety_researcher",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Protect developers from lawsuits if models pass safety checks, while preserving local authority over worker rights and anti-bias rules."
        }
       ]
      },
@@ -4071,7 +4122,8 @@
          "big_tech_policy",
          "labor_advocate",
          "us_natsec"
-        ]
+        ],
+        "plain": "Offer legal protections for developers passing independent audits, set single national technical standards, and strictly protect local labor laws."
        }
       ]
      },
@@ -4136,7 +4188,8 @@
         "parties": [
          "uk_aisi",
          "frontier_lab_ceo"
-        ]
+        ],
+        "plain": "Grant safety-tested labs liability protection and unified technical rules, provided they allow independent audits and respect local worker protections."
        }
       ]
      },
@@ -4202,7 +4255,8 @@
         "parties": [
          "china_policy",
          "open_weights_lead"
-        ]
+        ],
+        "plain": "Provide clear liability protections and unified technical rules to developers who pass safety audits, while safeguarding state labor and civil rights."
        }
       ]
      },
@@ -4313,7 +4367,8 @@
          "frontier_lab_ceo",
          "uk_aisi",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Create unified global safety audits, protect compliant developers from unfair liability, ban public surveillance, and fund access for developing nations."
        }
       ]
      }
@@ -4572,19 +4627,22 @@
       "block": 4,
       "issue": "Breakout D empty in all blocks, forcing 4-person rooms and yellow rings.",
       "fixed": false,
-      "evidence": "Partially fixed: Breakout D is now used in Block 2 (`frontier_lab_ceo`, `labor_advocate`) and Block 4 (`china_policy`, `open_weights_lead`), and `big_tech_policy`, `eu_regulator`, and `global_south_cso` now have green rings (8.0), but Breakout D remains empty in Blocks 1 and 3 while Breakout A still holds 4 guests (`open_weights_lead` has a 7.0 yellow ring)."
+      "evidence": "Partially fixed: Breakout D is now used in Block 2 (`frontier_lab_ceo`, `labor_advocate`) and Block 4 (`china_policy`, `open_weights_lead`), and `big_tech_policy`, `eu_regulator`, and `global_south_cso` now have green rings (8.0), but Breakout D remains empty in Blocks 1 and 3 while Breakout A still holds 4 guests (`open_weights_lead` has a 7.0 yellow ring).",
+      "plain": "Unused rooms forced large, crowded sessions with poor engagement."
      },
      {
       "block": 4,
       "issue": "Block 4 Breakout B excludes civil society/academia; Breakout C repeats Block 3 pairing.",
       "fixed": true,
-      "evidence": "In Block 4, civil society and academia are now included in the 3-person rooms\u2014Breakout A (`eu_regulator`, `safety_researcher`, `global_south_cso`) and Breakout B (`us_natsec`, `big_tech_policy`, `labor_advocate`)\u2014and `us_natsec` + `open_weights_lead` only appear together once (Block 2 Breakout A)."
+      "evidence": "In Block 4, civil society and academia are now included in the 3-person rooms\u2014Breakout A (`eu_regulator`, `safety_researcher`, `global_south_cso`) and Breakout B (`us_natsec`, `big_tech_policy`, `labor_advocate`)\u2014and `us_natsec` + `open_weights_lead` only appear together once (Block 2 Breakout A).",
+      "plain": "One session left out advocates, and another repeated earlier pairs."
      },
      {
       "block": 2,
       "issue": "Repeated uk_aisi + big_tech_policy pairings; global_south_cso stuck in 4-person rooms without labor_advocate.",
       "fixed": false,
-      "evidence": "`uk_aisi` and `big_tech_policy` only meet once (Block 1 Breakout C) and `global_south_cso` is now exclusively in 3-person rooms (8.0 green ring), but `global_south_cso` and `labor_advocate` still never share a breakout room across Blocks 1-4."
+      "evidence": "`uk_aisi` and `big_tech_policy` only meet once (Block 1 Breakout C) and `global_south_cso` is now exclusively in 3-person rooms (8.0 green ring), but `global_south_cso` and `labor_advocate` still never share a breakout room across Blocks 1-4.",
+      "plain": "Repeated tech-regulator pairings while civil society was stuck in crowded rooms."
      }
     ],
     "score": 8.0,
@@ -4592,17 +4650,20 @@
      {
       "block": 3,
       "issue": "Breakout D is still left completely empty in Block 1 and Block 3, forcing Breakout A to hold 4 guests in both blocks\u2014and `open_weights_lead` (7.0, yellow ring) is stuck in that crowded 4-person Breakout A both times (`open_weights_lead` + `labor_advocate` are also redundantly paired in both 4-person rooms).",
-      "fix": "Use Breakout D in Block 1 and Block 3 so no room exceeds 3 guests: in Block 1, move `china_policy` from Breakout A and `us_natsec` from Breakout B into Breakout D (creating two 2-person rooms and two 3-person rooms); in Block 3, move `open_weights_lead` from Breakout A and `eu_regulator` from Breakout B into Breakout D."
+      "fix": "Use Breakout D in Block 1 and Block 3 so no room exceeds 3 guests: in Block 1, move `china_policy` from Breakout A and `us_natsec` from Breakout B into Breakout D (creating two 2-person rooms and two 3-person rooms); in Block 3, move `open_weights_lead` from Breakout A and `eu_regulator` from Breakout B into Breakout D.",
+      "plain": "An empty room forces four people into a single crowded room; spread them across all rooms instead."
      },
      {
       "block": 4,
       "issue": "`us_natsec` and `big_tech_policy` are grouped together in Breakout B for two consecutive blocks\u2014Block 3 Breakout B (`us_natsec`, `big_tech_policy`, `eu_regulator`) and Block 4 Breakout B (`us_natsec`, `big_tech_policy`, `labor_advocate`)\u2014creating a repetitive US government + Big Tech axis while `china_policy` and `open_weights_lead` in Block 4 Breakout D repeat their Block 1 Breakout A pairing.",
-      "fix": "In Block 4, swap `big_tech_policy` (Breakout B) with `open_weights_lead` (Breakout D), or swap `us_natsec` (Breakout B) with `uk_aisi` (Breakout C), so `us_natsec` and `big_tech_policy` do not sit together in consecutive sessions and `china_policy` meets a new industry counterpart (`big_tech_policy` or `frontier_lab_ceo`)."
+      "fix": "In Block 4, swap `big_tech_policy` (Breakout B) with `open_weights_lead` (Breakout D), or swap `us_natsec` (Breakout B) with `uk_aisi` (Breakout C), so `us_natsec` and `big_tech_policy` do not sit together in consecutive sessions and `china_policy` meets a new industry counterpart (`big_tech_policy` or `frontier_lab_ceo`).",
+      "plain": "The US security official and Big Tech representative are paired twice in a row; swap their partners next round."
      },
      {
       "block": 3,
       "issue": "`safety_researcher` (7.0, yellow ring) is the sole academic at the summit and gets drowned out in Block 3's 4-person Breakout A (`uk_aisi`, `open_weights_lead`, `safety_researcher`, `labor_advocate`), while also never sharing a small breakout room with `uk_aisi` in a 2- or 3-person setting focused on technical evaluations.",
-      "fix": "Include `safety_researcher` in a smaller 2- or 3-person room in Block 3 by moving `open_weights_lead` and `labor_advocate` to Breakout D (leaving `uk_aisi` and `safety_researcher` in a focused 2-person technical compute governance session in Breakout A), and use the `pairs` format in the Lounge for one block (e.g., Block 2 or Block 4) to give medium-power technical voices 1-on-1 airtime."
+      "fix": "Include `safety_researcher` in a smaller 2- or 3-person room in Block 3 by moving `open_weights_lead` and `labor_advocate` to Breakout D (leaving `uk_aisi` and `safety_researcher` in a focused 2-person technical compute governance session in Breakout A), and use the `pairs` format in the Lounge for one block (e.g., Block 2 or Block 4) to give medium-power technical voices 1-on-1 airtime.",
+      "plain": "The lone academic researcher gets talked over in large rooms; move them into a quiet two-person pairing."
      }
     ],
     "summary": "Opening Breakout D in Blocks 2 and 4 significantly improved felt-heard scores (8 of 10 guests now have green rings >= 8.0), but leaving Breakout D empty in Blocks 1 and 3 still forces `open_weights_lead` and `safety_researcher` into crowded 4-person rooms where they end up with the only yellow rings (7.0).",
@@ -4618,8 +4679,16 @@
      "data/visual/visual-loop-v3/r2-b4.jpg"
     ],
     "render_seconds": 1.1,
-    "seconds": 16.8
-   }
+    "seconds": 16.8,
+    "summary_plain": "Opening the extra room helped most guests feel much more engaged. However, leaving it empty in other rounds still left two technical experts feeling ignored."
+   },
+   "critique_plain": "The previous plan scored higher overall, but rooms were still too crowded and some key participants felt left out. Big Tech, European, and developing nation delegates were stuck in large groups, while key security topics were completely skipped. Important debates on workplace rights, surveillance bans, and global computing access were also left out of the final text.",
+   "changes_plain": [
+    "Used an extra room in rounds two and four to stop overcrowding.",
+    "Paired the EU regulator with the union leader early on to bridge gaps.",
+    "Stopped repeating the same partner pairings across back-to-back sessions.",
+    "Clarified rules separating national technical standards from local worker protection laws."
+   ]
   },
   {
    "round": 3,
@@ -4952,7 +5021,8 @@
          "big_tech_policy",
          "labor_advocate",
          "us_natsec"
-        ]
+        ],
+        "plain": "Ban secret workplace surveillance, fund independent safety testing, and support worker retraining while protecting defense autonomy and labor rights."
        }
       ]
      },
@@ -5021,7 +5091,8 @@
          "china_policy",
          "open_weights_lead",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Fund shared computing resources for independent safety audits and Global South researchers while keeping open-source models accessible."
        }
       ]
      },
@@ -5092,7 +5163,8 @@
          "uk_aisi",
          "frontier_lab_ceo",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Ban invasive public and workplace surveillance, while providing shared computing power for independent safety checks and developing nations."
        }
       ]
      },
@@ -5162,7 +5234,8 @@
          "eu_regulator",
          "china_policy",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Protect open-source developers who pass safety tests from unfair lawsuits, while holding creators accountable if models aid dangerous weapons."
        }
       ]
      },
@@ -5235,7 +5308,8 @@
          "us_natsec",
          "frontier_lab_ceo",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Shield safe open-source software creators from legal blame while strictly barring releases that enable cyberattacks or dangerous biological weapons."
        }
       ]
      },
@@ -5295,7 +5369,8 @@
         "parties": [
          "uk_aisi",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Require pre-release safety testing for major models and ban those that could cause cyber warfare or biological harm."
        }
       ]
      },
@@ -5355,7 +5430,8 @@
         "parties": [
          "open_weights_lead",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Allow the sharing of tested open-source models without weakening existing workplace rights or collective bargaining protections."
        }
       ]
      },
@@ -5428,7 +5504,8 @@
          "eu_regulator",
          "uk_aisi",
          "open_weights_lead"
-        ]
+        ],
+        "plain": "Track massive data center hardware runs and build emergency hotlines without treating open code as restricted military weapons."
        }
       ]
      },
@@ -5494,7 +5571,8 @@
          "china_policy",
          "frontier_lab_ceo",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Establish registries for massive training clusters and emergency crisis lines while safeguarding labor rights and supporting developing nations."
        }
       ]
      },
@@ -5554,7 +5632,8 @@
         "parties": [
          "us_natsec",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Verify supercomputer hardware to track massive military-scale runs, while exempting peaceful open research and academic clusters from export bans."
        }
       ]
      },
@@ -5614,7 +5693,8 @@
         "parties": [
          "big_tech_policy",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Track massive supercomputers with emergency hotlines to stop weapon proliferation, while shielding cloud providers that follow safety rules."
        }
       ]
      },
@@ -5684,7 +5764,8 @@
          "uk_aisi",
          "safety_researcher",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Give safety institutes advance access to test models, holding creators strictly liable for weaponization while shielding them from unrelated misuse."
        }
       ]
      },
@@ -5750,7 +5831,8 @@
          "big_tech_policy",
          "global_south_cso",
          "china_policy"
-        ]
+        ],
+        "plain": "Require safety testing by certified evaluators, strictly punishing dangerous weaponization risks while creating consistent national safety standards."
        }
       ]
      },
@@ -5811,7 +5893,8 @@
         "parties": [
          "eu_regulator",
          "frontier_lab_ceo"
-        ]
+        ],
+        "plain": "Mandate confidential safety audits and watermarking, holding developers legally responsible if their models attack critical infrastructure."
        }
       ]
      },
@@ -5875,7 +5958,8 @@
         "parties": [
          "us_natsec",
          "open_weights_lead"
-        ]
+        ],
+        "plain": "Establish clear national safety rules, protecting developers from lawsuits over misuse if their models pass rigorous weaponization checks."
        }
       ]
      },
@@ -5986,7 +6070,8 @@
          "china_policy",
          "frontier_lab_ceo",
          "uk_aisi"
-        ]
+        ],
+        "plain": "A five-part pact requiring rigorous safety testing, protecting open-source software, banning mass surveillance, and funding global access."
        }
       ]
      }
@@ -6245,19 +6330,22 @@
       "block": 3,
       "issue": "Breakout D empty in Blocks 1 and 3; `open_weights_lead` in 4-person rooms twice",
       "fixed": false,
-      "evidence": "Partially fixed: Block 3 now uses Breakout D (`big_tech_policy`, `safety_researcher`) and `open_weights_lead` is now at 8.0 (green ring) in 2- and 3-person rooms, but Block 1 still leaves Breakout D empty and crowds 4 guests into Breakout A."
+      "evidence": "Partially fixed: Block 3 now uses Breakout D (`big_tech_policy`, `safety_researcher`) and `open_weights_lead` is now at 8.0 (green ring) in 2- and 3-person rooms, but Block 1 still leaves Breakout D empty and crowds 4 guests into Breakout A.",
+      "plain": "Empty rooms forced the open-source lead into crowded groups."
      },
      {
       "block": 4,
       "issue": "`us_natsec` + `big_tech_policy` and `china_policy` + `open_weights_lead` repeat pairings across blocks",
       "fixed": true,
-      "evidence": "`us_natsec` and `big_tech_policy` only share Block 1 Breakout A now, and `china_policy` + `open_weights_lead` only share Block 1 Breakout B; zero pairs repeat across Blocks 1\u20134."
+      "evidence": "`us_natsec` and `big_tech_policy` only share Block 1 Breakout A now, and `china_policy` + `open_weights_lead` only share Block 1 Breakout B; zero pairs repeat across Blocks 1\u20134.",
+      "plain": "Several guests were repeatedly paired with the same people."
      },
      {
       "block": 3,
       "issue": "`safety_researcher` drowned out in 4-person room and never grouped with `uk_aisi`",
       "fixed": true,
-      "evidence": "`safety_researcher` (now 9.0, green ring) is in a 2-person Breakout D in Block 3 (`big_tech_policy`, `safety_researcher`) and shares a 3-person Breakout A with `uk_aisi` and `labor_advocate` in Block 4."
+      "evidence": "`safety_researcher` (now 9.0, green ring) is in a 2-person Breakout D in Block 3 (`big_tech_policy`, `safety_researcher`) and shares a 3-person Breakout A with `uk_aisi` and `labor_advocate` in Block 4.",
+      "plain": "The safety researcher was drowned out in large groups."
      }
     ],
     "score": 8.2,
@@ -6265,17 +6353,20 @@
      {
       "block": 1,
       "issue": "Breakout D is still left completely empty in Block 1 while Breakout A is crowded with 4 high-power guests (`eu_regulator`, `us_natsec`, `big_tech_policy`, `labor_advocate`), directly contributing to `big_tech_policy` (7.0, yellow ring) and `labor_advocate` (7.0, yellow ring) having lower felt-heard scores.",
-      "fix": "Use Breakout D in Block 1 to split the 10 guests into a balanced 3-3-2-2 layout: move `big_tech_policy` from Breakout A and `global_south_cso` from Breakout C into Breakout D so no room exceeds 3 guests."
+      "fix": "Use Breakout D in Block 1 to split the 10 guests into a balanced 3-3-2-2 layout: move `big_tech_policy` from Breakout A and `global_south_cso` from Breakout C into Breakout D so no room exceeds 3 guests.",
+      "plain": "Leaving one breakout room empty early on crowds four major leaders into a single room; fix this by spreading guests into smaller groups across all rooms."
      },
      {
       "block": 4,
       "issue": "`frontier_lab_ceo` (7.0, yellow ring) is never placed in a 2-person breakout during the first three blocks (sitting in 3-person rooms in Blocks 1, 2, and 3) and then gets locked into a pure adversarial 1-on-1 in Block 4 Breakout C against `eu_regulator` without a technical mediator.",
-      "fix": "In Block 2, swap `frontier_lab_ceo` (Breakout B) with `big_tech_policy` (Breakout C) so `frontier_lab_ceo` gets a constructive 2-person session with `uk_aisi` early on, and in Block 4 add `uk_aisi` or `safety_researcher` to Breakout C to mediate the `eu_regulator` + `frontier_lab_ceo` liability discussion."
+      "fix": "In Block 2, swap `frontier_lab_ceo` (Breakout B) with `big_tech_policy` (Breakout C) so `frontier_lab_ceo` gets a constructive 2-person session with `uk_aisi` early on, and in Block 4 add `uk_aisi` or `safety_researcher` to Breakout C to mediate the `eu_regulator` + `frontier_lab_ceo` liability discussion.",
+      "plain": "The AI company leader spends early sessions in larger groups before a tense one-on-one with the EU regulator; fix this by giving them an earlier one-on-one with a safety institute and adding a mediator to the later discussion."
      },
      {
       "block": 4,
       "issue": "Across all four breakout blocks, the two civil society guests (`global_south_cso` and `labor_advocate`) are completely segregated from one another and never share a breakout room, even in Block 1 (`benefit_sharing`) where civil society alignment is critical; similarly, no two industry guests ever share a breakout room.",
-      "fix": "Pair `global_south_cso` and `labor_advocate` together in Block 1 Breakout A (alongside `eu_regulator`) by moving `us_natsec` and `big_tech_policy` into the currently empty Breakout D, allowing civil society to build a unified coalition before dispersing in Blocks 2\u20134."
+      "fix": "Pair `global_south_cso` and `labor_advocate` together in Block 1 Breakout A (alongside `eu_regulator`) by moving `us_natsec` and `big_tech_policy` into the currently empty Breakout D, allowing civil society to build a unified coalition before dispersing in Blocks 2\u20134.",
+      "plain": "The labor advocate and the Global South advocate are separated all day; fix this by pairing them together early so civil society can find common ground."
      }
     ],
     "summary": "The agenda substantially improved in Round 3\u2014eliminating all consecutive repeat pairings, utilizing all four breakout rooms in Blocks 2\u20134, and lifting seven of ten guests into green rings (8.0\u20139.0). However, leaving Breakout D empty in Block 1 still forces an unnecessary 4-person crowd in Breakout A that depresses `big_tech_policy` and `labor_advocate` to yellow rings (7.0), while `frontier_lab_ceo` (7.0) is stuck in 3-person rooms until a tense 1-on-1 with `eu_regulator` in Block 4.",
@@ -6291,8 +6382,16 @@
      "data/visual/visual-loop-v3/r3-b4.jpg"
     ],
     "render_seconds": 1.1,
-    "seconds": 16.3
-   }
+    "seconds": 16.3,
+    "summary_plain": "Most participants are now happy with their speaking time and group variety. However, an empty room in the first block still crowds a few key guests into an unproductive group."
+   },
+   "critique_plain": "Overall scores improved, but the open-source lead and the safety researcher felt left out and spoke the least because they were stuck in crowded four-person groups. The proposed rules also crossed major red lines, threatening to ban open-source software and forcing key guests into unfair compromises. Finally, a few guests were repeatedly paired with the same people instead of meeting new perspectives.",
+   "changes_plain": [
+    "Used four smaller rooms across later blocks to avoid any four-person groups and give everyone equal airtime.",
+    "Removed repeat pairings, introducing diverse groups and fresh one-on-one discussions on pre-release safety testing.",
+    "Shifted focus from arbitrary computing bans to clear red lines around dangerous weapons and autonomous cyberattacks.",
+    "Held developers strictly liable for dangerous red-line breaches while shielding them from unrelated third-party misuse."
+   ]
   }
  ],
  "best": 3,

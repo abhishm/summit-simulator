@@ -104,6 +104,8 @@ uv run uvicorn app.server:app --port 8000      # open http://localhost:8000
 - **Replay** a saved run, such as the pre-run `demo-5block` (4 Argon rounds at high thinking).
 - **Run live:** 3 blocks, 1–3 rounds, medium thinking. That takes about 2 minutes per round.
 - **Add a guest:** start a live Deep Research job for a new role. The new persona joins the next run.
+- **Click any agenda block** (after a round finishes): guests move to that block's rooms, the opinion dots jump to that point in the day, and the transcript shows that block's full conversation and agreements, room by room.
+- **plain English** checkbox (on by default): shows the AI's notes (critique, changes, visual critic, agreements) in everyday language. New runs ask Argon/Flash for a plain version directly; saved runs get one from `scripts/plainify.py <run>`. Untick it for the original detailed text.
 - **📋 View plan** (next to Baseline / Best plan): the full run of show for the selected round (times, rooms, who's in each room, facilitator prompts, Argon's rationale) as a draft, without approving it.
 - **👁 visual critic** checkbox (live runs) / `--visual` (CLI): screenshot + Argon visual critique before each
   revision (about 5 s to render, 15–30 s for the critique). The "Visual critic" panel shows the score, flaws and

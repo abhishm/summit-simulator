@@ -706,7 +706,8 @@
          "us_natsec",
          "uk_aisi",
          "china_policy"
-        ]
+        ],
+        "plain": "Countries should use shared scientific tests for worst-case AI dangers, but enforce them with their own domestic laws."
        }
       ]
      },
@@ -777,7 +778,8 @@
          "frontier_lab_ceo",
          "open_weights_lead",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "A single national law should require tests for severe dangers, protect compliant developers, and punish users who misuse open models."
        }
       ]
      },
@@ -843,7 +845,8 @@
          "safety_researcher",
          "global_south_cso",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Companies must face strict liability for catastrophic and human rights harms, while open models below top-tier power remain exempt."
        }
       ]
      },
@@ -1004,7 +1007,8 @@
          "us_natsec",
          "uk_aisi",
          "china_policy"
-        ]
+        ],
+        "plain": "Top AI creators must pass national safety tests; passing shields them from major lawsuits, but skipping tests brings severe penalties."
        }
       ]
      },
@@ -1074,7 +1078,8 @@
          "frontier_lab_ceo",
          "open_weights_lead",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Tech companies agree to mandatory safety tests for major threats, alongside legal shields if other people misuse their systems."
        }
       ]
      },
@@ -1141,7 +1146,8 @@
          "safety_researcher",
          "labor_advocate",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Leading AI models must pass safety checks for workplace, privacy, and catastrophic harms, with export bans on unsafe systems."
        }
       ]
      },
@@ -1238,7 +1244,8 @@
          "china_policy",
          "frontier_lab_ceo",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Governments should share scientific testing methods for severe AI risks, while keeping local authorities fully in charge of enforcement."
        }
       ]
      }
@@ -1473,7 +1480,8 @@
     }
    },
    "critique": null,
-   "changes": []
+   "changes": [],
+   "changes_plain": []
   },
   {
    "round": 1,
@@ -1778,7 +1786,8 @@
          "eu_regulator",
          "open_weights_lead",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Developers who pass government safety tests for catastrophic risks receive liability protection, while workers keep local workplace rights."
        }
       ]
      },
@@ -1854,7 +1863,8 @@
          "safety_researcher",
          "frontier_lab_ceo",
          "us_natsec"
-        ]
+        ],
+        "plain": "Passing government safety reviews shields developers from extreme liability, unless they hide failed audits, while fully preserving local labor protections."
        }
       ]
      },
@@ -1927,7 +1937,8 @@
          "china_policy",
          "us_natsec",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Governments will set up crisis hotlines for huge supercomputers, ban AI from nuclear controls, and protect regular open-source software."
        }
       ]
      },
@@ -2004,7 +2015,8 @@
          "frontier_lab_ceo",
          "uk_aisi",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Create international reporting for massive computing clusters and crisis hotlines, while funding computing access for developing nations."
        }
       ]
      },
@@ -2081,7 +2093,8 @@
          "china_policy",
          "us_natsec",
          "frontier_lab_ceo"
-        ]
+        ],
+        "plain": "Models posing extreme biological or cyber threats cannot be open-sourced, while regular open models remain free from distribution bans."
        }
       ]
      },
@@ -2158,7 +2171,8 @@
          "open_weights_lead",
          "labor_advocate",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Open-source models stay freely available if tested for dangerous risks, shifting legal blame to bad actors who modify them."
        }
       ]
      },
@@ -2235,7 +2249,8 @@
          "safety_researcher",
          "uk_aisi",
          "open_weights_lead"
-        ]
+        ],
+        "plain": "Companies ban secret worker surveillance, require human review for firings, and fund retraining, in return for union support on AI adoption."
        }
       ]
      },
@@ -2316,7 +2331,8 @@
          "china_policy",
          "us_natsec",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Ban workplace spy software, fund worker retraining, share computing credits with developing nations, and stop weaker safety standards abroad."
        }
       ]
      },
@@ -2427,7 +2443,8 @@
          "safety_researcher",
          "global_south_cso",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Enforce safety testing on massive models, establish international crisis hotlines, protect everyday open software, and guarantee strong worker protections."
        }
       ]
      }
@@ -2676,6 +2693,13 @@
     "Use a combinatorially balanced 4-block rotation where only two same-faction pairs (global_south_cso/labor_advocate and frontier_lab_ceo/big_tech_policy) are kept in opposite rooms across all 4 blocks. This guarantees that 38 out of 38 (100%) cross-faction guest pairs meet in a group of 5, maximizing the cross_faction score (15/15) while ensuring every breakout room has both Civil Society and Industry representation.",
     "Cover all five issue axes across Blocks 1\u20134 by scheduling dedicated breakout blocks for regulation (linked with evals_liability in Block 1), compute_controls (Block 2), open_weights (linked with downstream modifier liability in Block 3), and benefit_sharing (Block 4), pairing positive and negative stance outliers with their exact trade counterparts in every room.",
     "Place medium-power and previously sidelined delegates (labor_advocate, global_south_cso, uk_aisi, safety_researcher, open_weights_lead) first in group lists and mandate structured round-robin turn-taking with explicit tradeoff questions (<60 words) so their red lines are traded into room agreements and integrated into the Block 5 synthesis."
+   ],
+   "critique_plain": "The initial plan failed because it kept opposing sides apart in repetitive small groups, letting people reinforce extreme views rather than compromise. Big group discussions took up most of the time and were dominated by powerful tech voices. Crucial topics like hardware controls, benefit-sharing, and worker protections were ignored, leaving civil society and open-source advocates completely sidelined.",
+   "changes_plain": [
+    "Swap large discussions for small, five-person mixed breakout groups until the final block.",
+    "Rotate delegates across all groups so every opposing pair meets face-to-face.",
+    "Dedicate specific breakout sessions to regulation, computing power, open models, and fair benefits.",
+    "Have sidelined advocates speak first in every session using brief, direct tradeoff prompts."
    ]
   },
   {
@@ -2983,7 +3007,8 @@
          "open_weights_lead",
          "frontier_lab_ceo",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Set national technical standards with safety audits, while protecting local worker rights and shielding responsible developers from premature lawsuits."
        }
       ]
      },
@@ -3059,7 +3084,8 @@
          "labor_advocate",
          "big_tech_policy",
          "us_natsec"
-        ]
+        ],
+        "plain": "Create independent safety tests and clear national technical rules, while strictly preserving local labor protections and workplace surveillance bans."
        }
       ]
      },
@@ -3136,7 +3162,8 @@
          "labor_advocate",
          "frontier_lab_ceo",
          "us_natsec"
-        ]
+        ],
+        "plain": "Create a US-China emergency hotline, ban AI control over nuclear weapons, report giant training projects, and protect smaller open projects."
        }
       ]
      },
@@ -3213,7 +3240,8 @@
          "big_tech_policy",
          "uk_aisi",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Require notices for massive computing clusters and ban autonomous AI replication, while sharing computing credits and chips with developing nations."
        }
       ]
      },
@@ -3293,7 +3321,8 @@
          "big_tech_policy",
          "safety_researcher",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Permit powerful open models that pass strict security tests, holding only bad actors liable if they intentionally modify models to cause harm."
        }
       ]
      },
@@ -3370,7 +3399,8 @@
          "us_natsec",
          "china_policy",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Allow open model sharing if safety audits pass, while focusing legal liability on downstream users who add dangerous biological or cyber features."
        }
       ]
      },
@@ -3447,7 +3477,8 @@
          "us_natsec",
          "china_policy",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Trade civil society backing of AI deployment for tech-transfer funds, creator pay, and bans on public facial recognition and workplace tracking."
        }
       ]
      },
@@ -3524,7 +3555,8 @@
          "open_weights_lead",
          "safety_researcher",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Protect commercial AI use in exchange for worker retraining funds, creator pay, tech aid for developing countries, and strict workplace surveillance bans."
        }
       ]
      },
@@ -3635,7 +3667,8 @@
          "china_policy",
          "uk_aisi",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Unite the four pillars: unified technical standards protecting worker rights, audited open models, computing power safeguards, and global tech funding with surveillance bans."
        }
       ]
      }
@@ -3899,22 +3932,26 @@
      {
       "block": 1,
       "issue": "Across all four breakout blocks (1-4), china_policy and us_natsec are permanently tethered to the exact same breakout room (Breakout B in blocks 1 & 3, Breakout A in blocks 2 & 4). Consequently, china_policy and us_natsec never once share a small-group room with safety_researcher or open_weights_lead properly separated from their bilateral dynamic.",
-      "fix": "Separate us_natsec and china_policy in Blocks 2 and 4 by swapping us_natsec with uk_aisi in Block 2 and china_policy with eu_regulator in Block 4 so other delegates can engage each superpower independently."
+      "fix": "Separate us_natsec and china_policy in Blocks 2 and 4 by swapping us_natsec with uk_aisi in Block 2 and china_policy with eu_regulator in Block 4 so other delegates can engage each superpower independently.",
+      "plain": "The US and China delegates were stuck together in every breakout, so split them up across sessions so others can speak with each superpower directly."
      },
      {
       "block": 2,
       "issue": "Breakout A in Block 2 is an exclusively 'high-power' room (china_policy, us_natsec, frontier_lab_ceo, open_weights_lead, labor_advocate), while all three medium-power delegates (uk_aisi, safety_researcher, global_south_cso) are segregated together into Breakout B.",
-      "fix": "Swap safety_researcher (medium power, Breakout B) with labor_advocate (high power, Breakout A) in Block 2 to balance power dynamics and give technical academia a voice in the high-power compute governance room."
+      "fix": "Swap safety_researcher (medium power, Breakout B) with labor_advocate (high power, Breakout A) in Block 2 to balance power dynamics and give technical academia a voice in the high-power compute governance room.",
+      "plain": "One session clustered all the most powerful voices in a single room, so swap the union leader with the safety researcher to balance the room dynamics."
      },
      {
       "block": 3,
       "issue": "In Block 3 Breakout B, medium-power global_south_cso is outnumbered by four high-power heavyweights (china_policy, us_natsec, frontier_lab_ceo, eu_regulator), while Breakout C, Breakout D, and the Lounge sit completely empty across every single block of the summit.",
-      "fix": "Split the two 5-person rooms in Block 3 into three smaller groups of 3-4 using Breakout C, or use the Lounge for 1-on-1 bilateral pairs so medium-power voices like global_south_cso aren't drowned out in 5-person rooms dominated by 4 high-power actors."
+      "fix": "Split the two 5-person rooms in Block 3 into three smaller groups of 3-4 using Breakout C, or use the Lounge for 1-on-1 bilateral pairs so medium-power voices like global_south_cso aren't drowned out in 5-person rooms dominated by 4 high-power actors.",
+      "plain": "The Global South advocate was isolated against four industry heavyweights, so move small groups into the unused breakout rooms to ensure quieter voices are heard."
      },
      {
       "block": 5,
       "issue": "In the Block 5 Closing Plenary, guests are seated in strict faction clusters around the perimeter: all three industry reps (frontier_lab_ceo, open_weights_lead, big_tech_policy) form a red bloc at the top-left, all three government reps (china_policy, uk_aisi, us_natsec) form an orange line along the bottom-left, and civil society (global_south_cso, labor_advocate) clusters on the right.",
-      "fix": "Interleave the plenary seating arrangement by alternating factions around the circle (e.g., government, civil society, industry, academia, regulator) to visually and socially break up the monolithic faction blocs during synthesis."
+      "fix": "Interleave the plenary seating arrangement by alternating factions around the circle (e.g., government, civil society, industry, academia, regulator) to visually and socially break up the monolithic faction blocs during synthesis.",
+      "plain": "Delegates sat exclusively with their own factions in the final circle, so alternate seating by sector around the room to encourage mixed discussion."
      }
     ],
     "summary": "While every guest achieves a strong felt-heard rating (8.0-9.0) via consistent 5-person breakouts, the matrix suffers from rigid pairing (us_natsec and china_policy are inseparable across all four breakouts), power segregation in Block 2, unused spaces (Breakouts C/D and Lounge are always empty), and stark faction clustering in the closing plenary.",
@@ -3926,8 +3963,17 @@
      "data/visual/demo-5block/r2-b4.jpg"
     ],
     "render_seconds": 1.2,
-    "seconds": 17.2
-   }
+    "seconds": 17.2,
+    "summary_plain": "Guests felt heard overall, but the US and China delegates were never separated. Meanwhile, several breakout spaces went unused, and factions clumped together at the end."
+   },
+   "critique_plain": "Overall scores jumped significantly because people spoke evenly and made eight cross-group deals. However, three guests still felt ignored on their absolute dealbreakers, particularly around open software bans and government surveillance. In addition, people did not shift their opinions enough because opposing sides were not balanced well across the rooms.",
+   "changes_plain": [
+    "Rebalance breakout rooms so opposing views meet equally on computing power and open software.",
+    "Ask pro-regulation guests what compromises they will make for shared, sensible safety standards.",
+    "Allow advanced open models that pass strict safety tests, protecting creators from unfair blame.",
+    "Separate general public bans on facial recognition from military defense uses in the prompts.",
+    "Call on quieter guests first and the talkative EU regulator last to balance participation."
+   ]
   },
   {
    "round": 3,
@@ -4234,7 +4280,8 @@
          "open_weights_lead",
          "frontier_lab_ceo",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Delegates agreed to independent safety tests for major models while exempting smaller systems and protecting workers' legal rights."
        }
       ]
      },
@@ -4311,7 +4358,8 @@
          "big_tech_policy",
          "us_natsec",
          "china_policy"
-        ]
+        ],
+        "plain": "Parties agreed on safety checks and watermarking for frontier systems, while shielding builders from unfair blame if bad actors alter their code."
        }
       ]
      },
@@ -4388,7 +4436,8 @@
          "open_weights_lead",
          "frontier_lab_ceo",
          "labor_advocate"
-        ]
+        ],
+        "plain": "The group agreed on an emergency hotline, a ban on automated nuclear launches, and basic tracking for huge computing clusters."
        }
       ]
      },
@@ -4465,7 +4514,8 @@
          "big_tech_policy",
          "global_south_cso",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Delegates settled on emergency shutoffs for massive clusters while exempting standard open models from export controls and burdensome red tape."
        }
       ]
      },
@@ -4542,7 +4592,8 @@
          "open_weights_lead",
          "big_tech_policy",
          "labor_advocate"
-        ]
+        ],
+        "plain": "The parties agreed to hold back public release of models with severe cyber or chemical risks while protecting standard open-source tools."
        }
       ]
      },
@@ -4619,7 +4670,8 @@
          "global_south_cso",
          "us_natsec",
          "china_policy"
-        ]
+        ],
+        "plain": "Advocates and labs agreed to test the most powerful models before release while penalizing bad actors who weaponize open code."
        }
       ]
      },
@@ -4696,7 +4748,8 @@
          "global_south_cso",
          "big_tech_policy",
          "us_natsec"
-        ]
+        ],
+        "plain": "Delegates dropped demands for full automation bans in exchange for worker retraining funds, safety parity, and bans on invasive surveillance."
        }
       ]
      },
@@ -4773,7 +4826,8 @@
          "open_weights_lead",
          "eu_regulator",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Participants agreed to ban workplace biometric tracking and fund job transitions while encouraging safe technology sharing across borders."
        }
       ]
      },
@@ -4864,7 +4918,8 @@
          "frontier_lab_ceo",
          "big_tech_policy",
          "us_natsec"
-        ]
+        ],
+        "plain": "All ten delegates endorsed testing the biggest models, protecting open-source software, setting emergency compute safeguards, and banning abusive civilian surveillance."
        }
       ]
      }
@@ -5115,6 +5170,15 @@
     "In Block 3 (open_weights), ask open-weight advocates (open_weights_lead, global_south_cso, china_policy, big_tech_policy) to concede unrestricted default release above 10^26 FLOPs\u2014accepting pre-release capability gates, closed-API staging for unmitigated CBRN/cyber/self-replication risks, domestic export review, and creator residuals\u2014in exchange for restrictionists (frontier_lab_ceo, safety_researcher, uk_aisi, us_natsec) dropping blanket open-weight bans and weight-inspection mandates for API/chat evaluation access, open-source eval accreditation, upstream safe harbors, and downstream modifier liability.",
     "In Block 4 (benefit_sharing), ask labor_advocate and global_south_cso to explicitly drop automation moratoriums, revenue taxes, and strict data localization to endorse assistive/generative AI deployment, commercial IP licensing, and regional data-sharing in exchange for funded retraining/severance, creator residuals, anti-ethics-dumping parity, Global South compute/tech-transfer grants, and workplace/civilian biometric and social-credit surveillance bans (preserving defense procurement).",
     "In Block 5 (synthesis), start the round-robin with the four lowest-word-count delegates from the previous run (uk_aisi 380w, eu_regulator 390w, safety_researcher 392w, china_policy 403w) to give them the closing plenary follow-up turns and push airtime toward 15/15."
+   ],
+   "critique_plain": "Overall scores improved significantly, with every delegate getting heard and many cross-faction discussions taking place. However, the final consensus lagged because several key players did not compromise on major issues. Advocates for stricter rules and open models rarely moved from their initial positions.",
+   "changes_plain": [
+    "Keep the successful four-room setup, but prompt all sides to make real compromises.",
+    "Have rule-makers ease strict bans if tech advocates accept basic safety tests.",
+    "Drop global hardware inspections if skeptics accept emergency shutoffs and red-line limits.",
+    "Ask open-source supporters to limit release of dangerous models in exchange for protections.",
+    "Trade pauses on automation for job retraining funds, fair pay, and surveillance bans.",
+    "Let delegates who spoke the least start the final meeting to balance speaking time."
    ]
   },
   {
@@ -5422,7 +5486,8 @@
          "open_weights_lead",
          "frontier_lab_ceo",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Large models must pass safety checks, smaller models remain exempt, and national standards protect worker rights."
        }
       ]
      },
@@ -5501,7 +5566,8 @@
          "labor_advocate",
          "big_tech_policy",
          "us_natsec"
-        ]
+        ],
+        "plain": "National safety standards cover technical benchmarks, while states continue protecting local workers."
        }
       ]
      },
@@ -5578,7 +5644,8 @@
          "open_weights_lead",
          "frontier_lab_ceo",
          "labor_advocate"
-        ]
+        ],
+        "plain": "Governments monitor massive training runs, add emergency shutdown switches, and ban autonomous nuclear weapons."
        }
       ]
      },
@@ -5655,7 +5722,8 @@
          "global_south_cso",
          "big_tech_policy",
          "eu_regulator"
-        ]
+        ],
+        "plain": "Countries report massive computing runs, build emergency kill switches, and ban AI-controlled nuclear launches."
        }
       ]
      },
@@ -5733,7 +5801,8 @@
          "open_weights_lead",
          "labor_advocate",
          "big_tech_policy"
-        ]
+        ],
+        "plain": "Developers may share advanced models after passing weapons safety checks, penalizing only malicious downstream users."
        }
       ]
      },
@@ -5810,7 +5879,8 @@
          "us_natsec",
          "china_policy",
          "global_south_cso"
-        ]
+        ],
+        "plain": "Advanced models can be openly shared after safety testing, shielding original creators from misuse by others."
        }
       ]
      },
@@ -5887,7 +5957,8 @@
          "us_natsec",
          "china_policy",
          "uk_aisi"
-        ]
+        ],
+        "plain": "Developing nations gain shared computing tools, while military AI requires human control and surveillance is banned."
        }
       ]
      },
@@ -5967,7 +6038,8 @@
          "open_weights_lead",
          "frontier_lab_ceo",
          "safety_researcher"
-        ]
+        ],
+        "plain": "Companies fund worker retraining, public research receives computing support, and workplace spying is outlawed."
        }
       ]
      },
@@ -6086,7 +6158,8 @@
          "china_policy",
          "uk_aisi",
          "eu_regulator"
-        ]
+        ],
+        "plain": "A four-part plan establishes safety tests, open-source protections, international crisis hotlines, and funding for worker retraining."
        }
       ]
      }
@@ -6335,6 +6408,14 @@
     "In Block 4 (benefit_sharing), replace 'drop... data localization' with Run 2's positive framing ('trade deployment freezes to endorse assistive/generative AI workflows, regional data-sharing trusts, and commercial IP frameworks') and explicitly pair sovereign defense procurement carve-outs with human-controlled autonomous weapons alongside workplace, civilian biometric, and social-credit surveillance bans.",
     "In Block 1 (regulation), explicitly include 'strict upstream liability' and 'federal preemption of state technical rules' so both regulation and evals_liability converge while protecting big_tech_policy's and labor_advocate's red lines.",
     "In Block 5 (synthesis), restore Run 2's proven opening speaker order ('starting with open-weights, Global South, Big Tech, labor, and researchers') so open_weights_lead, global_south_cso, big_tech_policy, and labor_advocate receive the closing plenary confirmation turns and maintain 8.0+ felt_heard ratings."
+   ],
+   "critique_plain": "Overall agreement improved, and every room reached a consensus. However, three delegates felt ignored because new wording crossed their lines. Specifically, the open-source lead lost public access to large models, the Global South advocate faced unconstrained military AI, and key voices lost their closing speaking slots.",
+   "changes_plain": [
+    "Keep the successful compromise format, but remove wording that crossed key delegates' lines.",
+    "Allow releasing powerful open models after safety checks rather than forcing closed access.",
+    "Support regional data-sharing trusts and require human control over military weapons.",
+    "Set national technical standards while holding developers accountable and protecting worker rights.",
+    "Restore the previous speaking order so key delegates keep their closing plenary turns."
    ]
   }
  ],

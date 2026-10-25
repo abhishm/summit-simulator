@@ -75,7 +75,8 @@ def _replay_events(run: dict) -> list[tuple[str, dict]]:
         r, res = h["round"], h["result"]
         if r > 0:
             ev.append(("thinking", {"round": r}))
-        ev.append(("round_start", {"round": r, "plan": h["plan"], "critique": h["critique"], "changes": h["changes"]}))
+        ev.append(("round_start", {"round": r, "plan": h["plan"], "critique": h["critique"], "changes": h["changes"],
+                                   "critique_plain": h.get("critique_plain"), "changes_plain": h.get("changes_plain")}))
         stances = {k: dict(v) for k, v in res["initial_stances"].items()}
         for bi, block in enumerate(h["plan"]["blocks"]):
             gs = [g for g in res["groups"] if g["block"] == bi]

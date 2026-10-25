@@ -52,6 +52,7 @@ class Turn(BaseModel):
 class Agreement(BaseModel):
     text: str
     parties: list[str]
+    plain: str = Field(default="", description="The same agreement in one short sentence (under 25 words) of everyday words a non-expert understands")
 
 
 class GroupResult(BaseModel):

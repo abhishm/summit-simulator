@@ -27,6 +27,7 @@
   #agenda { position:absolute; left:14px; bottom:12px; display:flex; gap:6px; flex-wrap:wrap; max-width:96%; }
   .blk { background:rgba(22,27,36,.9); border:1px solid var(--line); border-radius:6px; padding:5px 8px; max-width:230px; }
   .blk.on { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+  .blk { cursor:pointer; pointer-events:auto; } .blk:hover { border-color:#5a6a8a; }
   .blk .f { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); }
   #legend { position:absolute; right:14px; top:12px; background:rgba(14,17,23,.85); border:1px solid var(--line); border-radius:8px; padding:6px 10px; }
   .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; vertical-align:middle; }
@@ -80,6 +81,7 @@
   <select id="blocks" title="Blocks per day"><option value="3" selected>3 blocks</option><option value="5">5 blocks</option></select>
   <select id="thinking" title="Argon thinking level"><option>low</option><option selected>medium</option><option>high</option></select>
   <label class="muted" title="After each round, Playwright screenshots every block of the 3D venue and Gemini 4 Argon critiques the images; its flaws feed the next revision"><input type="checkbox" id="visualChk" /> 👁 visual critic</label>
+  <label class="muted" title="Show the AI's notes in plain, everyday language (untick for the original detailed version)"><input type="checkbox" id="plainChk" /> plain English</label>
   <button class="primary" id="liveBtn">⚡ Run live</button>
 </header>
 <main>
@@ -275,7 +277,8 @@ function renderPersonas(ratings = null) {
 }
 function renderAgenda(plan, on = -1) {
   $("agenda").innerHTML = (plan?.blocks || []).map((b, i) =>
-    `<div class="blk ${i === on ? "on" : ""}"><div class="f">${i + 1} · ${b.format} · ${b.topic}</div>${b.title}</div>`).join("");
+    `<div class="blk ${i === on ? "on" : ""}" data-b="${i}" title="Click to see who sat where and what they said in this block"><div class="f">${i + 1} · ${b.format} · ${b.topic}</div>${b.title}</div>`).join("");
+  $("agenda").querySelectorAll(".blk").forEach(el => el.onclick = () => openBlock(+el.dataset.b));
 }
 const ST = { W: 0, rows: [] };
 function renderStanceAxes() {
@@ -317,26 +320,55 @@ function renderChart() {
   svg.innerHTML = s;
   svg.querySelectorAll(".chartbar").forEach(g => g.onclick = () => replayRound(+g.dataset.r));
 }
+function openBlock(bi) {
+  const R = ROUNDS[VIEW_ROUND], d = R?.blocks?.[bi];
+  if (busy || Q.length || !d) return;  // only after the round has finished playing
+  const b = R.plan.blocks[bi]; renderAgenda(R.plan, bi);
+  status(`<b>${VIEW_ROUND ? "Round " + VIEW_ROUND : "Baseline"}</b> · block ${bi + 1}/${R.plan.blocks.length}: ${esc(b.title)} <span class="muted">(${b.format}) · click another block to compare</span>`);
+  d.groups.forEach((g, gi) => {
+    const pos = slots(g.room, g.members.length, gi, d.groups.length);
+    (g.room === "Plenary Hall" ? interleave(g.members) : g.members).forEach((m, k) => { if (AV[m]) { AV[m].target.copy(pos[k]); AV[m].bounce = 1; } });
+  });
+  setStances(d.stances);
+  $("feedBody").innerHTML = ""; feed(`<div class="room" style="margin-top:4px">━━ Block ${bi + 1}: ${esc(b.title)} ━━</div>`);
+  d.groups.forEach((g, gi) => {
+    feed(`<div class="room" style="margin-top:8px"><b>${g.room}${g.room === "Lounge" ? " " + (gi + 1) : ""}</b> · ${g.members.map(short).join(", ")}</div>`);
+    g.transcript.forEach(t => feed(`<div class="t"><span class="sp" style="color:${FAC[PBY[t.speaker]?.faction]}">${short(t.speaker)}</span>: ${esc(t.text)}</div>`));
+    g.agreements.forEach(a => feed(`<div class="agr">✓ Agreement (${a.parties.map(short).join(", ")}): ${esc(pl(a.plain, a.text))}</div>`));
+  });
+  $("feed").scrollTop = 0;
+}
 function feed(html) { const b = $("feedBody"); b.insertAdjacentHTML("beforeend", html); $("feed").scrollTop = 1e9; while (b.children.length > 300) b.firstChild.remove(); }
 function status(html) { $("status").innerHTML = html; }
 
 let V_DEFAULT = null;
+let PLAIN = localStorage.getItem("plain") !== "0", CUR_CRIT = null, LAST_V = null;
+const pl = (plain, orig) => (PLAIN && plain) ? plain : orig;
+function renderCrit(d) {
+  CUR_CRIT = d;
+  $("critique").textContent = pl(d.critique_plain, d.critique) || "Baseline: the typical summit design. Plenary statements and breakouts grouped by faction.";
+  const ch = PLAIN && (d.changes_plain || []).length ? d.changes_plain : (d.changes || []);
+  $("changes").innerHTML = ch.map(c => `<li>${esc(c)}</li>`).join("");
+}
 function renderVisual(v, round) {
+  LAST_V = [v, round];
   V_DEFAULT ??= $("vBody").innerHTML;
   if (v === undefined) { $("vRound").textContent = ""; $("vBody").innerHTML = V_DEFAULT; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
   $("vRound").textContent = v ? `(round ${round === 0 ? "baseline" : round})` : "";
   if (!v) { $("vBody").innerHTML = `<span class="muted">No visual critique for this round.</span>`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
   if (v.error) { $("vBody").innerHTML = `<span style="color:#f28b82">Visual critic failed:</span> ${esc(v.error)}`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
   if (v.pending) { $("vBody").innerHTML = `<span class="spinner"></span>Rendering each block and asking Argon to critique the screenshots…`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
-  $("vBody").innerHTML = `<span id="vScore" style="color:${v.score >= 7 ? "#81c995" : v.score >= 5 ? "#fdd663" : "#f28b82"}">${v.score}/10</span> · ${esc(v.summary)}`;
-  const chk = (v.previous || []).length ? `<div class="vchk"><b>Verified on this render: ${v.previous.filter(x => x.fixed).length}/${v.previous.length} of last round's flaws fixed</b>` +
-    v.previous.map(x => `<div title="${esc(x.evidence)}">${x.fixed ? "✅" : "❌"} B${x.block}: ${esc(x.issue)}</div>`).join("") + `</div>` : "";
+  $("vBody").innerHTML = `<span id="vScore" style="color:${v.score >= 7 ? "#81c995" : v.score >= 5 ? "#fdd663" : "#f28b82"}">${v.score}/10</span> · ${esc(pl(v.summary_plain, v.summary))}`;
+  const chk = (v.previous || []).length ? `<div class="vchk"><b>${PLAIN ? `Did last round's fixes work? ${v.previous.filter(x => x.fixed).length} of ${v.previous.length} fixed` : `Verified on this render: ${v.previous.filter(x => x.fixed).length}/${v.previous.length} of last round's flaws fixed`}</b>` +
+    v.previous.map(x => `<div title="${esc(x.evidence)}">${x.fixed ? "✅" : "❌"} B${x.block}: ${esc(pl(x.plain, x.issue))}</div>`).join("") + `</div>` : "";
   $("vBody").innerHTML += chk;
-  $("vFlaws").innerHTML = (v.flaws || []).map(f => `<li><b>B${f.block}</b>: ${esc(f.issue)} <span class="fx">→ ${esc(f.fix)}</span></li>`).join("");
+  $("vFlaws").innerHTML = (v.flaws || []).map(f => PLAIN && f.plain ? `<li><b>Block ${f.block}</b>: ${esc(f.plain)}</li>` : `<li><b>B${f.block}</b>: ${esc(f.issue)} <span class="fx">→ ${esc(f.fix)}</span></li>`).join("");
   $("vThumbs").innerHTML = (v.images || []).map((p, i) => `<img src="/${p}" title="block ${i + 1}" loading="lazy" />`).join("");
   $("vThumbs").querySelectorAll("img").forEach(im => im.onclick = () => { $("vZoom").querySelector("img").src = im.src; $("vZoom").style.display = "flex"; });
 }
 $("vZoom").onclick = () => $("vZoom").style.display = "none";
+$("plainChk").checked = PLAIN;
+$("plainChk").onchange = () => { PLAIN = $("plainChk").checked; localStorage.setItem("plain", PLAIN ? "1" : "0"); if (CUR_CRIT) renderCrit(CUR_CRIT); if (LAST_V) renderVisual(...LAST_V); };
 window.showVisual = renderVisual; // lets scripted recordings show a critique from another run
 
 // headless entry point: place everyone for one block instantly (no animation) so Playwright can screenshot it
@@ -367,13 +399,12 @@ async function pump() { if (busy) return; busy = true; while (Q.length) { const 
 
 async function handle(kind, d) {
   if (kind === "round_start") {
-    ROUNDS[d.round] = { ...(ROUNDS[d.round] || {}), plan: d.plan, critique: d.critique, changes: d.changes, blocks: [] };
+    ROUNDS[d.round] = { ...(ROUNDS[d.round] || {}), plan: d.plan, critique: d.critique, changes: d.changes, critique_plain: d.critique_plain, changes_plain: d.changes_plain, blocks: [] };
     VIEW_ROUND = d.round; renderChart();
     renderAgenda(d.plan); setStances(Object.fromEntries(PERSONAS.map(p => [p.id, p.stances])));
     for (const a of Object.values(AV)) a.ring.material.opacity = 0;
     $("critRound").textContent = d.round ? `(round ${d.round})` : "(baseline)";
-    $("critique").textContent = d.critique || "Baseline: the typical summit design. Plenary statements and breakouts grouped by faction.";
-    $("changes").innerHTML = (d.changes || []).map(c => `<li>${c}</li>`).join("");
+    renderCrit(d);
     if (ROUNDS[d.round].visual) renderVisual(ROUNDS[d.round].visual, d.round);
     status(`<b>${d.round ? "Round " + d.round : "Baseline"}</b>: ${d.plan.name}`);
     feed(`<div class="room" style="margin-top:8px">━━ ${d.round ? "Round " + d.round : "Baseline"}: ${d.plan.name} ━━</div>`);
@@ -403,7 +434,7 @@ async function handle(kind, d) {
       });
       await sleep(380);
     }
-    d.groups.forEach(g => g.agreements.forEach(a => feed(`<div class="agr">✓ Agreement (${a.parties.map(short).join(", ")}): ${a.text}</div>`)));
+    d.groups.forEach(g => g.agreements.forEach(a => feed(`<div class="agr">✓ Agreement (${a.parties.map(short).join(", ")}): ${esc(pl(a.plain, a.text))}</div>`)));
     setStances(d.stances);
     await sleep(500);
   } else if (kind === "round_done") {
@@ -434,7 +465,7 @@ async function handle(kind, d) {
 async function replayRound(r) {
   const R = ROUNDS[r]; if (!R || busy) return;
   PICK = r; approveLabel();
-  enqueue("round_start", { round: r, plan: R.plan, critique: R.critique, changes: R.changes });
+  enqueue("round_start", { round: r, plan: R.plan, critique: R.critique, changes: R.changes, critique_plain: R.critique_plain, changes_plain: R.changes_plain });
   R.blocks.forEach(b => b && enqueue("block", b));
   if (R.score) enqueue("round_done", { round: r, score: R.score, ratings: R.ratings });
   if (R.visual && !R.visual.pending) enqueue("visual", R.visual);
