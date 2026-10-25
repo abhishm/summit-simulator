@@ -17,9 +17,10 @@
   button.primary { background:#1a73e8; border-color:#1a73e8; font-weight:600; }
   button.approve { background:#188038; border-color:#188038; font-weight:600; }
   button:disabled { opacity:.45; cursor:default; }
-  main { display:grid; grid-template-columns: 1fr 440px; height:calc(100vh - 51px); }
-  #left { display:grid; grid-template-rows: 1fr 210px; min-width:0; }
-  #stage { position:relative; min-height:0; }
+  main { display:grid; grid-template-columns: 1fr 440px; grid-template-rows: 100%; height:calc(100vh - 51px); }
+  #left { display:grid; grid-template-rows: minmax(0, 1fr) 6px var(--bh, 210px); min-width:0; min-height:0; overflow:hidden; }
+  #split { cursor:row-resize; background:var(--line); opacity:.5; } #split:hover, #split.drag { background:var(--accent); opacity:1; }
+  #stage { position:relative; min-height:0; overflow:hidden; }
   #stage canvas { display:block; }
   #status { position:absolute; left:14px; top:12px; background:rgba(14,17,23,.85); border:1px solid var(--line); border-radius:8px; padding:8px 12px; max-width:60%; }
   #status b { color:var(--accent); }
@@ -29,8 +30,8 @@
   .blk .f { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); }
   #legend { position:absolute; right:14px; top:12px; background:rgba(14,17,23,.85); border:1px solid var(--line); border-radius:8px; padding:6px 10px; }
   .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; vertical-align:middle; }
-  #bottom { border-top:1px solid var(--line); display:grid; grid-template-columns: 1.2fr 1fr; min-height:0; }
-  #stances { padding:8px 14px; border-right:1px solid var(--line); }
+  #bottom { overflow:hidden; display:grid; grid-template-columns: 1.2fr 1fr; min-height:0; }
+  #stances { overflow:auto; padding:8px 14px; border-right:1px solid var(--line); }
   #stances h3, aside h3 { margin:0 0 6px; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); font-weight:600; }
   #feed { padding:8px 14px; overflow:auto; font-size:12px; }
   #feed .t { margin:2px 0; } #feed .sp { font-weight:600; } #feed .room { color:var(--dim); font-size:11px; }
@@ -58,7 +59,7 @@
   #vThumbs img:hover { border-color:var(--accent); }
   #vZoom { position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:11; cursor:zoom-out; }
   #vZoom img { max-width:92vw; max-height:88vh; border-radius:8px; }
-  body.static header, body.static aside, body.static #bottom { display:none; }
+  body.static header, body.static aside, body.static #bottom, body.static #split { display:none; }
   body.static main { grid-template-columns:1fr; height:100vh; } body.static #left { grid-template-rows:1fr; }
 </style>
 <script type="importmap">
@@ -88,8 +89,9 @@
       <div id="legend"></div>
       <div id="agenda"></div>
     </div>
+    <div id="split" title="Drag to resize"></div>
     <div id="bottom">
-      <div id="stances"><h3>Stances per issue (dots converge = consensus)</h3><svg id="stSvg" width="100%" height="170"></svg></div>
+      <div id="stances"><h3>Stances per issue (dots converge = consensus · hover an issue for its axis)</h3><svg id="stSvg" width="100%" height="170"></svg></div>
       <div id="feed"><h3 style="margin:0 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)">Live transcript</h3><div id="feedBody"></div></div>
     </div>
   </div>
@@ -161,6 +163,13 @@ function resize() {
   renderer.setSize(w, h); Object.assign(cam, { left: -f * a, right: f * a, top: f, bottom: -f }); cam.updateProjectionMatrix();
 }
 addEventListener("resize", resize);
+{ const L = document.getElementById("left"), sp = document.getElementById("split"), saved = localStorage.getItem("bh");
+  if (saved) L.style.setProperty("--bh", saved);
+  sp.onpointerdown = e => { sp.setPointerCapture(e.pointerId); sp.classList.add("drag"); };
+  sp.onpointermove = e => { if (!sp.classList.contains("drag")) return;
+    const r = L.getBoundingClientRect(), h = Math.max(120, Math.min(r.height - 160, r.bottom - e.clientY));
+    L.style.setProperty("--bh", h + "px"); resize(); };
+  sp.onpointerup = () => { sp.classList.remove("drag"); localStorage.setItem("bh", L.style.getPropertyValue("--bh")); resize(); }; }
 
 function label(text, size = 48, color = "#e6e9ef", bg = null) {
   const c = document.createElement("canvas"), x = c.getContext("2d");
@@ -275,7 +284,7 @@ function renderStanceAxes() {
   svg.innerHTML = issues.map((k, i) => {
     const y = 10 + i * rh + rh / 2;
     return `<line x1="120" x2="${W - 40}" y1="${y}" y2="${y}" stroke="#2a3242"/><line x1="${(120 + W - 40) / 2}" x2="${(120 + W - 40) / 2}" y1="${y - 6}" y2="${y + 6}" stroke="#3a4560"/>
-      <text x="0" y="${y + 3}">${k.replace("_", " ")}</text><text x="${W - 34}" y="${y + 3}" id="sd-${k}"></text>` +
+      <text x="0" y="${y + 3}" style="cursor:help">${k.replace("_", " ")}<title>← left: ${META.issues[k][0]}\n→ right: ${META.issues[k][1]}\nσ = spread of stances (lower = closer to consensus)</title></text><text x="${W - 34}" y="${y + 3}" id="sd-${k}"></text>` +
       PERSONAS.map(p => `<circle r="5" cx="0" cy="0" fill="${FAC[p.faction]}" fill-opacity=".85" stroke="#0e1117" id="st-${p.id}-${k}" style="transition:transform .9s; transform:translate(${(120 + W - 40) / 2}px,${y}px)"><title>${p.id}</title></circle>`).join("");
   }).join("");
 }
