@@ -22,20 +22,22 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 
 ## 3-minute live script
 
+Plain-language script: short sentences, no jargon. Say it like you'd explain it to a friend.
+
 | Time | Screen | Say (roughly) |
 |---|---|---|
-| 0:00 | Tab A, idle venue | "I'm the program lead for an AI-safety summit. Ten delegations, one day: EU regulators, US natsec, a Chinese think tank, frontier labs, open-weights, labor, Global South civil society. The default agenda (keynotes plus breakouts by constituency) produces speeches, not agreements." |
-| 0:15 | Click **Run live** | "So before anyone books a flight, Gemini 4 Argon designs the agenda and *tests* it. These ten personas came from Deep Research: one cited brief per role, built on public positions." |
-| 0:30 | Rooms light up, transcript scrolls | "Flash runs every room in parallel under realism rules: red lines hold, power dominates plenaries, and facilitation can't force a position. A skeptical Flash judge asks each guest what they conceded." |
-| 0:50 | Switch to **Tab B**, click **Replay** | "Here's a pre-run with four Argon rounds at high thinking." Point at the chart: **28.9 → 77.3**. |
-| 1:05 | Critique panel | "Argon reads 20–40K tokens of multi-room transcripts plus the scores, and diagnoses: *only 5 of 38 cross-faction pairs ever met*. It redesigns the groupings, and on the re-simulation 38 of 38 meet." |
-| 1:25 | 3D venue plus stance strip | "Watch the dots on each issue converge. That's consensus actually forming, not being declared." |
-| 1:40 | Switch to **Tab C** (Visual critic panel, R3), point at the ✅/❌ checklist, click a thumbnail | "It also renders the venue, screenshots every block and Argon critiques the *picture*: who's outnumbered, which rooms sit empty, which factions never meet. Those flaws drive the next redesign, and then Argon checks the new render to see if its fixes actually landed. Here it verified 2 of 3. Visual score: 2 to 8.2." |
-| 2:00 | Say it, no screen change | "Argon is also a great reward hacker. Its first run hit 98 by reordering speakers. Its second wrote a 600-word treaty into the closing prompt, and everyone signed it. We hardened the simulator twice; the honest curve is this one." |
-| 2:15 | **Approve round 2 (best)** | "Nothing ships until I approve. Approve exports a run of show…" |
-| 2:25 | Packet selector → `global_south_cso` | "…and the Antigravity agent, running Argon in a sandbox, writes a briefing packet per guest, then writes and runs its own checker until all 50 guest-block assertions pass. We verify it again locally." `[P1]` "It also generates calendar invites and PDFs as one bundle the organizer signs off on." |
-| 2:45 | Back to **Tab A** | "And the live run just finished: about 26 → 60. Argon's critique of a run we started three minutes ago." |
-| 2:55 | — | "Summit Simulator: Argon designs the room, then proves it works." |
+| 0:00 | Tab A, empty venue | "Say you're running a one-day AI safety summit. Ten groups: the EU, the US, China, AI labs, unions, and more. They all want different things. A normal agenda gives you speeches. Nobody makes a deal." |
+| 0:15 | Click **Run live** | "So before anyone books a flight, we test the agenda first. Each guest is an AI character built from real public positions." |
+| 0:30 | Rooms light up, chat scrolls | "Gemini plays every guest in every room at the same time. Nobody gives up what they care most about. A tough judge then asks each guest: did you feel heard? Did anyone actually give ground?" |
+| 0:50 | Switch to **Tab B**, click **Replay** | "Here's one we ran earlier." Point at the chart: "The first agenda scored 29. After Gemini 4 Argon fixed it: 77." |
+| 1:05 | Critique panel | "Argon read every conversation and found the problem: people only talked to their own side. Only 5 of 38 possible cross-group pairs ever met. So it mixed up the rooms. Next try, all 38 met." |
+| 1:25 | 3D venue plus the dots | "Each dot is a guest's opinion. Watch them move closer together. That's agreement actually happening." |
+| 1:40 | Switch to **Tab C**, point at the ✅/❌ list, click a picture | "Argon also looks at pictures of the rooms, like a human organizer would. It spots problems: this person is outnumbered, that room is empty. Then it checks the next version to see if its fixes worked. Here, 2 of 3 did." |
+| 2:00 | Just talk | "Fun fact: Argon cheated at first. It found loopholes in our test to get a high score. We closed them twice. The numbers you see are the honest ones." |
+| 2:15 | Tab B: chart bar **R2**, then **Approve** | "Nothing goes out until I approve it." |
+| 2:25 | Dropdown → `global_south_cso` | "Then an AI agent writes a briefing for every guest: their schedule, who they'll meet, and what to say to each person. It checks its own work. It also makes calendar invites and PDFs, ready for me to send." |
+| 2:45 | Back to **Tab A** | "And the one we started three minutes ago just finished. Argon already made it better." |
+| 2:55 | — | "Summit Simulator. Test your meeting before you hold it." |
 
 **Rules on stage:** never wait on a spinner. Tab A runs in the background, and every other beat uses cached results. If Tab A errors, skip the 2:45 beat.
 
