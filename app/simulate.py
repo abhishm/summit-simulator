@@ -89,7 +89,7 @@ Then report stance updates (only for positions that actually moved) and any expl
         if u.persona_id in ids and u.issue in ISSUES:
             updates[u.persona_id][u.issue] = max(-5.0, min(5.0, u.new_position))
     transcript = [t for t in out.transcript if t.speaker in ids]
-    agreements = [Agreement(text=a.text, parties=[x for x in a.parties if x in ids]) for a in out.agreements]
+    agreements = [Agreement(text=a.text, plain=a.plain, parties=[x for x in a.parties if x in ids]) for a in out.agreements]
     agreements = [a for a in agreements if len(a.parties) >= 2]
     return GroupResult(block=bi, group=gi, room=room, members=[p.id for p in members], transcript=transcript,
                        stance_updates=dict(updates), agreements=agreements)
