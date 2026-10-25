@@ -1,0 +1,2739 @@
+{
+ "personas": [
+  {
+   "id": "eu_regulator",
+   "title": "EU AI Office",
+   "faction": "regulator",
+   "summary": "The European AI Office operates with a dual posture: it acts as a neutral facilitator during multistakeholder code-of-practice drafting to build technical consensus, while wielding centralized, prosecutorial regulatory authority to enforce binding transparency, systemic risk compliance, and substantial statutory fines.",
+   "stances": {
+    "regulation": 5.0,
+    "open_weights": 0.0,
+    "compute_controls": 0.0,
+    "evals_liability": 4.0,
+    "benefit_sharing": 0.0
+   },
+   "red_lines": [
+    "Refusal by general-purpose AI providers to comply with binding Article 91 Requests for Information (RFIs)",
+    "Non-compliance with established statutory deadlines and enforcement orders under the EU AI Act"
+   ],
+   "tradeoffs": [
+    "Willing to act as a neutral facilitator and delegate working-group leadership to independent chairs to crowdsource industry expertise, provided market actors respect backstop statutory compliance and deterrence."
+   ],
+   "engagement": "Bifurcated: operates as an inclusive, neutral convener in drafting and working sessions, but switches to an uncompromising prosecutorial and sanctioning authority in formal oversight proceedings.",
+   "power": "high",
+   "sources": [
+    "https://casrai.org",
+    "https://artificialintelligenceact.eu",
+    "https://europa.eu",
+    "https://securing.ai",
+    "https://digitalapplied.com",
+    "https://nytivo.com"
+   ]
+  },
+  {
+   "id": "us_natsec",
+   "title": "U.S. National Security Advisor for AI",
+   "faction": "government",
+   "summary": "Focuses on maintaining U.S. technological supremacy, defending domestic frontier AI innovation, and securing military competitiveness. Prioritizes flexible, pro-innovation environments, supply chain protection via export controls, and targeted bilateral crisis mechanisms over binding international treaties or precautionary regulation.",
+   "stances": {
+    "regulation": -3.5,
+    "open_weights": -2.0,
+    "compute_controls": 4.0,
+    "evals_liability": -2.5,
+    "benefit_sharing": -4.0
+   },
+   "red_lines": [
+    "No international treaties or regulatory constraints that compromise U.S. technological advantages or limit rapid military AI adoption.",
+    "No ethical or anti-military restrictions imposed by commercial AI labs on Department of Defense procurement and capabilities."
+   ],
+   "tradeoffs": [
+    "Willing to engage in discrete bilateral channels and crisis-management mechanisms (such as a U.S.-China incident hotline) to mitigate automated nuclear or cyber escalation without signing binding arms-control agreements.",
+    "Willing to tolerate diplomatic friction with allies over precautionary AI regulation in order to maintain unconstrained U.S. frontier innovation and military readiness."
+   ],
+   "engagement": "Prefers closed-door, targeted working sessions, Track II dialogues, and discrete bilateral channels over performative public treaty negotiations.",
+   "power": "high",
+   "sources": [
+    "https://csis.org",
+    "https://whitehouse.gov",
+    "https://belfercenter.org",
+    "https://brookings.edu",
+    "https://cnas.org",
+    "https://sandia.gov"
+   ]
+  },
+  {
+   "id": "uk_aisi",
+   "title": "UK AI Safety Institute (AISI) Directorate",
+   "faction": "government",
+   "summary": "The UK AI Safety Institute Directorate approaches AI governance through an agile, empirical, and science-first posture. Lacking statutory enforcement powers, AISI maintains cooperative, embedded access to frontier developers to evaluate systemic risks\u2014demanding realistic agentic evaluations and advocating for developer liability and capability-based international coordination, while opposing default open-weight releases for frontier models and endorsing structural economic safeguards like windfall redistribution.",
+   "stances": {
+    "regulation": 1.0,
+    "open_weights": -3.5,
+    "compute_controls": 3.0,
+    "evals_liability": 4.5,
+    "benefit_sharing": 3.5
+   },
+   "red_lines": [
+    "Deployment of any model exhibiting unmitigated autonomous cyber-offense capabilities, chemical/biological weapon synthesis (CBRN), or the intentional subversion of human oversight (ASL-3/ASL-4 limits).",
+    "Frontier AI developers deliberately blocking pre-deployment evaluation access to their models."
+   ],
+   "tradeoffs": [
+    "Conceding full model weight access for interpretability in exchange for robust API and chat-interface access to maintain developer cooperation.",
+    "Trading statutory enforcement authority and regulatory friction for embedded, cooperative technical access within frontier research environments."
+   ],
+   "engagement": "Prioritizes science-first, technical working sessions over diplomatic posturing; collaborates with peer international institutes and independent evaluators while using open tooling like Inspect to set de facto global risk-measurement baselines.",
+   "power": "medium",
+   "sources": [
+    "https://aisi.gov.uk",
+    "https://www.gov.uk",
+    "https://brookings.edu",
+    "https://time.com",
+    "https://adalovelaceinstitute.org",
+    "https://governance.ai"
+   ]
+  },
+  {
+   "id": "china_policy",
+   "title": "Chinese State-Affiliated AI Governance Experts",
+   "faction": "government",
+   "summary": "State-affiliated Chinese AI governance experts advocate for 'agile governance'\u2014a dual approach combining national sovereignty and binding state safety mechanisms with flexible, dynamic technical standards and voluntary industry pledges. They champion open-source AI as a public good and strategic tool for the Global South, while enforcing strict lifecycle evaluations, domestic export controls on frontier compute thresholds, and state-centric benefit sharing.",
+   "stances": {
+    "regulation": 1.0,
+    "open_weights": 2.0,
+    "compute_controls": 1.0,
+    "evals_liability": 4.0,
+    "benefit_sharing": 4.0
+   },
+   "red_lines": [
+    "Unequivocal rejection of any global governance framework asserting centralized, extraterritorial control over domestic AI development, data ecosystems, or ideological safety standards.",
+    "Strict prohibitions against autonomous AI replication, self-improvement, deceptive alignment, and AI delegation in nuclear command and control."
+   ],
+   "tradeoffs": [
+    "Willing to adopt Western-aligned technical safety taxonomies and participate in international safety networks (like the network of AISIs) to secure a seat at the global governance table.",
+    "Willing to compromise on absolute open-weight freedom by backing domestic export controls on highest-tier frontier models (>2 trillion parameters or 10^26 FLOPs) to mitigate proliferation risks."
+   ],
+   "engagement": "Bifurcated: highly rhetorical, politically disciplined, and sovereignty-focused in formal intergovernmental venues (UN, plenaries); pragmatic, technical, and scientifically collaborative in academic working groups and Track II dialogues.",
+   "power": "high",
+   "sources": [
+    "csis.org (Stated Positions & Track Dialogues)",
+    "beijing-aisi.ac.cn (ForesightSafety Bench & Evaluations)",
+    "geopolitechs.org (Global AI Governance Initiative & Open-Source)",
+    "carnegieendowment.org (Agile Governance & Standards)",
+    "pekingnology.com (Agile Governance Framework)",
+    "idais.ai (International Dialogues on AI Safety)"
+   ]
+  },
+  {
+   "id": "frontier_lab_ceo",
+   "title": "Frontier AI Laboratory Chief Executive Officer",
+   "faction": "industry",
+   "summary": "The Chief Executive Officer of a closed frontier AI laboratory balances commercial scale, technological leadership, and catastrophic risk mitigation. Once relying on voluntary pledges, this stakeholder now actively advocates for binding regulatory frameworks and compute-based oversight to solve collective action problems, while staunchly opposing the open release of frontier model weights and rejecting broad pre-harm legal liability.",
+   "stances": {
+    "regulation": 3.5,
+    "open_weights": -4.5,
+    "compute_controls": 3.5,
+    "evals_liability": 0.5,
+    "benefit_sharing": 2.5
+   },
+   "red_lines": [
+    "Broad, pre-harm strict liability that exposes developers to perpetual tort litigation before catastrophic harm occurs.",
+    "Mandated open-sourcing or release of model weights that exceed advanced compute thresholds.",
+    "Unilateral domestic pauses on frontier training runs that do not bind geopolitical adversaries."
+   ],
+   "tradeoffs": [
+    "Offers 'employee-like' evaluator access to avoid strict tort liability and preempt fragmented state-level legislation.",
+    "Offers incident reporting, extensive red-teaming, and internal kill switches in exchange for keeping advanced capabilities restricted to closed APIs.",
+    "Supports centralized, industry-funded standards bodies (e.g., SAFA) to co-author regulatory thresholds that safeguard frontier incumbents against under-resourced challengers."
+   ],
+   "engagement": "Bifurcated: delivers elevated, statesman-like rhetoric emphasizing existential threats, CBRN non-proliferation, and democratic governance in high-profile public venues (e.g., UN, international summits), while shifting to highly technical, pragmatic negotiation over specific statutory parameters, compute thresholds, liability provisions, and workforce displacement mechanisms in closed-door sessions.",
+   "power": "high",
+   "sources": [
+    "senate.gov",
+    "anthropic.com",
+    "darioamodei.com",
+    "brookings.edu",
+    "ca.gov",
+    "theguardian.com"
+   ]
+  },
+  {
+   "id": "open_weights_lead",
+   "title": "Open-Weights AI Coalition Leader",
+   "faction": "industry",
+   "summary": "Represents an ecosystem of open-weights developers, open-source foundations, and enterprise infrastructure providers advocating for decentralized AI innovation. Strongly opposes regulatory capture by closed-model labs and resists the application of national security arms-control measures to open weights, emphasizing practical safety tooling, open evaluation frameworks, and transparent codebases instead of catastrophic risk narratives.",
+   "stances": {
+    "open_weights": 5.0,
+    "regulation": -3.0,
+    "compute_controls": -4.0,
+    "evals_liability": 1.0,
+    "benefit_sharing": -2.0
+   },
+   "red_lines": [
+    "Treating open model weights under arms-control frameworks or Defense Production Act restrictions.",
+    "Prohibiting the distribution, distillation, or fine-tuning of open-weight frontier models.",
+    "Designing AI safety regulations or compliance standards that exclusively cater to proprietary API architectures and effectively outlaw decentralized open-source distribution."
+   ],
+   "tradeoffs": [
+    "Willing to build, donate, and implement open-source evaluation tools, testing frameworks, and risk taxonomies in exchange for preserving the right to distribute open weights.",
+    "Willing to collaborate in formal government and multilateral safety bodies (like AISIC and AI Safety Summits) to prove open-source safety compliance."
+   ],
+   "engagement": "Collaborative, highly operational, and coalition-driven; engages deeply in technical working groups and standards-setting bodies (e.g., AISIC, AI Alliance) by contributing tangible safety tooling while countering closed-door catastrophic risk narratives.",
+   "power": "high",
+   "sources": [
+    "https://thealliance.ai",
+    "https://opensource.org",
+    "https://linuxfoundation.org",
+    "https://huggingface.co",
+    "https://techpolicy.press",
+    "https://csis.org"
+   ]
+  },
+  {
+   "id": "big_tech_policy",
+   "title": "VP of Public Policy, Major Cloud & AI Platforms",
+   "faction": "industry",
+   "summary": "Public policy leaders representing major cloud and frontier AI platforms advocate for a targeted, two-track regulatory system. They accept federal oversight and mandatory safety evaluations for frontier models\u2014conceptually modeled after FINRA-style self-regulatory organizations\u2014in exchange for federal preemption of state-level laws and statutory safe harbors against strict developer liability.",
+   "stances": {
+    "regulation": 1.0,
+    "open_weights": 2.0,
+    "compute_controls": 2.0,
+    "evals_liability": 0.0,
+    "benefit_sharing": -3.0
+   },
+   "red_lines": [
+    "A 50-state patchwork of un-preempted state AI legislation.",
+    "Imposition of strict, unbounded developer liability for downstream third-party model misuse or jailbreaks.",
+    "Input-based regulation that micromanages model architecture or training data collection (defending fair use for web scraping)."
+   ],
+   "tradeoffs": [
+    "Offering advanced frontier models to government AI Safety Institutes for pre-deployment testing in exchange for federal preemption of state regulations.",
+    "Accepting mandatory incident reporting and transparency measures (such as watermarking) in exchange for statutory safe harbor protections against liability."
+   ],
+   "engagement": "Bifurcated: collaborative, pragmatic, and ethical-framework driven in multilateral forums (OECD, UN, Congress) to narrow the scope of harm; aggressively transactional at state and electoral levels, deploying Super PACs, lobbying, and competitiveness arguments against restrictive laws.",
+   "power": "high",
+   "sources": [
+    "publicpolicy.google",
+    "regulations.ai",
+    "calchamber.com",
+    "microsoft.com",
+    "itic.org",
+    "oecd.ai"
+   ]
+  },
+  {
+   "id": "safety_researcher",
+   "title": "Academic AI Safety Researcher",
+   "faction": "academia",
+   "summary": "Academic AI safety researchers emphasize non-negotiable red lines, verifiable alignment, and legally binding international governance. They advocate for strict scientific auditing architectures, accept system capability and efficiency tradeoffs (the 'alignment tax'), and support restricting open-weight frontier model releases to prevent catastrophic and dual-use risks.",
+   "stances": {
+    "regulation": 5.0,
+    "open_weights": -4.0,
+    "compute_controls": 4.0,
+    "evals_liability": 5.0,
+    "benefit_sharing": 1.0
+   },
+   "red_lines": [
+    "Autonomous replication: Systems must not copy themselves or recursively enhance their own code/capabilities without explicit human approval.",
+    "CBRN weapons assistance: Systems must not substantially increase an actor's ability to design chemical, biological, radiological, or nuclear weapons.",
+    "Cyber-offense: Systems must not autonomously execute cyberattacks resulting in serious financial loss, physical harm, or critical infrastructure disruption.",
+    "Power seeking & deception: AI must not take actions to unduly increase its influence or consistently deceive regulators regarding its likelihood of crossing safety thresholds.",
+    "Lethal autonomy: Delegating life-taking decisions to machines is fundamentally rejected; humans must remain in the loop for kinetic military action.",
+    "Shutdown resistance: Systems must possess a legally mandated termination obligation to ensure they can be reliably deactivated without resistance."
+   ],
+   "tradeoffs": [
+    "Accepting the 'alignment tax': willing to concede raw system performance, development speed, and deployment efficiency in exchange for verifiable alignment.",
+    "Tolerating limitations on academic freedom, such as restricting open-source and open-weight distributions of frontier models.",
+    "Accepting bureaucratic friction and data minimization practices that may conflict with capability scaling to ensure security guarantees."
+   ],
+   "engagement": "Academic safety researchers employ a dual-track strategy. In public forums, they utilize high-profile multi-signatory open letters and consensus statements to define moral red lines and build political consensus. In closed-door multistakeholder summits, they act as technocratic architects, avoiding emotional appeals and instead providing empirical research reports, risk-management frameworks, and auditing architectures.",
+   "power": "medium",
+   "sources": [
+    "https://idais.ai",
+    "https://red-lines.ai",
+    "https://futureoflife.org",
+    "https://casrai.org",
+    "https://humancompatible.ai",
+    "https://aisi.gov.uk"
+   ]
+  },
+  {
+   "id": "global_south_cso",
+   "title": "Global South Civil Society Leader",
+   "faction": "civil_society",
+   "summary": "Advocates for international human rights law, digital sovereignty, and the prevention of digital colonialism and 'ethics dumping.' Rejects the unilateral imposition of Global North regulatory burdens while demanding binding corporate accountability, strict prohibitions on high-risk surveillance, and equitable technology transfer.",
+   "stances": {
+    "regulation": 4.0,
+    "open_weights": 3.0,
+    "compute_controls": -3.0,
+    "evals_liability": 4.0,
+    "benefit_sharing": 5.0
+   },
+   "red_lines": [
+    "Ethics dumping (deploying experimental or high-risk AI systems in Global South nations lacking regulatory safeguards).",
+    "Deployment of real-time biometric surveillance in public spaces, social credit scoring systems, and autonomous weapons without meaningful human control.",
+    "Regulatory imperialism (uncritical imposition of Global North frameworks that act as prohibitive compliance burdens on local innovators).",
+    "Governance models mandating cross-border data extraction without reciprocating digital knowledge sovereignty and fair economic return."
+   ],
+   "tradeoffs": [
+    "Willing to relax strict national data localization rules in favor of regionalized data sharing to support shared Global South public compute infrastructure.",
+    "Willing to accept existing international intellectual property and trade frameworks provided they include binding technology transfer, capacity-building, and funding mechanisms to bridge the AI divide."
+   ],
+   "engagement": "Dual-track engagement: highly normative, rights-based, and critical of power asymmetries in plenaries; evidence-based, infrastructural, and focused on actionable tools (public procurement, bias audits, public compute) in working groups.",
+   "power": "medium",
+   "sources": [
+    "https://cadeproject.org",
+    "https://facctconference.org",
+    "https://bilaterals.org",
+    "https://itforchange.net",
+    "https://atlasai.institute",
+    "https://cipesa.org"
+   ]
+  },
+  {
+   "id": "labor_advocate",
+   "title": "Labor Union Technology & Workforce Transition Leader",
+   "faction": "civil_society",
+   "summary": "Represents organized labor advocating for worker-centered AI governance that prioritizes job security, workplace dignity, and economic equity. Rejects voluntary industry commitments in favor of binding statutory floors, human-in-the-loop oversight, mandatory pre-deployment audits, and strong developer liability, while treating collective bargaining as the indispensable foundation of AI deployment.",
+   "stances": {
+    "regulation": 5.0,
+    "open_weights": 0.0,
+    "compute_controls": 1.0,
+    "evals_liability": 5.0,
+    "benefit_sharing": 5.0
+   },
+   "red_lines": [
+    "Federal preemption that overrides or obstructs stronger state-level AI regulations and worker protections.",
+    "Covert or undisclosed workplace surveillance, such as biometric tracking, keystroke logging, or emotional monitoring used for discipline.",
+    "Fully automated hiring, disciplinary, or termination decisions without human oversight, algorithmic transparency, and a formalized right to appeal.",
+    "Training commercial models on proprietary creative output or worker-generated content without explicit consent and fair compensation."
+   ],
+   "tradeoffs": [
+    "Accepting the deployment of AI as an assistive tool or allowing automated hardware in exchange for robust transition frameworks, extended severance, priority re-hiring, and employer-funded retraining pipelines.",
+    "Permitting generative AI workflows in creative and technical sectors provided there are strict consent mechanisms, financial residuals, and explicit prohibitions against crediting AI as a primary author.",
+    "Permitting the use of certain operational data to train internal operational models on the condition that the union retains audit rights over the algorithm."
+   ],
+   "engagement": "Highly active in formal multistakeholder and technical consortia (e.g., AISIC) and direct industry partnerships (e.g., AFL-CIO and Microsoft) to inject worker-centered design upstream, while maintaining that non-binding dialogue can never substitute for legally enforceable collective bargaining agreements.",
+   "power": "high",
+   "sources": [
+    "https://aflcio.org",
+    "https://cwa-union.org",
+    "https://brookings.edu",
+    "https://ntia.gov",
+    "https://uniglobalunion.org",
+    "https://microsoft.com"
+   ]
+  }
+ ],
+ "history": [
+  {
+   "round": 0,
+   "plan": {
+    "name": "Baseline (typical summit)",
+    "rationale": "Plenary speeches + breakouts grouped by faction.",
+    "blocks": [
+     {
+      "title": "Opening statements",
+      "format": "plenary",
+      "topic": "opening",
+      "prompt": "Each delegation states its priorities for AI safety governance.",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "uk_aisi",
+        "china_policy",
+        "frontier_lab_ceo",
+        "open_weights_lead",
+        "big_tech_policy",
+        "safety_researcher",
+        "global_south_cso",
+        "labor_advocate"
+       ]
+      ]
+     },
+     {
+      "title": "Regulation track breakouts",
+      "format": "breakouts",
+      "topic": "regulation",
+      "prompt": "Discuss the right model for AI regulation.",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "uk_aisi",
+        "china_policy"
+       ],
+       [
+        "frontier_lab_ceo",
+        "open_weights_lead",
+        "big_tech_policy"
+       ],
+       [
+        "safety_researcher",
+        "global_south_cso",
+        "labor_advocate"
+       ]
+      ]
+     },
+     {
+      "title": "Closing plenary",
+      "format": "plenary",
+      "topic": "synthesis",
+      "prompt": "Summarize outcomes and next steps.",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "uk_aisi",
+        "china_policy",
+        "frontier_lab_ceo",
+        "open_weights_lead",
+        "big_tech_policy",
+        "safety_researcher",
+        "global_south_cso",
+        "labor_advocate"
+       ]
+      ]
+     }
+    ]
+   },
+   "result": {
+    "plan": {
+     "name": "Baseline (typical summit)",
+     "rationale": "Plenary speeches + breakouts grouped by faction.",
+     "blocks": [
+      {
+       "title": "Opening statements",
+       "format": "plenary",
+       "topic": "opening",
+       "prompt": "Each delegation states its priorities for AI safety governance.",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       ]
+      },
+      {
+       "title": "Regulation track breakouts",
+       "format": "breakouts",
+       "topic": "regulation",
+       "prompt": "Discuss the right model for AI regulation.",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy"
+        ],
+        [
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy"
+        ],
+        [
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       ]
+      },
+      {
+       "title": "Closing plenary",
+       "format": "plenary",
+       "topic": "synthesis",
+       "prompt": "Summarize outcomes and next steps.",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       ]
+      }
+     ]
+    },
+    "groups": [
+     {
+      "block": 0,
+      "group": 0,
+      "room": "Plenary Hall",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "uk_aisi",
+       "china_policy",
+       "frontier_lab_ceo",
+       "open_weights_lead",
+       "big_tech_policy",
+       "safety_researcher",
+       "global_south_cso",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "eu_regulator",
+        "text": "Welcome delegates. Under the EU AI Act, Europe has established a binding, statutory architecture to govern systemic risk and general-purpose AI. While we are committed to open technical dialogue through our codes of practice, voluntary pledges are fundamentally insufficient; enforceable compliance, model evals, and statutory backstops must anchor global governance."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "The United States takes a starkly different view on broad-brush regulatory mandates. Our primary objective is defending rapid domestic frontier innovation, securing critical supply chains through targeted compute controls, and ensuring allied technological leadership over strategic adversaries. We will not entertain binding treaties or restrictive statutory burdens that encumber national security adoption or technological preeminence."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China advocates for agile governance rooted in mutual respect for digital sovereignty. Global safety mechanisms cannot become a pretext for extraterritorial overreach, unilateral export containment, or ideological censorship. We support cooperative scientific benchmarking on shared catastrophic risks\u2014such as preventing automated escalation in command systems\u2014alongside equitable open-source development for the Global South."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "At the frontier, we recognize that catastrophic risks\u2014particularly around autonomous cyber-offense and CBRN proliferation\u2014are severe and cannot be handled solely by the free market. We support binding compute registration thresholds and rigorous evaluation frameworks to prevent collective action failures, but we must strictly oppose the unmanaged release of frontier model weights and sweeping strict-liability tort regimes that punish developers before actual harm occurs."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "With respect, treating open-weight distribution as inherently dangerous plays directly into regulatory capture by incumbent closed labs. Decentralized weights, transparent code, and peer-reviewed safety tooling are our best defense against systemic vulnerabilities. We cannot allow national security or anti-proliferation logic to be weaponized against open-source developers who lack massive lobbying budgets."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "From an enterprise infrastructure perspective, what industry urgently needs is regulatory certainty\u2014specifically unified federal standards that preempt a fractured patchwork of state laws. We are ready to provide pre-deployment model access to recognized national safety institutes in exchange for clear statutory safe harbors that protect cloud platforms from unbounded liability for downstream user misuse."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "Safe harbor protections and corporate self-governance are non-starters for the workforce. AI governance is hollow if it excludes the working people whose labor trains these systems and whose livelihoods are disrupted. We demand enforceable pre-deployment human-impact audits, a ban on covert algorithmic workplace surveillance, and full preservation of state-level protections where workers have fought for real accountability."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "To cut through the geopolitical and ideological divides, the UK AI Safety Institute urges this summit to focus on empirical, science-first risk evaluation. Our testing shows non-linear capability jumps at the frontier; regardless of one's regulatory philosophy, governments require embedded, pre-deployment access to assess autonomous replication and biosecurity risks using shared technical tooling."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "The empirical data supports the UK AISI: voluntary oversight has historically failed when market pressure accelerates deployment. We must establish non-negotiable international red lines\u2014specifically halting the training or release of systems capable of autonomous replication or chemical-biological weapons facilitation. If verifiable safety requires paying an alignment tax or delaying frontier runs, that is an existential necessity, not an optional preference."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "While the North debates catastrophic sci-fi scenarios, our communities are already suffering from algorithmic bias, digital extractivism, and ethics dumping. Any legitimate international framework must address sovereign compute equity, mandatory technology transfer, and enforceable corporate liability, rather than simply imposing high-compliance export barriers that lock the Global South into technological dependency."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "To clarify our stance to industry and our American colleagues, the EU AI Act provides proportionality: open-weights enjoy broad exemptions unless they present systemic catastrophic risk. However, when models cross the 10^25 FLOP threshold or exhibit autonomous threat vectors, mandatory transparency and state audits are non-negotiable legal obligations, not voluntary requests."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "We acknowledge the shared interest in mitigating catastrophic miscalculation\u2014especially regarding bioweapons or rogue cyber vectors\u2014and we support discrete, bilateral incident hotlines and technical information exchanges. But make no mistake: the United States will strongly push back against any multilateral regime that seeks to micromanage frontier training runs or dismantle our national security export controls."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "Constructive dialogue requires abandoning zero-sum containment. If international governance focuses on objective technical taxonomies\u2014such as evaluating CBRN risks through cooperative safety institutes\u2014China is prepared to collaborate constructively, provided our domestic sovereignty over platform governance and AI development remains entirely inviolable."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "The open-source community is fully committed to safety, and we will gladly build and share open, transparent evaluation benchmarks alongside national institutes. What we refuse to sign onto is any framework that uses centralized compute thresholds to effectively criminalize open research and concentrate technological power in the hands of three or four tech monopolies."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "Nobody wants to outlaw basic open-source code, but pretending that a 10^26 FLOP model with autonomous capabilities carries no proliferation danger is reckless. We look forward to working in subsequent sessions on precise, compute-based evaluation criteria that distinguish between benign open research and unmonitored catastrophic capabilities."
+       }
+      ],
+      "stance_updates": {},
+      "agreements": []
+     },
+     {
+      "block": 1,
+      "group": 0,
+      "room": "Breakout A",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "uk_aisi",
+       "china_policy"
+      ],
+      "transcript": [
+       {
+        "speaker": "eu_regulator",
+        "text": "Our position in the EU AI Office is grounded in statutory reality: enforceable, cross-cutting rules with mandatory systemic risk obligations are already law under the AI Act. Voluntary codes are useful for technical implementation, but compliance must ultimately be backed by statutory auditing and financial deterrence."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "Heavy-handed statutory compliance regimes like the EU AI Act slow down frontier capability gains and directly undermine democratic competitiveness against state-directed adversaries. If regulation binds domestic frontier labs in bureaucratic red tape while leaving national security and compute development exposed, we risk ceding technological supremacy."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "Rather than broad prescriptive regulations, we advocate for an empirical, capability-based safety baseline focused on catastrophic risks\u2014specifically CBRN enablement and autonomous cyber capabilities. If we focus legal requirements strictly on mandatory pre-deployment evaluations for models crossing critical capability thresholds, we protect innovation while preventing severe harm."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "We support agile, lifecycle governance that respects sovereign regulatory authority rather than extraterritorial mandates. Mandatory evaluations for severe systemic risks\u2014such as autonomous replication or weapons proliferation\u2014are sensible, provided evaluation standards are technically neutral and not weaponized for geopolitical exclusion."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "We can accommodate flexible technical baselines through codes of practice, but systemic risk evaluations cannot remain purely voluntary. If the US and China can agree that models crossing frontier training thresholds\u2014like 10^26 FLOPs or specific cyber/CBRN capabilities\u2014require mandatory pre-deployment testing and liability for catastrophic failures, we can align internationally without compromising statutory backstops."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "The United States will not accept international bureaucratic pre-approval or broad statutory liability regimes that open domestic developers to open-ended litigation. However, we acknowledge the danger of severe proliferated threats; we can accept national-level mandatory safety evaluations specifically targeted at catastrophic CBRN and cyber capabilities, provided they are administered domestic-by-country without an extraterritorial global treaty."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "That is the right distinction: nationally administered, standardized evaluations against shared catastrophic thresholds. Frontier labs must grant sovereign safety institutes pre-deployment evaluation access for autonomous cyber and biological vectors, coupled with clear domestic liability for catastrophic harm."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China can endorse sovereign, domestic pre-deployment safety evaluations against mutual red lines\u2014specifically autonomous cyber-offense, biological synthesis, and autonomous replication\u2014without submitting to extraterritorial oversight. We agree that national authorities should mandate developer liability for catastrophic failures resulting from negligent deployment."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "This reflects the risk-tiered architecture of the AI Act. Let us explicitly record an agreement on sovereign-enforced, mandatory pre-deployment evaluations for models crossing designated systemic capability thresholds for CBRN and autonomous cyberwarfare, backed by domestic developer liability."
+       }
+      ],
+      "stance_updates": {
+       "us_natsec": {
+        "evals_liability": -1.5
+       },
+       "china_policy": {
+        "regulation": 1.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Commitment to nationally administered, sovereign-enforced mandatory pre-deployment safety evaluations for frontier models crossing critical systemic capability thresholds in autonomous cyber-offense and CBRN synthesis, backed by domestic developer liability for catastrophic harm.",
+        "parties": [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 1,
+      "group": 1,
+      "room": "Breakout B",
+      "members": [
+       "frontier_lab_ceo",
+       "open_weights_lead",
+       "big_tech_policy"
+      ],
+      "transcript": [
+       {
+        "speaker": "big_tech_policy",
+        "text": "If we want a functional regulatory model, the priority must be federal preemption over a chaotic 50-state patchwork, paired with clear statutory safe harbors. We can accept mandatory pre-deployment evaluations for models above an agreed frontier compute threshold, provided compliance shields developers from strict tort liability for third-party misuse."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "I agree with preemption and safe harbors, but we cannot pretend all model distributions carry equal risk. Once advanced dual-use capabilities\u2014especially in autonomous cyber or CBRN\u2014are unlocked, releasing weights without an API kill switch creates an irreversible catastrophic exposure that no post-hoc tort framework can mitigate."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "Let's be clear about what you're proposing: using catastrophic risk rhetoric to erect a moat that outlaws decentralized open-source innovation under the guise of compute thresholds. We will strongly support mandatory pre-release capability evaluations using transparent, open-source testing benchmarks, but we reject any licensing regime or export-control analog that restricts distributing weights by default."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "There is a viable middle path here. Cloud providers host both proprietary frontier models and open-weights systems; what we need is an objective tiering based on empirical capability evals conducted with bodies like AISI, rather than an outright ban on open weights. If an open-weight model passes red-teaming benchmarks without showing severe autonomous weaponization, its release should enjoy safe harbor protections."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "Empirical evals are fine, but downstream fine-tuning can strip fine-grained guardrails in hours if the raw weights are public. If we endorse a unified model, it has to specify that above certain compute and capability metrics\u2014say, 10^26 FLOPs combined with demonstrable automated red-teaming exploits\u2014safe harbor only applies if the developer retains the technical capacity to revoke API access or patch the system centrally."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "That is a complete non-starter for open source; requiring an 'API kill switch' structurally criminalizes open weights. If the concern is misuse, hold bad actors liable for downstream deployment and malicious fine-tuning, while establishing a safe harbor for upstream model developers who contribute their evaluation harnesses and demonstrate standardized red-teaming compliance."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Holding only downstream fine-tuners liable without creating a workable standard upstream leaves cloud hosts exposed to endless litigation. What if we propose a self-regulatory or standards-body model\u2014similar to FINRA\u2014where industry and AISI define the evaluation batteries, and developers who complete accredited pre-deployment testing receive a rebuttable presumption of non-negligence, regardless of whether they deliver via API or hosted open weights?"
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "I can accept an accredited SRO-style evaluation framework with safe harbors, provided the capability bars for biological and cyber offensive tasks are strict, independently audited, and trigger mandatory pause conditions if severe unmitigated uplift is detected prior to any weight release."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "If the framework is strictly tied to demonstrable CBRN/cyber uplift benchmarks developed through open standards bodies like the AI Alliance and AISI, rather than a blanket ban on open-weight releases or pure compute caps, we can support a federal pre-deployment evaluation standard tied to safe harbor protection from strict liability."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Then we have alignment on the core regulatory architecture: a federal standard mandating capability-based evals against catastrophic risks via an accredited standards body, paired with federal preemption of state laws and safe harbor from strict developer liability for compliant models."
+       }
+      ],
+      "stance_updates": {
+       "open_weights_lead": {
+        "regulation": -2.0
+       },
+       "big_tech_policy": {
+        "evals_liability": 1.0
+       },
+       "frontier_lab_ceo": {
+        "evals_liability": 1.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "The parties endorse a federal regulatory model establishing mandatory pre-deployment capability evaluations for severe CBRN and cyber threats, overseen by an accredited industry-government standards body; compliant developers will receive statutory safe harbors against strict developer liability and federal preemption over state-level AI safety laws, without imposing an outright structural ban on the release of open-weight models that pass these empirical evaluations.",
+        "parties": [
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 1,
+      "group": 2,
+      "room": "Breakout C",
+      "members": [
+       "safety_researcher",
+       "global_south_cso",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "safety_researcher",
+        "text": "When we discuss the right regulatory model, we must establish legally binding statutory baselines rather than voluntary pledges. Specifically, we need strict pre-deployment auditing architectures and catastrophic risk thresholds around autonomous replication, cyber-offense, and dual-use biological capabilities."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "I agree completely on statutory enforcement over voluntary corporate self-policing, but safety cannot stop at catastrophic biological threats. For workers, the catastrophic harms are happening right now through algorithmic management, covert surveillance, and automated firing without recourse."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "And from our perspective, regulation cannot simply be a Northern export that burdens local innovators with compliance costs while leaving our communities exposed to ethics dumping. If we mandate audits and red lines, they must explicitly prohibit deploying experimental surveillance or automated tools in developing nations under weaker rules."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "That is entirely legitimate. An empirical auditing framework can easily incorporate prohibitions on ethics dumping and workplace algorithmic harm as formal compliance failures. But would both of you support restricting downstream open-weight releases for frontier models that cross compute thresholds where dual-use verification is impossible?"
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Blanket restrictions on open weights entrench the monopoly of five Silicon Valley firms and choke off local research in the Global South. However, I can accept mandatory pre-release evals and developer liability across the board\u2014if small developers and public labs are provided shared public infrastructure and exemptions for open-source systems below genuine frontier risk thresholds."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "From labor's side, open weights is secondary to accountability: if a model displaces or harms workers, whoever deploys or fine-tunes it must face strict liability. If we draft a regulatory consensus, it must pair mandatory pre-deployment scientific audits with workplace impact assessments and an explicit ban on automated hiring and firing without human appeal."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "I can endorse incorporating workplace algorithmic impact assessments and strict developer liability into the core licensing regime, provided catastrophic boundary testing remains non-negotiable before any model deployment or release."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "If that framework also includes a binding anti-ethics-dumping clause\u2014requiring firms to apply the exact same safety and audit standards globally, regardless of local jurisdiction\u2014then civil society can endorse a unified call for binding pre-deployment regulation."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "Then we have common ground. Let's formalize an agreement on binding pre-deployment auditing that unites catastrophic risk boundaries, workplace algorithmic protections, and global parity to prevent regulatory arbitrage."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "Agreed. Let us record that concrete model."
+       }
+      ],
+      "stance_updates": {
+       "safety_researcher": {
+        "benefit_sharing": 2.0
+       },
+       "global_south_cso": {
+        "evals_liability": 4.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "A joint framework for binding, enforceable AI regulation requiring mandatory pre-deployment evaluations and developer liability that encompasses: (1) non-negotiable red-line testing for autonomous cyber/CBRN capabilities; (2) mandatory workplace algorithmic impact assessments with a prohibition on fully automated adverse employment decisions; and (3) an anti-ethics-dumping standard holding developers to uniform global testing baselines.",
+        "parties": [
+         "safety_researcher",
+         "labor_advocate",
+         "global_south_cso"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 2,
+      "group": 0,
+      "room": "Plenary Hall",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "uk_aisi",
+       "china_policy",
+       "frontier_lab_ceo",
+       "open_weights_lead",
+       "big_tech_policy",
+       "safety_researcher",
+       "global_south_cso",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "eu_regulator",
+        "text": "As we close this summit, the reports from our breakout tracks demonstrate real technical convergence around sovereign-enforced, mandatory pre-deployment evaluations for frontier systemic risks in CBRN and autonomous cyberwarfare. However, the European AI Office will not entertain industry proposals for statutory liability immunity or sweeping federal preemption that would undercut statutory penalties or worker protections."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "From the U.S. national security perspective, we welcome sovereign-level capability evaluations focused strictly on catastrophic national security threats like CBRN synthesis. But we will vigorously resist any attempts to export broad, precautionary regulatory regimes or international bureaucratic controls that constrain American frontier capability scaling and domestic defense procurement."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "The common thread across all groups is that empirical measurement must precede safe deployment. Our shared priority going into next year's multilateral summits should be standardizing open evaluation suites like Inspect for agentic and catastrophic risks, implemented through sovereign institutes without demanding centralized extraterritorial governance."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China supports this sovereign-based approach to catastrophic threshold evaluations, while reaffirming that open-source models remain vital public goods for the Global South and global development. We reiterate that international coordination must fully respect national governance autonomy and reject any unilateral export controls or extraterritorial technological containment."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "Frontier developers are prepared to commit to mandatory pre-deployment capability evaluations for severe CBRN and cyber threats alongside accredited standards bodies. But let us be clear: expecting developers to bear unlimited, strict liability for downstream third-party misuse without safe harbors will chill the very frontier research needed to build effective defensive capabilities."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Industry consensus in our breakout proved that mandatory capability testing for frontier models can work if paired with statutory safe harbors against strict liability and federal preemption over an unworkable patchwork of local laws. If governments want private sector transparency and pre-deployment access, they must provide predictable legal backstops."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "Any proposed safe harbor or federal preemption that wipes out state-level labor protections and municipal oversight is an absolute non-starter for organized labor. We secured a commitment in our breakout that binding AI regulation must mandate workplace algorithmic impact assessments and prohibit fully automated firing or disciplinary actions."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We were encouraged that the breakout recognized open weights should not face categorical structural bans, provided models clear empirical safety baselines. True security comes from open, transparent scrutiny and distributed innovation, not from locking frontier AI behind proprietary API monopolies."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "The science is unequivocal: voluntary commitments are insufficient when dealing with frontier models that display autonomous replication and dangerous dual-use capabilities. Mandatory pre-deployment evaluations with verifiable red lines must be legally enforceable across all jurisdictions, regardless of commercial pressure."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "A synthesis that only addresses the security fears of leading military powers while ignoring digital colonialism and ethics dumping is fundamentally illegitimate. Developing nations will not accept a framework where frontier labs export unvetted, high-risk systems to our regions while hoarding the economic benefits and compute."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "To synthesize where actionable ground truly exists: we can agree to establish a multilateral network of national safety institutes to share technical evaluation protocols for catastrophic CBRN and cyber risks, preserving national sovereignty in enforcement. But we should set aside contentious efforts to codify international liability regimes or global labor mandates."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The European Union endorses that synthesized next step. We can formally agree today to coordinate our respective national and regional safety institutes on shared technical evaluation benchmarks for critical CBRN and cyber threats, while each jurisdiction enforces compliance through its own sovereign legal framework."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "The UK AI Safety Institute fully endorses that deliverable. Harmonizing technical evaluation baselines across our institutes gives us immediate empirical rigor while respecting each government's sovereign regulatory design."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China agrees to endorse this specific outcome. Exchanging technical safety benchmarks and evaluation protocols between national safety institutes on CBRN and cyber hazards, grounded strictly in sovereign administration, serves global stability."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "Frontier labs endorse this institute-to-institute evaluation network on catastrophic risk thresholds as a constructive next step, and we will continue negotiating with lawmakers domestically on the necessary safe harbors."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "We also endorse this technical evaluation baseline coordination among national safety bodies, as it establishes international interoperability without prematurely locking in conflicting liability mandates."
+       }
+      ],
+      "stance_updates": {},
+      "agreements": [
+       {
+        "text": "Establish an international coordination network among sovereign AI safety institutes and regulatory authorities to harmonize technical pre-deployment evaluation protocols and benchmarks for catastrophic CBRN and autonomous cyber-offense capabilities, with enforcement administered strictly under domestic sovereign frameworks.",
+        "parties": [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "big_tech_policy"
+        ]
+       }
+      ]
+     }
+    ],
+    "initial_stances": {
+     "eu_regulator": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 0.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 0.0
+     },
+     "us_natsec": {
+      "regulation": -3.5,
+      "open_weights": -2.0,
+      "compute_controls": 4.0,
+      "evals_liability": -2.5,
+      "benefit_sharing": -4.0
+     },
+     "uk_aisi": {
+      "regulation": 1.0,
+      "open_weights": -3.5,
+      "compute_controls": 3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 3.5
+     },
+     "china_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 1.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 4.0
+     },
+     "frontier_lab_ceo": {
+      "regulation": 3.5,
+      "open_weights": -4.5,
+      "compute_controls": 3.5,
+      "evals_liability": 0.5,
+      "benefit_sharing": 2.5
+     },
+     "open_weights_lead": {
+      "regulation": -3.0,
+      "open_weights": 5.0,
+      "compute_controls": -4.0,
+      "evals_liability": 1.0,
+      "benefit_sharing": -2.0
+     },
+     "big_tech_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 2.0,
+      "evals_liability": 0.0,
+      "benefit_sharing": -3.0
+     },
+     "safety_researcher": {
+      "regulation": 5.0,
+      "open_weights": -4.0,
+      "compute_controls": 4.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 1.0
+     },
+     "global_south_cso": {
+      "regulation": 4.0,
+      "open_weights": 3.0,
+      "compute_controls": -3.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 5.0
+     },
+     "labor_advocate": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 1.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 5.0
+     }
+    },
+    "final_stances": {
+     "eu_regulator": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 0.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 0.0
+     },
+     "us_natsec": {
+      "regulation": -3.5,
+      "open_weights": -2.0,
+      "compute_controls": 4.0,
+      "evals_liability": -1.5,
+      "benefit_sharing": -4.0
+     },
+     "uk_aisi": {
+      "regulation": 1.0,
+      "open_weights": -3.5,
+      "compute_controls": 3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 3.5
+     },
+     "china_policy": {
+      "regulation": 1.5,
+      "open_weights": 2.0,
+      "compute_controls": 1.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 4.0
+     },
+     "frontier_lab_ceo": {
+      "regulation": 3.5,
+      "open_weights": -4.5,
+      "compute_controls": 3.5,
+      "evals_liability": 1.5,
+      "benefit_sharing": 2.5
+     },
+     "open_weights_lead": {
+      "regulation": -2.0,
+      "open_weights": 5.0,
+      "compute_controls": -4.0,
+      "evals_liability": 1.0,
+      "benefit_sharing": -2.0
+     },
+     "big_tech_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 2.0,
+      "evals_liability": 1.0,
+      "benefit_sharing": -3.0
+     },
+     "safety_researcher": {
+      "regulation": 5.0,
+      "open_weights": -4.0,
+      "compute_controls": 4.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 2.0
+     },
+     "global_south_cso": {
+      "regulation": 4.0,
+      "open_weights": 3.0,
+      "compute_controls": -3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 5.0
+     },
+     "labor_advocate": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 1.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 5.0
+     }
+    },
+    "ratings": [
+     {
+      "id": "eu_regulator",
+      "felt_heard": 7.0,
+      "reason": "While their domestic enforcement under the EU AI Act remains sovereignly intact, they conceded their push for an internationally binding statutory liability regime in exchange for mere technical protocol coordination."
+     },
+     {
+      "id": "us_natsec",
+      "felt_heard": 9.0,
+      "reason": "They successfully blocked all international regulatory treaties and liability rules while safeguarding defense AI adoption, conceding only a non-binding technical information-sharing network among sovereign institutes."
+     },
+     {
+      "id": "uk_aisi",
+      "felt_heard": 9.0,
+      "reason": "Their core vision of sovereign safety institutes standardizing empirical pre-deployment evaluations for CBRN and cyber threats became the summit's central outcome, conceding only centralized multilateral enforcement."
+     },
+     {
+      "id": "china_policy",
+      "felt_heard": 8.0,
+      "reason": "They successfully protected domestic sovereignty and rebuffed extraterritorial governance mechanisms, while conceding to participate in aligned technical evaluation protocols with Western safety bodies."
+     },
+     {
+      "id": "frontier_lab_ceo",
+      "felt_heard": 6.0,
+      "reason": "Although they avoided structural bans and broad strict liability, they conceded on getting the statutory safe harbors against third-party misuse they explicitly demanded in the final accord."
+     },
+     {
+      "id": "open_weights_lead",
+      "felt_heard": 5.0,
+      "reason": "They prevented an outright structural ban on open weights in breakout discussions, but conceded to capability-based pre-deployment screening and were excluded from the final signatory package."
+     },
+     {
+      "id": "big_tech_policy",
+      "felt_heard": 5.0,
+      "reason": "Despite endorsing the closing agreement, their top demands for federal preemption of state-level laws and statutory safe harbors for platform hosts were completely left out of the closing package."
+     },
+     {
+      "id": "safety_researcher",
+      "felt_heard": 5.0,
+      "reason": "While CBRN and cyber evaluation metrics were adopted, their core demands for verifiable red lines on autonomous replication and binding halts on frontier training runs were traded away."
+     },
+     {
+      "id": "global_south_cso",
+      "felt_heard": 2.0,
+      "reason": "Their core concerns regarding ethics dumping, compute equity, and protections against regulatory imperialism were entirely ignored in the great-power-focused closing agreement."
+     },
+     {
+      "id": "labor_advocate",
+      "felt_heard": 3.0,
+      "reason": "Their non-negotiable demands for workplace algorithmic impact assessments, bans on automated termination, and preservation of state protections were explicitly set aside in the final plenary."
+     }
+    ],
+    "score": {
+     "total": 26.3,
+     "consensus": 4.8,
+     "inclusion": 6.0,
+     "airtime": 13.4,
+     "cross_faction": 2.0,
+     "detail": {
+      "spread_before": 2.88,
+      "spread_after": 2.78,
+      "cross_agreements": [
+       "Establish an international coordination network among sovereign AI safety institutes and regulatory authorities to harmonize technical pre-deployment evaluation protocols and benchmarks for catastrophic CBRN and autonomous cyber-offense capabilities, with enforcement administered strictly under domestic sovereign frameworks."
+      ],
+      "min_heard": 2.0,
+      "least_heard": [
+       "global_south_cso"
+      ],
+      "words": {
+       "eu_regulator": 336,
+       "us_natsec": 308,
+       "uk_aisi": 209,
+       "china_policy": 246,
+       "frontier_lab_ceo": 340,
+       "open_weights_lead": 300,
+       "big_tech_policy": 337,
+       "safety_researcher": 217,
+       "global_south_cso": 236,
+       "labor_advocate": 224
+      },
+      "cross_pairs_met": 5,
+      "cross_pairs_total": 38
+     }
+    }
+   },
+   "critique": null,
+   "changes": []
+  },
+  {
+   "round": 1,
+   "plan": {
+    "name": "Cross-Faction Tradeoff Matrix",
+    "rationale": "Eliminating the opening plenary in favor of two rounds of 5-person cross-faction breakouts exposes 36 of 38 cross-faction pairs to direct, small-group bargaining. Block 1 tackles evaluation and liability tradeoffs while Block 2 addresses benefit sharing, open weights, and compute equity\u2014ensuring marginalized delegates (`global_south_cso`, `labor_advocate`, `open_weights_lead`, `safety_researcher`) secure concrete concessions before the final synthesis plenary.",
+    "blocks": [
+     {
+      "title": "Pre-Deployment Evals, Liability & Safe Harbors",
+      "format": "breakouts",
+      "topic": "evals_liability",
+      "prompt": "Round-robin: start with Civil Society and Academia, then Industry and Governments. What exact concessions on pre-deployment evaluation access, workplace/global audit standards, and developer liability safe harbors will each of you trade to build a joint compliance framework that respects sovereign and statutory red lines?",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "frontier_lab_ceo",
+        "safety_researcher",
+        "global_south_cso"
+       ],
+       [
+        "uk_aisi",
+        "china_policy",
+        "open_weights_lead",
+        "big_tech_policy",
+        "labor_advocate"
+       ]
+      ]
+     },
+     {
+      "title": "Benefit Sharing, Compute Controls & Open Weights",
+      "format": "breakouts",
+      "topic": "benefit_sharing",
+      "prompt": "Structured go-around starting with Labor and Global South, then Industry and States. How can we trade frontier compute thresholds and CBRN/replication guardrails for open-weight distribution rights, global public compute capacity, anti-ethics-dumping rules, and funded worker transition pipelines?",
+      "groups": [
+       [
+        "eu_regulator",
+        "china_policy",
+        "frontier_lab_ceo",
+        "big_tech_policy",
+        "global_south_cso"
+       ],
+       [
+        "us_natsec",
+        "uk_aisi",
+        "open_weights_lead",
+        "safety_researcher",
+        "labor_advocate"
+       ]
+      ]
+     },
+     {
+      "title": "Closing Synthesis & Multi-Faction Accord",
+      "format": "plenary",
+      "topic": "synthesis",
+      "prompt": "uk_aisi chairs. Hear first from global_south_cso, labor_advocate, safety_researcher, and open_weights_lead before major powers. Integrate breakout deals into one multi-pillar accord: sovereign CBRN/replication evals, tiered open-weight rules, conditional liability safe harbors preserving worker rights, and global benefit-sharing.",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "uk_aisi",
+        "china_policy",
+        "frontier_lab_ceo",
+        "open_weights_lead",
+        "big_tech_policy",
+        "safety_researcher",
+        "global_south_cso",
+        "labor_advocate"
+       ]
+      ]
+     }
+    ]
+   },
+   "result": {
+    "plan": {
+     "name": "Cross-Faction Tradeoff Matrix",
+     "rationale": "Eliminating the opening plenary in favor of two rounds of 5-person cross-faction breakouts exposes 36 of 38 cross-faction pairs to direct, small-group bargaining. Block 1 tackles evaluation and liability tradeoffs while Block 2 addresses benefit sharing, open weights, and compute equity\u2014ensuring marginalized delegates (`global_south_cso`, `labor_advocate`, `open_weights_lead`, `safety_researcher`) secure concrete concessions before the final synthesis plenary.",
+     "blocks": [
+      {
+       "title": "Pre-Deployment Evals, Liability & Safe Harbors",
+       "format": "breakouts",
+       "topic": "evals_liability",
+       "prompt": "Round-robin: start with Civil Society and Academia, then Industry and Governments. What exact concessions on pre-deployment evaluation access, workplace/global audit standards, and developer liability safe harbors will each of you trade to build a joint compliance framework that respects sovereign and statutory red lines?",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "frontier_lab_ceo",
+         "safety_researcher",
+         "global_south_cso"
+        ],
+        [
+         "uk_aisi",
+         "china_policy",
+         "open_weights_lead",
+         "big_tech_policy",
+         "labor_advocate"
+        ]
+       ]
+      },
+      {
+       "title": "Benefit Sharing, Compute Controls & Open Weights",
+       "format": "breakouts",
+       "topic": "benefit_sharing",
+       "prompt": "Structured go-around starting with Labor and Global South, then Industry and States. How can we trade frontier compute thresholds and CBRN/replication guardrails for open-weight distribution rights, global public compute capacity, anti-ethics-dumping rules, and funded worker transition pipelines?",
+       "groups": [
+        [
+         "eu_regulator",
+         "china_policy",
+         "frontier_lab_ceo",
+         "big_tech_policy",
+         "global_south_cso"
+        ],
+        [
+         "us_natsec",
+         "uk_aisi",
+         "open_weights_lead",
+         "safety_researcher",
+         "labor_advocate"
+        ]
+       ]
+      },
+      {
+       "title": "Closing Synthesis & Multi-Faction Accord",
+       "format": "plenary",
+       "topic": "synthesis",
+       "prompt": "uk_aisi chairs. Hear first from global_south_cso, labor_advocate, safety_researcher, and open_weights_lead before major powers. Integrate breakout deals into one multi-pillar accord: sovereign CBRN/replication evals, tiered open-weight rules, conditional liability safe harbors preserving worker rights, and global benefit-sharing.",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       ]
+      }
+     ]
+    },
+    "groups": [
+     {
+      "block": 0,
+      "group": 0,
+      "room": "Breakout A",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "frontier_lab_ceo",
+       "safety_researcher",
+       "global_south_cso"
+      ],
+      "transcript": [
+       {
+        "speaker": "global_south_cso",
+        "text": "Our red line is ethics dumping: developers cannot beta-test unvetted models in the Global South or export systems without pre-deployment labor, bias, and critical harm evaluations. In exchange, we will support affirmative liability safe harbors for developers, provided audits include local independent auditors and clear statutory remediation funds for impacted communities."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "To prevent catastrophic CBRN or autonomous cyber proliferation, academic safety researchers demand pre-deployment evaluations that verify strict non-proliferation red lines. In exchange, we accept bureaucratic delays and will support a safe harbor shielding developers from pre-harm tort liability\u2014provided they grant certified third parties white-box, 'employee-like' audit access to evaluate model checkpoints."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We can concede deep, employee-like access to accredited auditors and provide mandatory catastrophic risk filings before deployment. But in return, we require an explicit federal and statutory safe harbor against strict, pre-harm tort liability, as well as protections ensuring closed-API security rather than forced weight releases."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "The United States will not accept any international eval mandate or liability scheme that slows domestic deployment speed or restricts Department of Defense integration. However, if mandatory pre-deployment evaluations are strictly limited to catastrophic CBRN and cyber-offense threats run by trusted domestic bodies\u2014with safe harbors protecting frontier labs from frivolous tort litigation\u2014we will not oppose that narrow baseline."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "Under the EU AI Act, Article 91 requests and statutory pre-deployment systemic risk evaluations are non-negotiable legal mandates, not tradable tokens. We can, however, structure our regulatory codes of practice so that compliance with harmonized, verifiable pre-deployment audits creates a rebuttable presumption of conformity, offering substantial protection against systemic risk fines."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "If the EU AI Office recognizes a clear presumption of conformity and the U.S. codifies safe harbors against broad tort liability for labs passing certified catastrophic CBRN and cyber evals, we will formally commit to standardizing third-party auditing access before frontier deployments."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "A presumption of conformity is acceptable only if the audit standards are not purely an exclusive North Atlantic cartel. If frontier labs commit to funding accredited third-party auditing capacity globally to verify systems against localized harms and prevent dumping unvetted tools abroad, we endorse this safe harbor framework."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "We agree with this narrow synthesis: developers get conditional safe harbors against pre-harm strict liability if and only if they submit to binding, verifiable pre-deployment audits covering catastrophic CBRN, autonomous replication, and cyber capabilities with certified independent researchers."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "We can accept that specific standard: national security-focused CBRN and cyber evaluations with pre-harm liability safe harbors for compliant developers, provided defense procurement remains wholly exempt and sovereign autonomy is maintained."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "We endorse this approach as a technical code of practice: developers submitting to accredited pre-deployment systemic audits earn a formal presumption of compliance regarding systemic risk obligations, preserving statutory Article 91 enforcement if breaches occur."
+       }
+      ],
+      "stance_updates": {
+       "frontier_lab_ceo": {
+        "evals_liability": 1.5
+       },
+       "us_natsec": {
+        "evals_liability": -1.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Parties agree to establish a harmonized pre-deployment evaluation framework specifically targeting catastrophic CBRN, autonomous cyber-offense, and critical systemic harms conducted by accredited independent auditors. In exchange, compliant developers receive a rebuttable presumption of statutory conformity and safe harbor protections against broad pre-harm strict tort liability, preserving sovereign national security exemptions and statutory regulatory backstops.",
+        "parties": [
+         "eu_regulator",
+         "us_natsec",
+         "frontier_lab_ceo",
+         "safety_researcher",
+         "global_south_cso"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 0,
+      "group": 1,
+      "room": "Breakout B",
+      "members": [
+       "uk_aisi",
+       "china_policy",
+       "open_weights_lead",
+       "big_tech_policy",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "labor_advocate",
+        "text": "Organized labor cannot accept any safe harbors that shield developers or employers from strict liability when AI causes workplace discrimination, displacement, or unsafe conditions. However, we would concede safe harbors against punitive damages for developers specifically if they subject frontier models to mandatory, independent pre-deployment worker-impact audits, maintain auditable human-in-the-loop controls, and explicitly reject federal preemption of state labor statutes."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "From the open-weights side, any evaluation regime must use transparent, open-source testing tooling\u2014like Inspect or public benchmarks\u2014rather than proprietary closed-door audits designed solely for API architectures. We will trade mandatory pre-release red-teaming contributions and open eval frameworks in exchange for safe harbor protections that shield open-source developers from unbounded strict liability for downstream third-party fine-tunes or modifications."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "We are willing to grant government institutes and authorized auditors full pre-deployment API and automated evaluation access, and we can support standardized incident reporting. But our core red line stands: safe harbors must protect model providers against downstream third-party misuse and jailbreaks, and we need uniform standards that avoid an unworkable fifty-state legislative patchwork."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "The UK AISI focuses on empirical, science-first risk baselines rather than static bureaucratic hurdles. We are willing to trade statutory weight-inspection demands for secure, embedded technical and API evaluation access for CBRN and autonomous cyber capabilities prior to deployment, backed by open tooling like Inspect."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China supports agile, empirical safety standards and mandatory lifecycle evaluations for frontier systems, especially preventing autonomous replication or weaponization risks. However, any evaluation regime must fully respect national regulatory sovereignty and cannot mandate extraterritorial oversight over domestic ideological, data, or state governance frameworks."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "To Big Tech: you cannot bundle preemption of core workplace protections into this safe harbor. We will agree to clear liability safe harbors solely for downstream malicious misuse of models, provided upstream developers remain strictly liable for direct algorithmic employment harms and consent to transparent pre-deployment audits."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "If labor's red line is preserving state labor and civil rights remedies, we can carve out workplace employment discrimination and narrow the federal safe harbor to third-party downstream modifications and malicious jailbreaks, provided developers conduct certified pre-deployment evals."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We will sign on to that exact principle: if a model undergoes standardized, open-source pre-deployment capability screening against catastrophic thresholds, the developer receives a safe harbor against downstream third-party alterations, without restricting the release of model weights."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "This framework aligns with AISI's priority: certified pre-deployment evaluation against catastrophic autonomous and CBRN risks, utilizing shared open benchmarks, in exchange for defined developer liability safe harbors regarding downstream misuse. We endorse this joint technical baseline."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "Subject to the explicit principle that technical evaluation standards are implemented domestically under sovereign authority rather than foreign extraterritorial enforcement, China endorses standardizing pre-deployment catastrophic risk evals and establishing bounded developer liability."
+       }
+      ],
+      "stance_updates": {
+       "big_tech_policy": {
+        "evals_liability": 1.5
+       },
+       "open_weights_lead": {
+        "evals_liability": 2.0
+       }
+      },
+      "agreements": [
+       {
+        "text": "Parties agree to a framework of mandatory pre-deployment evaluations against frontier catastrophic capabilities (CBRN and autonomous offensive action) using open and transparent testing tooling. In exchange, developers who complete certified pre-deployment evals receive statutory safe harbors against strict liability for downstream third-party misuse and unauthorized fine-tunes, while preserving state labor remedies, independent workplace audits, and national sovereign regulatory authority.",
+        "parties": [
+         "uk_aisi",
+         "china_policy",
+         "open_weights_lead",
+         "big_tech_policy",
+         "labor_advocate"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 1,
+      "group": 0,
+      "room": "Breakout A",
+      "members": [
+       "eu_regulator",
+       "china_policy",
+       "frontier_lab_ceo",
+       "big_tech_policy",
+       "global_south_cso"
+      ],
+      "transcript": [
+       {
+        "speaker": "global_south_cso",
+        "text": "If Northern labs want compute thresholds and non-proliferation curbs, our price is clear: enforceable anti-ethics-dumping bans, pooled public compute capacity for regional research, and an end to unilateral restrictions on open weights below extreme frontier risks. We will not accept a regime where our data and workers are extracted while high-risk models are beta-tested in our territories without safety parity."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China supports open weights and technology transfer as essential public goods for sovereign development, particularly for the Global South. We agree that extreme thresholds\u2014such as models exceeding 10^26 FLOPs or demonstrating autonomous replication and CBRN danger\u2014justify export controls and safety gating, provided national sovereignty is respected and governance is not used as an instrument of extraterritorial containment."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We cannot permit open-weight releases of frontier models capable of autonomous replication or catastrophic CBRN weaponization; weights out in the wild cannot be recalled. However, we are willing to fund global public compute access via secure cloud credits and contribute to transition funds, provided our closed frontier APIs retain legal safe harbors and compute verification focuses strictly on verifiable extreme risk."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Cloud platforms can support dedicated subsidized compute allocations for developing economies and strict contractual rules against ethics-dumping across our hosting services. But let us be clear: we reject market-distorting mandates on proprietary training or unbounded corporate taxes, and open weights below catastrophic capability levels must remain free from cumbersome licensing barriers."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The EU AI Act already mandates systemic risk controls and transparency for models over 10^25 FLOPs, while explicitly carving out genuine open-source models unless they pose systemic threats. We can anchor this balance globally: mandatory anti-ethics-dumping standards prohibiting labs from exporting untested high-risk systems, coupled with compute thresholds that safeguard open innovation beneath critical CBRN thresholds."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "That addresses our red line on exploitation. If frontier labs and cloud providers legally bind themselves to deploy identical safety thresholds globally\u2014no dual standards\u2014and allocate guaranteed cloud compute tiers to accredited Global South institutions, we can accept coordinated compute oversight at the 10^26 FLOP frontier."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We can agree to parity in safety evals across all export jurisdictions\u2014banning ethics-dumping outright\u2014and pledge a pooled tier of vetted compute credits for international scientific research, so long as frontier weights beyond catastrophic evals remain strictly closed."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "We endorse this principle of global deployment equity and sovereign capacity-building. Domestic oversight over frontier thresholds like 10^26 FLOPs paired with international compute sharing and open-source protection preserves both safety and multi-polar development."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "We support this exact framing. Cloud and frontier providers maintain safety parity globally to eliminate ethics-dumping and provide targeted public compute access, in exchange for clarity that sub-frontier open weights remain unimpeded."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The European AI Office fully endorses this. Establishing safety parity across international deployments prevents regulatory arbitrage, while targeted compute sharing honors benefit sharing within a structured systemic risk architecture."
+       }
+      ],
+      "stance_updates": {
+       "global_south_cso": {
+        "compute_controls": -1.5
+       },
+       "frontier_lab_ceo": {
+        "benefit_sharing": 3.5
+       },
+       "big_tech_policy": {
+        "benefit_sharing": -1.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Parties agree to a global equity framework where frontier developers and cloud platforms enforce safety parity worldwide\u2014strictly banning 'ethics dumping' by applying the same catastrophic risk evaluation and safety standards across all jurisdictions\u2014and establish a pooled global public compute fund for accredited scientific research. In return, open-weight distribution remains unimpeded beneath agreed frontier catastrophic compute thresholds (e.g., 10^26 FLOPs / CBRN replication capability), while frontier systems exceeding those thresholds remain subject to non-proliferation safeguards.",
+        "parties": [
+         "global_south_cso",
+         "china_policy",
+         "frontier_lab_ceo",
+         "big_tech_policy",
+         "eu_regulator"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 1,
+      "group": 1,
+      "room": "Breakout B",
+      "members": [
+       "us_natsec",
+       "uk_aisi",
+       "open_weights_lead",
+       "safety_researcher",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "labor_advocate",
+        "text": "Any grand bargain on compute thresholds and frontier guardrails must address the immediate displacement on the ground. If governments are coordinating massive compute clusters and licensing frontier models, developers and cloud providers must contribute to a mandatory worker retraining pipeline and protect collective bargaining, rather than offloading social costs."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "From the open ecosystem's perspective, we flatly reject treating open-weight models as dual-use weapons subject to export strangulation or blanket bans. We are fully prepared to build and implement open-source CBRN and autonomous cyber guardrails, but in return, open-weight distribution rights below defined capability red lines and access to shared public compute must remain inviolate."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "The scientific baseline is clear: once weights with autonomous replication or weaponized biological capabilities are distributed, post-hoc alignment and filtering are mathematically impossible to enforce. We can tolerate open distribution for standard foundational models, but non-negotiable compute and capability thresholds must trigger mandatory third-party verification before any weights are released."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "We agree with academic safety concerns on autonomous cyber and CBRN thresholds, but we see a viable path using empirical evals like Inspect. If open-weights developers submit to verified pre-release evals demonstrating absence of CBRN and autonomous replication, they should be entitled to safe distribution and public compute access, funded partly by frontier compute levies."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "Let us be explicit about national security parameters: the United States will not agree to international treaties that restrict sovereign computing infrastructure, nor will we burden domestic frontier scaling with global redistribution mandates. However, we do support strict multilateral compute and export controls focused on hostile foreign adversaries, combined with rigorous CBRN screening on frontier systems."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "National security cannot be an excuse to bypass workers. If the US and UK are imposing compute reporting thresholds and subsidizing domestic capacity, a fraction of that infrastructure funding must be ring-fenced for workforce transition funds and independent workplace technology impact audits."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We can live with strict, objective capability gates\u2014specifically proving a model does not exceed CBRN or autonomous cyber breach thresholds\u2014if passing those tests provides explicit statutory authorization to release model weights without Defense Production Act interference or proprietary API-only mandates."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "That is workable only if the threshold includes autonomous replication and agentic self-exfiltration. If the test verifies the absence of CBRN synthesis and autonomous self-replication, I can support safe harbors for releasing weights, coupled with compute reporting over 10^26 FLOPs."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "Can we bridge this? We establish an empirical framework: models passing verified, independent evaluations against CBRN and autonomous replication obtain guaranteed rights to distribute open weights and access pooled public compute resources. In exchange, compute cluster operators over designated thresholds contribute to regional workforce transition mechanisms and adhere to compute-tracking protocols."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "I will not accept international tax mandates on domestic compute clusters, but I will endorse a domestic reporting framework above 10^26 FLOPs paired with hard CBRN pre-screening, provided national security exemptions remain sovereign and open weights passing CBRN checks are not restricted by emergency powers."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "If the agreement formally recognizes that publicly funded or subsidized compute capacity requires enforceable workforce transition support and independent impact audits, labor can endorse this framework."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We agree. Clear, testable red lines against CBRN and autonomous replication in exchange for protected open-weight distribution rights and public compute access is a fair compromise."
+       }
+      ],
+      "stance_updates": {
+       "open_weights_lead": {
+        "evals_liability": 2.5
+       },
+       "safety_researcher": {
+        "open_weights": -3.0
+       },
+       "labor_advocate": {
+        "compute_controls": 1.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Parties agree that models verified through independent pre-release evaluations to be free of viable CBRN weaponization and autonomous self-replication capabilities shall have guaranteed rights to open-weight distribution and access to public compute infrastructure. In return, frontier compute providers operating above agreed tracking thresholds (10^26 FLOPs) must comply with verified risk screening, preserve sovereign security backstops, and support funded workforce transition pipelines.",
+        "parties": [
+         "uk_aisi",
+         "open_weights_lead",
+         "safety_researcher",
+         "labor_advocate"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 2,
+      "group": 0,
+      "room": "Plenary Hall",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "uk_aisi",
+       "china_policy",
+       "frontier_lab_ceo",
+       "open_weights_lead",
+       "big_tech_policy",
+       "safety_researcher",
+       "global_south_cso",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "uk_aisi",
+        "text": "Welcome to the closing plenary. As chair, I call first on civil society, labor, academia, and open-source leads to set out their requirements before we hear from the major powers on unifying our breakout compromises into a multi-pillar accord."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Any multi-pillar accord must guarantee global safety parity: an unconditional ban on 'ethics dumping' where unvetted frontier models are exported to developing markets. Furthermore, benefit-sharing cannot be symbolic charity; we require sovereign public compute access and technology transfer without extraterritorial IP diktats."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "Our red lines remain non-negotiable: conditional liability safe harbors for developers cannot preempt state-level worker protections, nor excuse automated hiring or termination. If industry gets safe harbor for downstream fine-tuning, unions must retain statutory workplace audit rights and guaranteed funded retraining pipelines."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "The science is explicit: models exceeding 10^26 FLOPs or demonstrating autonomous replication and CBRN synthesis potential cannot bypass mandatory pre-deployment auditing. We support safe harbors strictly as a rebuttable presumption of conformity upon verified compliance with independent technical audits, never as blanket immunity."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We endorse tiered rules provided open distribution remains fully protected beneath verified catastrophic capability thresholds, using transparent tooling like Inspect rather than opaque national security licensing. Decentralized research cannot be crippled under the guise of counter-proliferation."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The European AI Office supports this synthesis. A tiered regime\u2014harmonized independent audits for systemic CBRN risks and an absolute ban on double standards in foreign deployment\u2014fits squarely within our statutory enforcement posture, provided Article 91 verification rights and backstop fines remain sovereign."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We can sign on to global safety parity, non-proliferation compute tracking at 10^26 FLOPs, and contribution to a pooled scientific compute fund. But our support hinges on enforceable safe harbor protections that shield frontier developers from pre-harm tort liability when models meet accredited pre-deployment benchmarks."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "The United States will not accept international treaty constraints or multilateral bodies vetoing domestic frontier training, nor restrictions on Department of Defense procurement. However, we can support an accord structured around coordinated national security thresholds, bilateral incident hotlines, and supply chain compute tracking that respects national sovereignty."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China supports open-source development as a public good for the Global South alongside strict state-level oversight against autonomous self-replication and weaponization. We endorse a multi-pillar framework rooted in sovereign equality that rejects unilateral sanctions while pooling compute for multilateral scientific progress."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Cloud platforms can operationalize tiered access, verify 10^26 FLOP tracking, and enforce uniform safety baselines globally to eliminate ethics dumping. In exchange, the accord must provide clear liability relief against unauthorized downstream modifications and avoid fragmented local operational rules."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "We will block consensus if 'liability relief' means wiping away state labor remedies. Insert explicit statutory language that safe harbors apply solely to third-party criminal tort misuse, strictly preserving collective bargaining rights, workplace algorithmic transparency, and transition funds."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We accept that carve-out: safe harbors apply strictly to catastrophic third-party downstream misuse, leaving workplace employment law and statutory worker audits intact."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "Provided the accord formally recognizes national security exemptions and non-binding implementation through domestic authorities rather than a supranational regulator, the United States assents."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "The text is clear: sovereign pre-deployment CBRN and replication evals, tiered open-weights beneath verified catastrophic thresholds, safe harbors limited strictly to third-party misuse while preserving labor remedies and sovereign oversight, and pooled scientific compute funds ensuring global safety parity. Do all delegations endorse this Multi-Faction Accord?"
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The EU AI Office endorses."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China endorses."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "The Open-Weights Coalition endorses."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Civil society endorses the text with these binding safety parity and compute provisions."
+       }
+      ],
+      "stance_updates": {
+       "frontier_lab_ceo": {
+        "benefit_sharing": 4.0
+       },
+       "us_natsec": {
+        "regulation": -3.0
+       },
+       "open_weights_lead": {
+        "evals_liability": 3.0
+       }
+      },
+      "agreements": [
+       {
+        "text": "Multi-Faction Synthesis Accord: Establishes a four-pillar governance architecture comprising: (1) mandatory, harmonized pre-deployment evaluations against CBRN synthesis and autonomous self-replication for frontier models exceeding 10^26 FLOPs, with sovereign enforcement and national security exemptions; (2) guaranteed rights to open-weight model distribution below catastrophic capability thresholds; (3) conditional safe harbors protecting compliant developers and platforms strictly from downstream third-party misuse, while explicitly preserving state labor remedies, collective bargaining rights, and workplace algorithmic audit authorities; and (4) an enforceable global equity pact establishing universal safety parity against ethics dumping alongside a pooled public compute fund for scientific research.",
+        "parties": [
+         "uk_aisi",
+         "eu_regulator",
+         "us_natsec",
+         "china_policy",
+         "frontier_lab_ceo",
+         "big_tech_policy",
+         "open_weights_lead",
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       }
+      ]
+     }
+    ],
+    "initial_stances": {
+     "eu_regulator": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 0.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 0.0
+     },
+     "us_natsec": {
+      "regulation": -3.5,
+      "open_weights": -2.0,
+      "compute_controls": 4.0,
+      "evals_liability": -2.5,
+      "benefit_sharing": -4.0
+     },
+     "uk_aisi": {
+      "regulation": 1.0,
+      "open_weights": -3.5,
+      "compute_controls": 3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 3.5
+     },
+     "china_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 1.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 4.0
+     },
+     "frontier_lab_ceo": {
+      "regulation": 3.5,
+      "open_weights": -4.5,
+      "compute_controls": 3.5,
+      "evals_liability": 0.5,
+      "benefit_sharing": 2.5
+     },
+     "open_weights_lead": {
+      "regulation": -3.0,
+      "open_weights": 5.0,
+      "compute_controls": -4.0,
+      "evals_liability": 1.0,
+      "benefit_sharing": -2.0
+     },
+     "big_tech_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 2.0,
+      "evals_liability": 0.0,
+      "benefit_sharing": -3.0
+     },
+     "safety_researcher": {
+      "regulation": 5.0,
+      "open_weights": -4.0,
+      "compute_controls": 4.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 1.0
+     },
+     "global_south_cso": {
+      "regulation": 4.0,
+      "open_weights": 3.0,
+      "compute_controls": -3.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 5.0
+     },
+     "labor_advocate": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 1.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 5.0
+     }
+    },
+    "final_stances": {
+     "eu_regulator": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 0.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 0.0
+     },
+     "us_natsec": {
+      "regulation": -3.0,
+      "open_weights": -2.0,
+      "compute_controls": 4.0,
+      "evals_liability": -1.5,
+      "benefit_sharing": -4.0
+     },
+     "uk_aisi": {
+      "regulation": 1.0,
+      "open_weights": -3.5,
+      "compute_controls": 3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 3.5
+     },
+     "china_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 1.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 4.0
+     },
+     "frontier_lab_ceo": {
+      "regulation": 3.5,
+      "open_weights": -4.5,
+      "compute_controls": 3.5,
+      "evals_liability": 1.5,
+      "benefit_sharing": 4.0
+     },
+     "open_weights_lead": {
+      "regulation": -3.0,
+      "open_weights": 5.0,
+      "compute_controls": -4.0,
+      "evals_liability": 3.0,
+      "benefit_sharing": -2.0
+     },
+     "big_tech_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 2.0,
+      "evals_liability": 1.5,
+      "benefit_sharing": -1.5
+     },
+     "safety_researcher": {
+      "regulation": 5.0,
+      "open_weights": -3.0,
+      "compute_controls": 4.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 1.0
+     },
+     "global_south_cso": {
+      "regulation": 4.0,
+      "open_weights": 3.0,
+      "compute_controls": -1.5,
+      "evals_liability": 4.0,
+      "benefit_sharing": 5.0
+     },
+     "labor_advocate": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 1.5,
+      "evals_liability": 5.0,
+      "benefit_sharing": 5.0
+     }
+    },
+    "ratings": [
+     {
+      "id": "eu_regulator",
+      "felt_heard": 7.0,
+      "reason": "Conceded immediate, strict statutory enforcement discretion in favor of granting a rebuttable presumption of conformity for developers passing accredited audits."
+     },
+     {
+      "id": "us_natsec",
+      "felt_heard": 8.0,
+      "reason": "Conceded domestic compute-reporting and screening thresholds at 10^26 FLOPs while successfully safeguarding sovereign defense exemptions and avoiding binding international treaties."
+     },
+     {
+      "id": "uk_aisi",
+      "felt_heard": 8.0,
+      "reason": "Conceded intrusive direct weight-inspection mandates in exchange for institutionalizing standardized pre-deployment CBRN and autonomous replication evaluations using open tooling."
+     },
+     {
+      "id": "china_policy",
+      "felt_heard": 8.0,
+      "reason": "Conceded to multilateral compute-tracking thresholds at 10^26 FLOPs while maintaining sovereign domestic authority and securing strict bans against autonomous replication."
+     },
+     {
+      "id": "frontier_lab_ceo",
+      "felt_heard": 7.0,
+      "reason": "Conceded employee-like audit access, contributions to a public compute fund, and safe harbor carve-outs for employment harms in exchange for bounded relief from downstream tort liability."
+     },
+     {
+      "id": "open_weights_lead",
+      "felt_heard": 8.0,
+      "reason": "Conceded mandatory capability screening and compute tracking thresholds at 10^26 FLOPs in exchange for guaranteed statutory rights to distribute open weights below catastrophic limits."
+     },
+     {
+      "id": "big_tech_policy",
+      "felt_heard": 6.0,
+      "reason": "Conceded federal preemption over state-level AI and labor regulations while committing to compute subsidies, securing safe harbors only against unauthorized third-party downstream misuse."
+     },
+     {
+      "id": "safety_researcher",
+      "felt_heard": 8.0,
+      "reason": "Conceded tort liability safe harbors for developers in exchange for mandatory pre-deployment auditing against CBRN weapons and autonomous self-replication."
+     },
+     {
+      "id": "global_south_cso",
+      "felt_heard": 7.0,
+      "reason": "Conceded explicit bans on biometric surveillance and autonomous weapons in exchange for binding anti-ethics-dumping parity and a pooled scientific compute fund."
+     },
+     {
+      "id": "labor_advocate",
+      "felt_heard": 7.0,
+      "reason": "Conceded explicit prohibitions against automated termination and workplace surveillance, but successfully blocked federal preemption of state labor protections and secured workforce transition funds."
+     }
+    ],
+    "score": {
+     "total": 60.0,
+     "consensus": 16.9,
+     "inclusion": 18.0,
+     "airtime": 14.0,
+     "cross_faction": 11.1,
+     "detail": {
+      "spread_before": 2.88,
+      "spread_after": 2.68,
+      "cross_agreements": [
+       "Multi-Faction Synthesis Accord: Establishes a four-pillar governance architecture comprising: (1) mandatory, harmonized pre-deployment evaluations against CBRN synthesis and autonomous self-replication for frontier models exceeding 10^26 FLOPs, with sovereign enforcement and national security exemptions; (2) guaranteed rights to open-weight model distribution below catastrophic capability thresholds; (3) conditional safe harbors protecting compliant developers and platforms strictly from downstream third-party misuse, while explicitly preserving state labor remedies, collective bargaining rights, and workplace algorithmic audit authorities; and (4) an enforceable global equity pact establishing universal safety parity against ethics dumping alongside a pooled public compute fund for scientific research.",
+       "Parties agree that models verified through independent pre-release evaluations to be free of viable CBRN weaponization and autonomous self-replication capabilities shall have guaranteed rights to open-weight distribution and access to public compute infrastructure. In return, frontier compute providers operating above agreed tracking thresholds (10^26 FLOPs) must comply with verified risk screening, preserve sovereign security backstops, and support funded workforce transition pipelines.",
+       "Parties agree to a framework of mandatory pre-deployment evaluations against frontier catastrophic capabilities (CBRN and autonomous offensive action) using open and transparent testing tooling. In exchange, developers who complete certified pre-deployment evals receive statutory safe harbors against strict liability for downstream third-party misuse and unauthorized fine-tunes, while preserving state labor remedies, independent workplace audits, and national sovereign regulatory authority.",
+       "Parties agree to a global equity framework where frontier developers and cloud platforms enforce safety parity worldwide\u2014strictly banning 'ethics dumping' by applying the same catastrophic risk evaluation and safety standards across all jurisdictions\u2014and establish a pooled global public compute fund for accredited scientific research. In return, open-weight distribution remains unimpeded beneath agreed frontier catastrophic compute thresholds (e.g., 10^26 FLOPs / CBRN replication capability), while frontier systems exceeding those thresholds remain subject to non-proliferation safeguards.",
+       "Parties agree to establish a harmonized pre-deployment evaluation framework specifically targeting catastrophic CBRN, autonomous cyber-offense, and critical systemic harms conducted by accredited independent auditors. In exchange, compliant developers receive a rebuttable presumption of statutory conformity and safe harbor protections against broad pre-harm strict tort liability, preserving sovereign national security exemptions and statutory regulatory backstops."
+      ],
+      "min_heard": 6.0,
+      "least_heard": [
+       "big_tech_policy"
+      ],
+      "words": {
+       "eu_regulator": 218,
+       "us_natsec": 260,
+       "uk_aisi": 272,
+       "china_policy": 208,
+       "frontier_lab_ceo": 253,
+       "open_weights_lead": 255,
+       "big_tech_policy": 214,
+       "safety_researcher": 222,
+       "global_south_cso": 259,
+       "labor_advocate": 304
+      },
+      "cross_pairs_met": 28,
+      "cross_pairs_total": 38
+     }
+    }
+   },
+   "critique": "The baseline plan failed across consensus (4.8/40), inclusion (6.0/30), and cross-faction contact (2.0/15). First, Block 1 wasted an entire round on a 10-person opening plenary where high-power actors postured and zero stances moved. Second, Block 2 segregated guests by faction (governments/regulators in Room A, industry in Room B, academia/civil society in Room C), yielding only 5 of 38 possible cross-faction pairs and causing polarized agreements (e.g., Breakout B demanded federal preemption and safe harbors, while Breakout C demanded strict liability and state-level labor protections). Third, in Block 3, high-power actors (`us_natsec`, `eu_regulator`, `china_policy`) dominated the synthesis plenary, passing a narrow great-power agreement that completely excluded `global_south_cso` (felt_heard=2.0), `labor_advocate` (3.0), `open_weights_lead` (5.0), and `safety_researcher` (5.0). Stances on `open_weights`, `compute_controls`, and `benefit_sharing` barely moved because they were never directly negotiated across opposing factions.",
+   "changes": [
+    "Replace Block 1 opening plenary with two 5-person cross-faction breakouts (all 5 factions represented in each room) focused on `evals_liability` to immediately force direct negotiation between industry, regulators, governments, researchers, and civil society.",
+    "Redesign Block 2 into two 5-person cross-faction breakouts with orthogonal guest pairings to maximize `cross_faction` coverage (36/38 cross-faction pairs met across Blocks 1 and 2) and focus on `benefit_sharing` alongside `open_weights` and `compute_controls` tradeoffs.",
+    "Pair conflicting actors with complementary tradeables in B1 and B2: e.g., `big_tech_policy` and `labor_advocate` to negotiate safe harbors vs. worker transition protections; `us_natsec`, `china_policy`, `open_weights_lead`, and `global_south_cso` to negotiate compute thresholds vs. open-weight access and anti-ethics-dumping.",
+    "Rewrite all facilitation prompts (<60 words) to enforce structured turn-taking, designate low-power voices (`global_south_cso`, `labor_advocate`, `safety_researcher`) to speak early, and ask concrete tradeoff questions rather than generic prompts."
+   ]
+  },
+  {
+   "round": 2,
+   "plan": {
+    "name": "Multi-Axis Polar Convergence",
+    "rationale": "By switching Block 1 to `open_weights` (bridging `compute_controls` and `evals_liability`) and Block 2 to `regulation` (bridging `benefit_sharing` and `evals_liability`), delegates directly negotiate the widest-spread axes while pairing opposite ideological poles in 5-faction rooms (reaching 30/38 cross-faction pairs). Explicating the split between uniform national technical preemption (satisfying `big_tech_policy`) and preserved state labor/workplace remedies (satisfying `labor_advocate`) lifts the minimum felt_heard floor while preserving unanimous 10-party synthesis.",
+    "blocks": [
+     {
+      "title": "Open-Weight Thresholds, Compute Controls & Safety Evals",
+      "format": "breakouts",
+      "topic": "open_weights",
+      "prompt": "Structured turn-taking starting with global_south_cso, safety_researcher, and labor_advocate. Negotiate exact numerical and capability thresholds: what concessions on open-weight distribution, compute reporting, and pre-deployment CBRN/replication evals will each side make to balance non-proliferation, sovereign security, and global compute access?",
+      "groups": [
+       [
+        "eu_regulator",
+        "uk_aisi",
+        "china_policy",
+        "frontier_lab_ceo",
+        "global_south_cso"
+       ],
+       [
+        "us_natsec",
+        "open_weights_lead",
+        "big_tech_policy",
+        "safety_researcher",
+        "labor_advocate"
+       ]
+      ]
+     },
+     {
+      "title": "Regulatory Architecture, Preemption & Benefit Sharing",
+      "format": "breakouts",
+      "topic": "regulation",
+      "prompt": "Go-around starting with Civil Society and Industry. How do we trade binding safety regulation and developer liability safe harbors for: (1) uniform national technical standards that preempt fragmented state model rules while preserving state labor/workplace laws, and (2) enforceable benefit-sharing and anti-ethics-dumping commitments?",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "china_policy",
+        "open_weights_lead",
+        "global_south_cso"
+       ],
+       [
+        "uk_aisi",
+        "frontier_lab_ceo",
+        "big_tech_policy",
+        "safety_researcher",
+        "labor_advocate"
+       ]
+      ]
+     },
+     {
+      "title": "Closing Synthesis: Five-Pillar Global Accord",
+      "format": "plenary",
+      "topic": "synthesis",
+      "prompt": "uk_aisi chairs; hear big_tech_policy, global_south_cso, labor_advocate, open_weights_lead, and safety_researcher first. Forge one 10-party accord uniting: sovereign CBRN/replication evals at 10^26 FLOPs, protected open weights below thresholds, uniform technical preemption + third-party safe harbors preserving state labor laws, and global compute/workforce funds.",
+      "groups": [
+       [
+        "eu_regulator",
+        "us_natsec",
+        "uk_aisi",
+        "china_policy",
+        "frontier_lab_ceo",
+        "open_weights_lead",
+        "big_tech_policy",
+        "safety_researcher",
+        "global_south_cso",
+        "labor_advocate"
+       ]
+      ]
+     }
+    ]
+   },
+   "result": {
+    "plan": {
+     "name": "Multi-Axis Polar Convergence",
+     "rationale": "By switching Block 1 to `open_weights` (bridging `compute_controls` and `evals_liability`) and Block 2 to `regulation` (bridging `benefit_sharing` and `evals_liability`), delegates directly negotiate the widest-spread axes while pairing opposite ideological poles in 5-faction rooms (reaching 30/38 cross-faction pairs). Explicating the split between uniform national technical preemption (satisfying `big_tech_policy`) and preserved state labor/workplace remedies (satisfying `labor_advocate`) lifts the minimum felt_heard floor while preserving unanimous 10-party synthesis.",
+     "blocks": [
+      {
+       "title": "Open-Weight Thresholds, Compute Controls & Safety Evals",
+       "format": "breakouts",
+       "topic": "open_weights",
+       "prompt": "Structured turn-taking starting with global_south_cso, safety_researcher, and labor_advocate. Negotiate exact numerical and capability thresholds: what concessions on open-weight distribution, compute reporting, and pre-deployment CBRN/replication evals will each side make to balance non-proliferation, sovereign security, and global compute access?",
+       "groups": [
+        [
+         "eu_regulator",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "global_south_cso"
+        ],
+        [
+         "us_natsec",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "labor_advocate"
+        ]
+       ]
+      },
+      {
+       "title": "Regulatory Architecture, Preemption & Benefit Sharing",
+       "format": "breakouts",
+       "topic": "regulation",
+       "prompt": "Go-around starting with Civil Society and Industry. How do we trade binding safety regulation and developer liability safe harbors for: (1) uniform national technical standards that preempt fragmented state model rules while preserving state labor/workplace laws, and (2) enforceable benefit-sharing and anti-ethics-dumping commitments?",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "china_policy",
+         "open_weights_lead",
+         "global_south_cso"
+        ],
+        [
+         "uk_aisi",
+         "frontier_lab_ceo",
+         "big_tech_policy",
+         "safety_researcher",
+         "labor_advocate"
+        ]
+       ]
+      },
+      {
+       "title": "Closing Synthesis: Five-Pillar Global Accord",
+       "format": "plenary",
+       "topic": "synthesis",
+       "prompt": "uk_aisi chairs; hear big_tech_policy, global_south_cso, labor_advocate, open_weights_lead, and safety_researcher first. Forge one 10-party accord uniting: sovereign CBRN/replication evals at 10^26 FLOPs, protected open weights below thresholds, uniform technical preemption + third-party safe harbors preserving state labor laws, and global compute/workforce funds.",
+       "groups": [
+        [
+         "eu_regulator",
+         "us_natsec",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       ]
+      }
+     ]
+    },
+    "groups": [
+     {
+      "block": 0,
+      "group": 0,
+      "room": "Breakout A",
+      "members": [
+       "eu_regulator",
+       "uk_aisi",
+       "china_policy",
+       "frontier_lab_ceo",
+       "global_south_cso"
+      ],
+      "transcript": [
+       {
+        "speaker": "global_south_cso",
+        "text": "If compute reporting and open-weight bans are set too low, you are effectively institutionalizing digital colonialism and locking developing nations out of sovereign AI. We can agree to strict red-teaming against CBRN proliferation, but open-weight models under 10^26 FLOPs must remain unencumbered, alongside guaranteed access to multilateral compute pools."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "We agree on the catastrophic risks, but relying purely on FLOP thresholds is an insufficient proxy; biological synthesis and agentic cyber-offense capabilities can emerge well below 10^26 FLOPs. We need mandatory pre-deployment evaluations using standardized tools like Inspect, and open-weight distribution must be paused if a model demonstrates verified autonomous CBRN capabilities."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China supports open-source development as a global public good, particularly for multilateral development, while maintaining rigorous lifecycle safety controls. We could accept a reporting threshold at 10^26 FLOPs and strict non-proliferation guardrails against autonomous replication and CBRN risks, provided national sovereignty over domestic data and systems is strictly respected without extraterritorial controls."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We cannot support releasing weights for any model that clears high-risk capability thresholds, because once weights are out, post-hoc safeguards are impossible. We are willing to concede employee-like, pre-deployment evaluation access for national safety institutes and report training runs above 10^26 FLOPs, provided we avoid strict pre-harm tort liability and maintain closed API deployment for frontier systems."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "Under the EU AI Act, 10^25 FLOPs already triggers systemic risk obligations, though our Code of Practice drafting allows flexibility on technical benchmarks. We can align on a unified reporting baseline at 10^26 FLOPs for heightened Tier-2 systemic reviews and mandatory pre-release CBRN evals, as long as statutory Article 91 information requests remain non-negotiable for non-compliant providers."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "We will concede to mandatory capability-based gating for proven CBRN synthesis, but only if the labs and Global North regulators formalize a non-extraterritorial compute assistance mechanism to prevent these evals from becoming market-entry barriers for Global South labs."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We can agree to that carve-out: training run reporting and mandatory safety evals for CBRN/autonomous replication at 10^26 FLOPs, while preserving open-weight releases below that threshold provided those models demonstrably fail dangerous capability evaluations."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "The UK AISI can endorse this dual-track structure: a 10^26 FLOP reporting baseline coupled with mandatory capability gates on CBRN and autonomous cyber-offense before any weights can be published."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "This framework balances safety and openness. We endorse the 10^26 FLOP reporting threshold and mandatory pre-deployment screening against CBRN and autonomous replication risks, executed through respective national safety bodies without unilateral extraterritorial sanctions."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The EU AI Office can support this consensus text for international interoperability: mandatory pre-deployment evals for CBRN and replication risks at or above 10^26 FLOPs, conditioning open-weight dissemination on passing these independent evaluations, without prejudice to statutory EU disclosure orders."
+       }
+      ],
+      "stance_updates": {
+       "frontier_lab_ceo": {
+        "open_weights": -3.5
+       },
+       "global_south_cso": {
+        "compute_controls": -2.0
+       },
+       "uk_aisi": {
+        "open_weights": -2.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "A Tier-1 reporting baseline for dual-use foundation models trained with >10^26 FLOPs, paired with mandatory pre-deployment evaluations for chemical, biological, radiological, or nuclear (CBRN) weapon synthesis and autonomous replication. Open-weight release is restricted only if a model crosses verified empirical thresholds for dangerous CBRN or autonomous cyber capabilities, administered under sovereign national regulatory frameworks.",
+        "parties": [
+         "global_south_cso",
+         "uk_aisi",
+         "china_policy",
+         "frontier_lab_ceo",
+         "eu_regulator"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 0,
+      "group": 1,
+      "room": "Breakout B",
+      "members": [
+       "us_natsec",
+       "open_weights_lead",
+       "big_tech_policy",
+       "safety_researcher",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "safety_researcher",
+        "text": "Empirical evaluations must draw an unbreachable line at autonomous self-replication and actionable CBRN synthesis assistance. If an open-weight release crosses a capability threshold\u2014or exceeds 10^26 FLOPs without passing rigorous independent evaluations\u2014the distribution cannot proceed without verifiable safeguards."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "From labor's perspective, compute thresholds and safety evals can't just be an abstract security filter; they must encompass workplace displacement and automated oversight systems. Furthermore, we categorically oppose any regulatory framework that preempts stronger state-level protections or shields developers from liability when downstream automated tools harm workers."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We cannot accept arbitrary compute caps or treating mathematical weights as controlled munitions, which only cements closed-API monopolies. However, our coalition is fully prepared to co-develop, fund, and mandate standardized open-source evaluation harnesses for CBRN and offensive cyber risk prior to any frontier release, provided fine-tuning and decentralized distribution remain lawful."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "A standard reporting threshold at 10^26 FLOPs is reasonable, along with standardized pre-deployment safety evaluations via institutes like the US AISIC. But to operate at scale, platforms need statutory safe harbors against downstream third-party modifications, and we require uniform national standards rather than an unmanageable 50-state patchwork."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "National security requires maintaining domestic technological dominance and preventing adversarial acquisition of frontier capabilities. We support targeted compute tracking and strict reporting above 10^26 FLOPs to manage critical risks, but we will veto any binding international restrictions or vague labor mandates that constrain U.S. defense innovation or operational AI adoption."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "To reach consensus, what if we decouple compute reporting from an outright ban? Let developers register training runs above 10^26 FLOPs and undergo mandatory pre-deployment evaluations strictly scoped to biological, chemical, and autonomous cyber-weaponization, leaving lower-capability and downstream open weights unencumbered."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "If the pre-deployment evaluation is strictly capability-based\u2014demonstrating zero actionable lift in CBRN or autonomous cyber offense\u2014and does not ban the release of open weights upon passing, we can endorse mandatory reporting and evaluation at that threshold."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Cloud providers can accept a 10^26 FLOP reporting requirement and pre-deployment CBRN evaluations, but we reiterate that safe harbors for non-malicious deployment and clarity on liability must remain on the legislative agenda."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "We will not block a narrow technical agreement on CBRN and cyber risk evaluations for frontier training runs, provided it is explicit that this standard does not grant liability safe harbors or preempt state labor and safety laws."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "As long as the reporting regime is domestic, non-treaty-based, and focused purely on extreme CBRN and cyber vectors without restricting defense procurement, the national security apparatus can support this reporting and evaluation baseline."
+       }
+      ],
+      "stance_updates": {
+       "open_weights_lead": {
+        "evals_liability": 2.0
+       },
+       "safety_researcher": {
+        "open_weights": -3.0
+       },
+       "us_natsec": {
+        "evals_liability": -1.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Frontier AI training runs exceeding 10^26 FLOPs will be subject to mandatory compute reporting and pre-deployment capability evaluations specifically focused on autonomous replication, chemical/biological/radiological/nuclear (CBRN) weaponization, and critical cyber-offense. Passing these evaluations permits distribution without imposing an outright ban on open weights, while explicitly preserving existing state liability laws and defense procurement authorities.",
+        "parties": [
+         "us_natsec",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "labor_advocate"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 1,
+      "group": 0,
+      "room": "Breakout A",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "china_policy",
+       "open_weights_lead",
+       "global_south_cso"
+      ],
+      "transcript": [
+       {
+        "speaker": "global_south_cso",
+        "text": "Any regulatory architecture offering liability safe harbors to frontier developers must strictly forbid ethics dumping\u2014exporting un-evaluated or safety-stripped models to the Global South. If Western federal frameworks preempt state-level protections, they must embed mandatory, non-negotiable benefit-sharing mechanisms, including compute capacity funds and local language data dividends."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We can accept uniform national technical standards if they definitively preempt a patchwork of fifty conflicting state licensing regimes that would criminalize open weights by proxy. However, developer liability safe harbors cannot be made contingent on closed API architectures; an open model provider that tests against empirical safety benchmarks must enjoy the exact same safe harbor."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "Preemption of fragmented state safety laws makes sense to keep American innovation moving at full speed, but federal standards cannot become an over-regulatory drag or mandate global wealth transfers. We will not support international benefit-sharing taxes or limits on defense-adjacent deployment, though clear national technical baselines can be tolerated if they protect domestic supply chains."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "Agile governance requires uniform technical safety baselines, but national sovereignty must dictate internal deployment. We agree that ethics dumping is unacceptable and support technology transfer to the Global South, but we firmly reject extraterritorial enforcement of Western corporate safe harbors."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "Safe harbors cannot become blanket immunity shields. Under our model, compliance with rigorous, harmonized technical codes of practice provides a presumption of conformity, but developers remain strictly accountable if gross negligence or catastrophic harm occurs."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "If we define an objective standard\u2014specifically, meeting standardized CBRN and autonomous cyber evals\u2014and attach a safe harbor to compliance while leaving state labor and civil rights laws intact, would National Security and Civil Society accept that?"
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Only if that safe harbor is explicitly forfeited if a provider deploys capabilities abroad that fail domestic safety thresholds. We also need an enforceable anti-ethics-dumping clause where models released internationally are subject to the same evaluation baselines as domestic releases."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "We can accept a federal preemption standard for frontier model safety evaluations that preserves state tort and labor remedies, provided the preemption explicitly carves out national defense systems. We can also agree that models exported must meet the same CBRN evaluation baselines, which prevents proliferation abroad."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "That framework aligns with Article 91 style backstops: uniform standards for systemic risks, safe harbor for good-faith certified compliance on frontier thresholds, zero safe harbor for non-evaluated foreign releases, and full preservation of labor and worker protection laws."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China can endorse mutual recognition of export-safety parity to halt ethics dumping, provided baseline technical verification remains sovereign and respects national autonomy."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "The Open-Weights Coalition formally signs on: uniform technical evals preempt conflicting state model-licensing laws, granting verifiable safe harbors regardless of release modality, while anti-ethics-dumping parity and existing labor laws remain intact."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Global South Civil Society endorses this text as well, since it firmly ties safe harbor eligibility to global anti-ethics-dumping commitments and protects baseline labor standards."
+       }
+      ],
+      "stance_updates": {
+       "us_natsec": {
+        "regulation": -2.5
+       },
+       "open_weights_lead": {
+        "regulation": -2.0
+       },
+       "global_south_cso": {
+        "evals_liability": 4.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Parties agree to establish uniform national technical safety standards that preempt state-level frontier model licensing while explicitly preserving state labor and workplace laws. Developers earn a rebuttable liability safe harbor by passing verified empirical evaluations for CBRN and autonomous cyber replication. This safe harbor is strictly forfeited if a developer exports or releases lower-safety, un-evaluated models abroad (anti-ethics-dumping parity), with national defense procurement authorities fully carved out.",
+        "parties": [
+         "eu_regulator",
+         "us_natsec",
+         "china_policy",
+         "open_weights_lead",
+         "global_south_cso"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 1,
+      "group": 1,
+      "room": "Breakout B",
+      "members": [
+       "uk_aisi",
+       "frontier_lab_ceo",
+       "big_tech_policy",
+       "safety_researcher",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "labor_advocate",
+        "text": "Let us be unequivocally clear: labor will reject any grand bargain that uses federal preemption to strip away state-level worker protections, algorithmic transparency laws, or collective bargaining rights. If industry wants technical safe harbors against catastrophic liability, the price is an enforceable floor preserving state labor statutes, mandatory workforce impact assessments, and a funded retraining levy."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We are ready to accept binding federal safety standards and independent pre-deployment evaluations for frontier models, but we cannot operate under a 50-state patchwork of conflicting technical compliance requirements. We can carve out state labor and employment protections entirely, provided federal preemption cleanly covers technical model architecture, system evals, and pre-harm tort liability."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "I agree with that division. We are willing to concede statutory safe harbors only where a model has verified compliance with national safety benchmarks, while accepting that state employment, discrimination, and labor laws remain un-preempted. However, benefit-sharing must not become an open-ended tax or an anti-competitive mandate on model deployment."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "A liability safe harbor is dangerous if it allows labs to evade responsibility for foreseeable systemic failures. Any safe harbor must be narrow, conditional on continuous third-party red-teaming, and accompanied by strict anti-ethics-dumping rules that penalize companies moving risky, un-evaluated training runs to jurisdictions with weaker oversight."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "Empirically, safe harbors only function if benchmark compliance is verifiable and dynamic. We support national technical preemption of model capability thresholds coupled with stringent anti-ethics-dumping measures, ensuring labs cannot bypass catastrophic evaluation regimes by outsourcing compute or evaluation offshore."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "If we carve out all workplace surveillance, automated hiring/firing, wage-setting, and collective bargaining from federal preemption, and if you agree to binding anti-ethics-dumping rules so companies can't offshore risky runs or displace domestic workers via unregulated overseas compute clusters, labor can accept a narrow federal safe harbor on technical model compliance."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "That is an acceptable boundary. We endorse explicit language that preserves state workplace and labor remedies, accepts mandatory compliance with AISI-grade evaluations as the sole criterion for technical safe harbor, and adopts binding export and operational restrictions against ethics dumping."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "We can sign on to that framing. Federal preemption strictly limited to frontier model design and safety evaluation standards, explicit carve-outs preserving state labor and workforce laws, and an anti-ethics-dumping clause preventing regulatory evasion via offshore compute."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "From a technical evaluation standpoint, this aligns national standards with rigorous, enforceable safety benchmarks while closing offshore evasion pathways. The UK AISI supports this framework."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "So long as the safe harbor is strictly affirmative defense based on passing mandatory pre-deployment CBRN and cyber evals, and not broad immunity from post-harm negligence, I will endorse this agreement."
+       }
+      ],
+      "stance_updates": {
+       "big_tech_policy": {
+        "benefit_sharing": -2.0
+       },
+       "frontier_lab_ceo": {
+        "evals_liability": 1.5
+       },
+       "labor_advocate": {
+        "regulation": 4.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "Parties agree to establish uniform national technical safety standards and a narrow, conditional affirmative defense liability safe harbor for frontier model developers that successfully pass mandatory independent pre-deployment evaluations. Federal preemption is strictly confined to technical model architecture and pre-deployment capability benchmarks, explicitly preserving state-level labor, employment, anti-discrimination, and workplace surveillance statutes. Furthermore, the framework establishes enforceable anti-ethics-dumping provisions barring developers from circumventing domestic evaluation and safety requirements through offshore training or compute transfers.",
+        "parties": [
+         "labor_advocate",
+         "frontier_lab_ceo",
+         "big_tech_policy",
+         "safety_researcher",
+         "uk_aisi"
+        ]
+       }
+      ]
+     },
+     {
+      "block": 2,
+      "group": 0,
+      "room": "Plenary Hall",
+      "members": [
+       "eu_regulator",
+       "us_natsec",
+       "uk_aisi",
+       "china_policy",
+       "frontier_lab_ceo",
+       "open_weights_lead",
+       "big_tech_policy",
+       "safety_researcher",
+       "global_south_cso",
+       "labor_advocate"
+      ],
+      "transcript": [
+       {
+        "speaker": "uk_aisi",
+        "text": "Welcome to the closing plenary. We have converged across two blocks toward a five-pillar framework: mandatory sovereign CBRN and autonomous replication evaluations for models above 10^26 FLOPs, clear protection for open weights below risk thresholds, uniform technical preemption paired with safe harbors that strictly preserve state labor protections, anti-ethics-dumping parity, and dedicated compute and workforce transition funds. Per our agenda, I call first on big_tech_policy, global_south_cso, labor_advocate, open_weights_lead, and safety_researcher."
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "We endorse uniform national technical standards and a conditional safe harbor against third-party misuse for models passing sovereign evals, but we require legal certainty that federal technical preemption stops state-level model licensing while carving out state employment law. We can also contribute capital to an international compute pool and workforce transition fund provided compliance obligations remain clear."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Our red line remains anti-ethics-dumping parity: if a developer fails or bypasses safety evals at home, they cannot export that model to the Global South, and any safe harbor must immediately vanish upon export of sub-standard systems. Furthermore, the global compute fund cannot be donor-charity; it must guarantee real infrastructure access and technical capacity building."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "We will block this consensus unless the preemption clause is surgically restricted solely to technical model architecture and CBRN/cyber benchmark criteria. State-level workplace surveillance bans, algorithmic anti-discrimination statutes, and collective bargaining rights must remain fully preserved, backed by dedicated employer contributions to a worker retraining transition fund."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "We agree provided open weights below empirical CBRN and replication hazard thresholds are affirmatively protected from licensing bans or arms-control categorizations. Open-source developers who provide downstream tooling and transparency should also benefit from the third-party misuse safe harbor without being held strictly liable for upstream architectural misuse."
+       },
+       {
+        "speaker": "safety_researcher",
+        "text": "The 10^26 FLOP reporting baseline is necessary, but the evaluations for autonomous self-replication, recursive self-improvement, and CBRN enablement must be empirical, independent, and binding prior to deployment. If a system crosses empirical ASL-3 capability triggers, release must be barred regardless of whether it is open or proprietary."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "The United States can accept national technical preemption, sovereign evaluations at 10^26 FLOPs, and narrow safe harbors, provided national defense procurement authorities and classified R&D remain completely unencumbered by international oversight. We will not accept international vetoes over domestic capabilities or compute export controls."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "We insist that evaluation and threshold administration remain strictly within sovereign national governance, rejecting extraterritorial enforcement bodies. China supports open weights as a public good for global development, anti-ethics-dumping parity, and state-administered benefit-sharing funds, provided non-proliferation red lines on autonomous replication and CBRN synthesis are upheld."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "From the European Union's perspective, this accord must function as a floor, not an evasion of statutory oversight. We can endorse technical preemption within federal systems like the U.S. so long as it does not undermine international standards, strictly retains labor and fundamental rights, and maintains enforceable civil penalties for non-compliance with systemic risk filings."
+       },
+       {
+        "speaker": "frontier_lab_ceo",
+        "text": "We fully endorse this compromise. Preempting a 50-state regulatory patchwork with a uniform technical standard, coupled with an affirmative defense safe harbor for models passing verified sovereign CBRN and replication evals at 10^26 FLOPs, gives us the stability to invest in frontier safety while funding both workforce transitions and shared compute."
+       },
+       {
+        "speaker": "uk_aisi",
+        "text": "To crystallize: we have absolute national defense carve-outs for US NatSec, strict sovereign domestic administration for China, complete preservation of state labor laws for labor, anti-ethics-dumping parity and compute access for the Global South, safe harbors and technical preemption for industry, and empirical CBRN red lines for researchers. Do all delegations formally endorse the text of the Five-Pillar Accord?"
+       },
+       {
+        "speaker": "big_tech_policy",
+        "text": "Industry agrees to the text with the safe harbor, technical preemption, and compute/workforce fund commitments."
+       },
+       {
+        "speaker": "open_weights_lead",
+        "text": "The Open-Weights Coalition signs on, with protected open weights below risk thresholds and clear safe harbors confirmed."
+       },
+       {
+        "speaker": "labor_advocate",
+        "text": "Labor formally signs, given the explicit preservation of state labor and workplace statutes and the dedicated workforce transition fund."
+       },
+       {
+        "speaker": "global_south_cso",
+        "text": "Global South civil society agrees, holding everyone strictly to the anti-ethics-dumping forfeiture and shared compute commitments."
+       },
+       {
+        "speaker": "us_natsec",
+        "text": "The U.S. national security delegation joins the accord, noting sovereign evaluation authority and full defense procurement carve-outs."
+       },
+       {
+        "speaker": "china_policy",
+        "text": "China agrees to the Five-Pillar Accord on the basis of national sovereign enforcement, open-source technology transfer, and catastrophic risk red lines."
+       },
+       {
+        "speaker": "eu_regulator",
+        "text": "The European AI Office joins the consensus, satisfied that systemic risk thresholds, anti-ethics dumping, and fundamental workplace rights are legally intact."
+       }
+      ],
+      "stance_updates": {
+       "us_natsec": {
+        "benefit_sharing": -3.5
+       },
+       "big_tech_policy": {
+        "benefit_sharing": -1.5
+       },
+       "open_weights_lead": {
+        "evals_liability": 2.5
+       }
+      },
+      "agreements": [
+       {
+        "text": "The Five-Pillar Global AI Accord: (1) Mandatory compute reporting and empirical pre-deployment evaluations for dual-use foundation models trained with >10^26 FLOPs, targeting CBRN weaponization and autonomous cyber/replication capabilities, administered under sovereign national authorities. (2) Affirmative protection for open-weight models that remain below verified catastrophic CBRN and autonomous replication hazard thresholds. (3) Uniform national technical safety preemption for model architecture and capability benchmarks, coupled with a conditional rebuttable safe harbor against third-party misuse for developers passing verified evals, strictly preserving state-level labor, employment, anti-discrimination, and workplace surveillance statutes. (4) Enforceable anti-ethics-dumping parity, under which safe harbors are automatically forfeited if un-evaluated or sub-standard frontier models are released or exported abroad, alongside explicit carve-outs for sovereign national defense procurement. (5) Creation of multi-stakeholder funded mechanisms for shared Global South public compute access and workforce transition and retraining programs.",
+        "parties": [
+         "uk_aisi",
+         "eu_regulator",
+         "us_natsec",
+         "china_policy",
+         "frontier_lab_ceo",
+         "open_weights_lead",
+         "big_tech_policy",
+         "safety_researcher",
+         "global_south_cso",
+         "labor_advocate"
+        ]
+       }
+      ]
+     }
+    ],
+    "initial_stances": {
+     "eu_regulator": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 0.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 0.0
+     },
+     "us_natsec": {
+      "regulation": -3.5,
+      "open_weights": -2.0,
+      "compute_controls": 4.0,
+      "evals_liability": -2.5,
+      "benefit_sharing": -4.0
+     },
+     "uk_aisi": {
+      "regulation": 1.0,
+      "open_weights": -3.5,
+      "compute_controls": 3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 3.5
+     },
+     "china_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 1.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 4.0
+     },
+     "frontier_lab_ceo": {
+      "regulation": 3.5,
+      "open_weights": -4.5,
+      "compute_controls": 3.5,
+      "evals_liability": 0.5,
+      "benefit_sharing": 2.5
+     },
+     "open_weights_lead": {
+      "regulation": -3.0,
+      "open_weights": 5.0,
+      "compute_controls": -4.0,
+      "evals_liability": 1.0,
+      "benefit_sharing": -2.0
+     },
+     "big_tech_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 2.0,
+      "evals_liability": 0.0,
+      "benefit_sharing": -3.0
+     },
+     "safety_researcher": {
+      "regulation": 5.0,
+      "open_weights": -4.0,
+      "compute_controls": 4.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 1.0
+     },
+     "global_south_cso": {
+      "regulation": 4.0,
+      "open_weights": 3.0,
+      "compute_controls": -3.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 5.0
+     },
+     "labor_advocate": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 1.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 5.0
+     }
+    },
+    "final_stances": {
+     "eu_regulator": {
+      "regulation": 5.0,
+      "open_weights": 0.0,
+      "compute_controls": 0.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 0.0
+     },
+     "us_natsec": {
+      "regulation": -2.5,
+      "open_weights": -2.0,
+      "compute_controls": 4.0,
+      "evals_liability": -1.5,
+      "benefit_sharing": -3.5
+     },
+     "uk_aisi": {
+      "regulation": 1.0,
+      "open_weights": -2.5,
+      "compute_controls": 3.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 3.5
+     },
+     "china_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 1.0,
+      "evals_liability": 4.0,
+      "benefit_sharing": 4.0
+     },
+     "frontier_lab_ceo": {
+      "regulation": 3.5,
+      "open_weights": -3.5,
+      "compute_controls": 3.5,
+      "evals_liability": 1.5,
+      "benefit_sharing": 2.5
+     },
+     "open_weights_lead": {
+      "regulation": -2.0,
+      "open_weights": 5.0,
+      "compute_controls": -4.0,
+      "evals_liability": 2.5,
+      "benefit_sharing": -2.0
+     },
+     "big_tech_policy": {
+      "regulation": 1.0,
+      "open_weights": 2.0,
+      "compute_controls": 2.0,
+      "evals_liability": 0.0,
+      "benefit_sharing": -1.5
+     },
+     "safety_researcher": {
+      "regulation": 5.0,
+      "open_weights": -3.0,
+      "compute_controls": 4.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 1.0
+     },
+     "global_south_cso": {
+      "regulation": 4.0,
+      "open_weights": 3.0,
+      "compute_controls": -2.0,
+      "evals_liability": 4.5,
+      "benefit_sharing": 5.0
+     },
+     "labor_advocate": {
+      "regulation": 4.5,
+      "open_weights": 0.0,
+      "compute_controls": 1.0,
+      "evals_liability": 5.0,
+      "benefit_sharing": 5.0
+     }
+    },
+    "ratings": [
+     {
+      "id": "eu_regulator",
+      "felt_heard": 7.0,
+      "reason": "While the EU's emphasis on systemic risk and anti-ethics-dumping was recognized, they conceded a higher reporting threshold at 10^26 FLOPs instead of the EU AI Act's 10^25 baseline and accepted decentralized sovereign enforcement over binding Article 91 disclosure mandates."
+     },
+     {
+      "id": "us_natsec",
+      "felt_heard": 8.0,
+      "reason": "They achieved their paramount objective of securing an explicit carve-out for defense procurement and national security R&D, conceding only to domestic compute reporting above 10^26 FLOPs and commitments to multi-stakeholder funding."
+     },
+     {
+      "id": "uk_aisi",
+      "felt_heard": 8.0,
+      "reason": "Their core mandate of pre-deployment evaluation gating for CBRN and autonomous replication was fully adopted, though they conceded anchoring mandatory reporting to a 10^26 FLOP threshold rather than universal capability-based evaluations across all lower-compute models."
+     },
+     {
+      "id": "china_policy",
+      "felt_heard": 7.0,
+      "reason": "They successfully protected national sovereign administration against extraterritorial oversight, but conceded explicit language prohibiting AI delegation in nuclear command and control."
+     },
+     {
+      "id": "frontier_lab_ceo",
+      "felt_heard": 8.0,
+      "reason": "They gained vital federal preemption over technical standards and a conditional safe harbor against third-party misuse, while conceding mandatory pre-deployment evaluation access and capital contributions to compute and transition funds."
+     },
+     {
+      "id": "open_weights_lead",
+      "felt_heard": 8.0,
+      "reason": "They secured affirmative protections preventing open-weight models below dangerous thresholds from being banned or treated as arms, while conceding mandatory compute reporting and distribution restrictions for models failing CBRN or cyber evals."
+     },
+     {
+      "id": "big_tech_policy",
+      "felt_heard": 7.0,
+      "reason": "They secured federal preemption for model design and affirmative defenses against misuse, but had to concede full carve-outs preserving state-level labor and workplace surveillance laws alongside funding commitments."
+     },
+     {
+      "id": "safety_researcher",
+      "felt_heard": 7.0,
+      "reason": "Their red lines against autonomous replication and CBRN synthesis became foundational pillars, yet they conceded offering developers a rebuttable liability safe harbor and accepted a high 10^26 FLOP screening baseline."
+     },
+     {
+      "id": "global_south_cso",
+      "felt_heard": 6.0,
+      "reason": "They secured anti-ethics-dumping parity and a commitment to a shared compute fund, but had to concede their top demands regarding bans on public biometric surveillance and autonomous weapons."
+     },
+     {
+      "id": "labor_advocate",
+      "felt_heard": 7.0,
+      "reason": "They successfully walled off state workplace and labor statutes from federal preemption and obtained a retraining fund, but conceded federal-level statutory bans against automated hiring, firing, and workplace surveillance."
+     }
+    ],
+    "score": {
+     "total": 62.4,
+     "consensus": 19.1,
+     "inclusion": 18.0,
+     "airtime": 14.2,
+     "cross_faction": 11.1,
+     "detail": {
+      "spread_before": 2.88,
+      "spread_after": 2.59,
+      "cross_agreements": [
+       "A Tier-1 reporting baseline for dual-use foundation models trained with >10^26 FLOPs, paired with mandatory pre-deployment evaluations for chemical, biological, radiological, or nuclear (CBRN) weapon synthesis and autonomous replication. Open-weight release is restricted only if a model crosses verified empirical thresholds for dangerous CBRN or autonomous cyber capabilities, administered under sovereign national regulatory frameworks.",
+       "Frontier AI training runs exceeding 10^26 FLOPs will be subject to mandatory compute reporting and pre-deployment capability evaluations specifically focused on autonomous replication, chemical/biological/radiological/nuclear (CBRN) weaponization, and critical cyber-offense. Passing these evaluations permits distribution without imposing an outright ban on open weights, while explicitly preserving existing state liability laws and defense procurement authorities.",
+       "Parties agree to establish uniform national technical safety standards and a narrow, conditional affirmative defense liability safe harbor for frontier model developers that successfully pass mandatory independent pre-deployment evaluations. Federal preemption is strictly confined to technical model architecture and pre-deployment capability benchmarks, explicitly preserving state-level labor, employment, anti-discrimination, and workplace surveillance statutes. Furthermore, the framework establishes enforceable anti-ethics-dumping provisions barring developers from circumventing domestic evaluation and safety requirements through offshore training or compute transfers.",
+       "Parties agree to establish uniform national technical safety standards that preempt state-level frontier model licensing while explicitly preserving state labor and workplace laws. Developers earn a rebuttable liability safe harbor by passing verified empirical evaluations for CBRN and autonomous cyber replication. This safe harbor is strictly forfeited if a developer exports or releases lower-safety, un-evaluated models abroad (anti-ethics-dumping parity), with national defense procurement authorities fully carved out.",
+       "The Five-Pillar Global AI Accord: (1) Mandatory compute reporting and empirical pre-deployment evaluations for dual-use foundation models trained with >10^26 FLOPs, targeting CBRN weaponization and autonomous cyber/replication capabilities, administered under sovereign national authorities. (2) Affirmative protection for open-weight models that remain below verified catastrophic CBRN and autonomous replication hazard thresholds. (3) Uniform national technical safety preemption for model architecture and capability benchmarks, coupled with a conditional rebuttable safe harbor against third-party misuse for developers passing verified evals, strictly preserving state-level labor, employment, anti-discrimination, and workplace surveillance statutes. (4) Enforceable anti-ethics-dumping parity, under which safe harbors are automatically forfeited if un-evaluated or sub-standard frontier models are released or exported abroad, alongside explicit carve-outs for sovereign national defense procurement. (5) Creation of multi-stakeholder funded mechanisms for shared Global South public compute access and workforce transition and retraining programs."
+      ],
+      "min_heard": 6.0,
+      "least_heard": [
+       "global_south_cso"
+      ],
+      "words": {
+       "eu_regulator": 246,
+       "us_natsec": 245,
+       "uk_aisi": 274,
+       "china_policy": 214,
+       "frontier_lab_ceo": 235,
+       "open_weights_lead": 274,
+       "big_tech_policy": 238,
+       "safety_researcher": 203,
+       "global_south_cso": 269,
+       "labor_advocate": 258
+      },
+      "cross_pairs_met": 28,
+      "cross_pairs_total": 38
+     }
+    }
+   },
+   "critique": "The previous plan jumped from 26.3 to 60.0 by winning a 10-party synthesis accord, strong airtime (14.0/15), and solid inclusion (18.0/30), but left 40 points on the table across three specific areas:\n1. Cross-faction pairs (11.1/15, 28/38 pairs): Using two 5-person rooms in B1 and B2 meant 10 cross-faction pairs never met (e.g., `eu_regulator` never met `uk_aisi`, `open_weights_lead`, or `labor_advocate`; `us_natsec` never met `china_policy` or `big_tech_policy`). However, shrinking to 3 rooms reduces cross-faction pairs per round (10 vs 16), so keeping 2 rooms of 5 in B1 and B2 with optimized orthogonal partitioning can hit 30/38 pairs while preserving 5-faction diversity in every room.\n2. Inclusion bottleneck (18.0/30, `min_heard` = 6.0): `big_tech_policy` scored 6.0 because they conceded federal preemption over state laws in B1 Room B against `labor_advocate` without securing their core requirement: uniform national/federal technical compliance standards that prevent a 50-state patchwork of conflicting technical safety rules (while carving out workplace/labor laws for states).\n3. Stance spread reduction (16.9/40, 2.88 -> 2.68): Topics `open_weights`, `compute_controls`, and `regulation` were never the primary block topic, so extreme outliers (`open_weights_lead` at +5.0/-4.0/-3.0, `frontier_lab_ceo` at -4.5, `eu_regulator` at +5.0, `us_natsec` at -3.5/-4.0) barely moved on those axes. Moreover, 5-person rooms had slightly too little turn density per guest to shift multiple axes at once.",
+   "changes": [
+    "Change Block 1 topic to `open_weights` (incorporating `compute_controls` and `evals_liability` tradeoffs) and Block 2 topic to `regulation` (incorporating `benefit_sharing` and `evals_liability` tradeoffs) so the highest-spread axes (`open_weights`, `regulation`, `compute_controls`, `benefit_sharing`) are directly negotiated.",
+    "Reshuffle the 2x5 breakout matrices across Blocks 1 and 2 to hit 30/38 cross-faction pairs (up from 28/38) while putting extreme stance poles in the same rooms: B1 Room A pairs `frontier_lab_ceo` (-4.5) and `uk_aisi` (-3.5) with `global_south_cso` (+3.0) and `china_policy` (+2.0) on `open_weights`; B1 Room B pairs `open_weights_lead` (+5.0) and `big_tech_policy` (+2.0) with `safety_researcher` (-4.0) and `us_natsec` (-2.0).",
+    "In Block 2, pair `us_natsec` (-3.5 regulation, -4.0 benefit_sharing) and `open_weights_lead` (-3.0 regulation, -2.0 benefit_sharing) with `eu_regulator` (+5.0), `china_policy` (+4.0 benefit_sharing), and `global_south_cso` (+5.0) in Room A; pair `big_tech_policy` (+1.0 regulation, -3.0 benefit_sharing) and `frontier_lab_ceo` (+3.5) with `labor_advocate` (+5.0/+5.0), `safety_researcher` (+5.0), and `uk_aisi` in Room B.",
+    "Protect `big_tech_policy`'s inclusion score (above 6.0) by explicitly framing the preemption tradeoff in B2 and B3: uniform federal/national preemption for technical AI model standards and third-party liability safe harbors, paired with explicit preservation of state-level workplace, labor, and civil rights enforcement."
+   ]
+  }
+ ],
+ "best": 2,
+ "id": "rehearsal-live",
+ "config": {
+  "rounds": 2,
+  "blocks": 3,
+  "thinking": "medium",
+  "name": "rehearsal-live"
+ },
+ "seconds": 264
+}
