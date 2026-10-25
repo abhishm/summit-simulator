@@ -21,6 +21,7 @@ from .simulate import ROOMS, _clamp_moves
 
 ROOT = Path(__file__).resolve().parent.parent
 RUNS, APPROVED, WEB = ROOT / "data" / "runs", ROOT / "data" / "approved", ROOT / "web"
+VISUAL = ROOT / "data" / "visual"
 DEMO_MODE = os.getenv("DEMO_MODE") == "1"
 
 app = FastAPI(title="Summit Simulator")
@@ -31,6 +32,7 @@ class RunReq(BaseModel):
     rounds: int = 3
     blocks: int = 3
     thinking: str = "medium"
+    visual: bool = False  # Playwright screenshots + Argon visual critique before each revision
 
 
 class ApproveReq(BaseModel):
@@ -84,6 +86,8 @@ def _replay_events(run: dict) -> list[tuple[str, dict]]:
             ev.append(("block", {"round": r, "block": bi, "groups": gs, "stances": stances}))
             stances = {k: dict(v) for k, v in stances.items()}
         ev.append(("round_done", {"round": r, "score": res["score"], "ratings": res["ratings"]}))
+        if h.get("visual"):
+            ev.append(("visual", h["visual"]))
     ev.append(("done", {"run_id": run.get("id"), "best": run["best"], "personas": list(by_id)}))
     return ev
 
@@ -111,7 +115,7 @@ async def _do_run(run_id: str, req: RunReq):
             return
         else:
             out = await optimize(P.load(), rounds=req.rounds, n_blocks=req.blocks, thinking=req.thinking,
-                                 emit=lambda k, d: _push(run_id, k, d))
+                                 emit=lambda k, d: _push(run_id, k, d), visual=req.visual, run_id=run_id)
         out.update(id=run_id, config=req.model_dump() | {"demo_mode": DEMO_MODE}, seconds=round(time.time() - t0))
         RUNS.mkdir(parents=True, exist_ok=True)
         (RUNS / f"{run_id}.json").write_text(json.dumps(out, indent=1))
@@ -184,7 +188,7 @@ async def events(run_id: str, speed: float = 1.0):
         async def gen_replay():
             for kind, data in evs:
                 yield _sse(kind, data)
-                await asyncio.sleep({"thinking": 1.5, "block": 1.0, "round_done": 1.0}.get(kind, 0.3) / max(speed, 0.1))
+                await asyncio.sleep({"thinking": 1.5, "block": 1.0, "round_done": 1.0, "visual": 1.0}.get(kind, 0.3) / max(speed, 0.1))
         gen = gen_replay()
     return StreamingResponse(gen, media_type="text/event-stream",
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
@@ -309,3 +313,5 @@ def index():
 
 
 app.mount("/web", StaticFiles(directory=WEB), name="web")
+VISUAL.mkdir(parents=True, exist_ok=True)
+app.mount("/data/visual", StaticFiles(directory=VISUAL), name="visual")  # visual-critic screenshots
