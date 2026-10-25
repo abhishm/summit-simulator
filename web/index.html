@@ -468,7 +468,7 @@ let lastMd = "";
 $("approveBtn").onclick = async () => {
   const round = PICK ?? BEST;
   lastMd = await (await fetch("/api/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).text();
-  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkZip").style.display = "none"; $("pkBtn").style.display = ""; $("pkStatus").textContent = "";
+  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkZip").style.display = "none"; $("pkBtn").style.display = ""; $("pkStatus").textContent = ""; PK = null; $("pkBtn").textContent = "📨 Packets (Antigravity)";
   const key = `${RUN_ID}-r${round}`; PKKEY = key; fetch(`/api/packets/${key}`).then(r => r.ok ? r.json() : null).then(j => { if (j && j.status === "done") showPackets(j); });
 };
 $("viewPlan").onclick = async () => {
@@ -481,6 +481,7 @@ $("closeM").onclick = () => { $("modal").style.display = "none"; $("pkBtn").styl
 let PK = null, PKKEY = null;
 function showPackets(j) {
   PK = j.packets || {}; const ids = Object.keys(PK); const sel = $("pkSel").value;
+  $("pkBtn").textContent = ids.length ? "↻ Regenerate packets" : "📨 Packets (Antigravity)";
   const errs = j.local_errors || [], ok = errs.length === 0, o = j.openings_score;
   const os = !o ? "" : o.status === "running" ? ` · <span class="spinner"></span>re-simulating with the packets' openings…` : o.with ? ` · openings re-sim: consensus ${o.without.consensus} → <b>${o.with.consensus}</b> (${o.delta_consensus >= 0 ? "+" : ""}${o.delta_consensus}), total ${o.without.total} → ${o.with.total}` : "";
   $("pkStatus").innerHTML = ` · ${ids.length} packets${j.bundle ? " + .ics + PDF each" : ""} · agent self-check: ${j.agent_checks_passed ? "✓ pass" : "✗"} · <span title="${errs.slice(0, 8).join("\n").replace(/"/g, "&quot;")}">our strict re-check: ${ok ? "✓ pass" : "✗ " + errs.length + " issues"}</span>${j.seconds ? " · " + j.seconds + "s" : ""}${j.tool_steps ? " · " + j.tool_steps + " sandbox tool calls" : ""}${os}${j.bundle ? " · <i>draft: organizer approves before anything is sent</i>" : ""}`;
@@ -490,6 +491,7 @@ function showPackets(j) {
 }
 $("pkSel").onchange = () => { const v = $("pkSel").value; $("ros").textContent = v ? PK[v] : lastMd; };
 $("pkBtn").onclick = async () => {
+  if (PK && Object.keys(PK).length && !confirm("Packets already exist for this plan. Regenerate with the Antigravity agent? Takes 5-10 min and replaces them.")) return;
   const round = PICK ?? BEST;
   const { key } = await (await fetch("/api/packets", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).json();
   PKKEY = key; $("pkBtn").disabled = true; const t0 = Date.now();
