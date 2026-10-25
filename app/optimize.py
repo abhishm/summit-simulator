@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from .gemini import ARGON, structured_with_id
 from .models import ISSUES, Block, Persona, Plan, SimResult
 from .simulate import simulate
+from .visual import for_prompt, visual_round
 
 Emit = Callable[[str, dict], Awaitable[None]]
 TOPICS = list(ISSUES)
@@ -116,7 +117,13 @@ def _brief(personas: list[Persona]) -> str:
 
 
 async def revise(personas: list[Persona], res: SimResult, n_blocks: int, thinking: str,
-                 prev_id: str | None) -> tuple[Revision, str]:
+                 prev_id: str | None, visual: dict | None = None) -> tuple[Revision, str]:
+    vis = "" if not visual else f"""
+
+VISUAL CRITIC: an adversarial reviewer watched screenshots of the 3D venue render of every block of this plan
+and reported:
+{for_prompt(visual)}
+Treat these as hypotheses: fix the ones the simulation results above confirm, and say which you addressed."""
     axes = "\n".join(f"- {k}: -5 = {lo}; +5 = {hi}" for k, (lo, hi) in ISSUES.items())
     prompt = f"""You are the lead facilitator-architect for a 1-day AI-safety summit. Your goal: maximize the
 summit score by redesigning the agenda. A simulator plays the guests, and an independent judge rates how heard
@@ -148,7 +155,7 @@ CURRENT PLAN:
 {res.plan.model_dump_json(indent=1)}
 
 RESULT OF SIMULATING IT:
-{_summarize(res, personas)}
+{_summarize(res, personas)}{vis}
 
 Diagnose the specific failures: which guests were excluded, which stances didn't move, which factions never met.
 Then return a revised plan that fixes them with real facilitation design (groupings, sequencing, formats, chairs,
@@ -162,7 +169,10 @@ plan briefly."""
 
 
 async def optimize(personas: list[Persona], rounds: int = 4, n_blocks: int = 5, thinking: str = "high",
-                   emit: Emit | None = None, start: Plan | None = None) -> dict:
+                   emit: Emit | None = None, start: Plan | None = None, visual: bool = False,
+                   run_id: str = "run", visual_thinking: str = "medium") -> dict:
+    """visual=True: before each revision, screenshot every block of the round and add Argon's visual critique
+    (stored as history[r]["visual"], emitted as a "visual" event) to the revise() prompt."""
     async def e(kind, data):
         if emit:
             await emit(kind, data)
@@ -175,8 +185,21 @@ async def optimize(personas: list[Persona], rounds: int = 4, n_blocks: int = 5, 
                            "ratings": [r.model_dump() for r in res.ratings]})
     best, prev_id = 0, None
     for rnd in range(1, rounds + 1):
+        vis = None
+        if visual:
+            r0 = rnd - 1
+            await e("visual", {"round": r0, "pending": True})
+            try:
+                vis = await visual_round(personas, res.plan, res.groups, res.ratings, run_id, r0, visual_thinking)
+            except Exception as ex:  # the visual check is advisory; never sink the run
+                vis_err = {"round": r0, "error": f"{type(ex).__name__}: {ex}"[:300]}
+                history[-1]["visual"] = vis_err
+                await e("visual", vis_err)
+            else:
+                history[-1]["visual"] = vis
+                await e("visual", vis)
         await e("thinking", {"round": rnd})
-        rev, prev_id = await revise(personas, res, n_blocks, thinking, prev_id)
+        rev, prev_id = await revise(personas, res, n_blocks, thinking, prev_id, vis)
         plan, fixes = repair(rev.plan, personas)
         await e("round_start", {"round": rnd, "plan": plan.model_dump(), "critique": rev.critique,
                                 "changes": rev.changes + fixes})

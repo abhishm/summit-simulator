@@ -51,6 +51,14 @@
   @keyframes spin { to { transform:rotate(360deg); } }
   svg text { fill:var(--dim); font-size:10px; }
   .chartbar { cursor:pointer; }
+  #vScore { font-weight:650; } #vFlaws li { margin:4px 0; } #vFlaws .fx { color:#81c995; }
+  #vThumbs { display:flex; gap:4px; margin-top:8px; flex-wrap:wrap; }
+  #vThumbs img { width:74px; height:46px; object-fit:cover; border:1px solid var(--line); border-radius:4px; cursor:zoom-in; }
+  #vThumbs img:hover { border-color:var(--accent); }
+  #vZoom { position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:11; cursor:zoom-out; }
+  #vZoom img { max-width:92vw; max-height:88vh; border-radius:8px; }
+  body.static header, body.static aside, body.static #bottom { display:none; }
+  body.static main { grid-template-columns:1fr; height:100vh; } body.static #left { grid-template-rows:1fr; }
 </style>
 <script type="importmap">
 { "imports": { "three": "/web/vendor/three.module.js",
@@ -69,6 +77,7 @@
   <select id="rounds" title="Argon rounds"><option>1</option><option>2</option><option selected>3</option><option>4</option></select>
   <select id="blocks" title="Blocks per day"><option value="3" selected>3 blocks</option><option value="5">5 blocks</option></select>
   <select id="thinking" title="Argon thinking level"><option>low</option><option selected>medium</option><option>high</option></select>
+  <label class="muted" title="After each round, Playwright screenshots every block of the 3D venue and Gemini 4 Argon critiques the images; its flaws feed the next revision"><input type="checkbox" id="visualChk" /> 👁 visual critic</label>
   <button class="primary" id="liveBtn">⚡ Run live</button>
 </header>
 <main>
@@ -98,6 +107,12 @@
       <div id="critique" class="muted">Argon reviews each simulated summit, then revises the agenda: groupings, formats, facilitation prompts.</div>
       <ul id="changes" style="padding-left:18px;margin:8px 0 0"></ul>
     </div>
+    <div class="card" id="vCard">
+      <h3>Visual critic: Argon watches the render <span id="vRound" class="muted"></span></h3>
+      <div id="vBody" class="muted">Render → watch → critique → fix: Playwright screenshots each block of the 3D venue and Gemini 4 Argon critiques the images as an adversarial reviewer. Its flaws feed the next redesign.</div>
+      <div id="vThumbs"></div>
+      <ul id="vFlaws" style="padding-left:18px;margin:6px 0 0;max-height:220px;overflow:auto"></ul>
+    </div>
     <div class="card">
       <h3>Guests (Deep Research role briefs) · felt heard</h3>
       <div id="personas"></div>
@@ -114,6 +129,7 @@
 </main>
 <div id="modal"><div class="box"><div class="hd"><b style="white-space:nowrap">Run of show</b><span id="pkStatus" class="muted"></span><span style="flex:1"></span><select id="pkSel" style="display:none"></select><button id="pkBtn" title="Antigravity managed agent (Gemini 4 Argon) writes and self-checks one briefing packet per guest">📨 Packets (Antigravity)</button><button id="dl">⬇ .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
 
+<div id="vZoom"><img alt="block screenshot" /></div>
 <script type="module">
 import * as THREE from "three";
 import { OrbitControls } from "/web/vendor/OrbitControls.js";
@@ -124,6 +140,9 @@ let META, PERSONAS = [], PBY = {}, RUN_ID = null, ROUNDS = {}, BEST = null, VIEW
 const speed = () => +$("speed").value;
 const sleep = (ms) => new Promise(r => setTimeout(r, ms / speed()));
 const short = (id) => id.replace(/_/g, " ");
+const STATIC = new URLSearchParams(location.search).has("static"); // headless render mode for the visual critic
+if (STATIC) document.body.classList.add("static");
+const esc = (t) => String(t ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 // ---------- Three.js venue ----------
 const stage = $("stage");
@@ -284,6 +303,42 @@ function renderChart() {
 function feed(html) { const b = $("feedBody"); b.insertAdjacentHTML("beforeend", html); $("feed").scrollTop = 1e9; while (b.children.length > 300) b.firstChild.remove(); }
 function status(html) { $("status").innerHTML = html; }
 
+let V_DEFAULT = null;
+function renderVisual(v, round) {
+  V_DEFAULT ??= $("vBody").innerHTML;
+  if (v === undefined) { $("vRound").textContent = ""; $("vBody").innerHTML = V_DEFAULT; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
+  $("vRound").textContent = v ? `(round ${round === 0 ? "baseline" : round})` : "";
+  if (!v) { $("vBody").innerHTML = `<span class="muted">No visual critique for this round.</span>`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
+  if (v.error) { $("vBody").innerHTML = `<span style="color:#f28b82">Visual critic failed:</span> ${esc(v.error)}`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
+  if (v.pending) { $("vBody").innerHTML = `<span class="spinner"></span>Rendering each block and asking Argon to critique the screenshots…`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
+  $("vBody").innerHTML = `<span id="vScore" style="color:${v.score >= 7 ? "#81c995" : v.score >= 5 ? "#fdd663" : "#f28b82"}">${v.score}/10</span> · ${esc(v.summary)}`;
+  $("vFlaws").innerHTML = (v.flaws || []).map(f => `<li><b>B${f.block}</b>: ${esc(f.issue)} <span class="fx">→ ${esc(f.fix)}</span></li>`).join("");
+  $("vThumbs").innerHTML = (v.images || []).map((p, i) => `<img src="/${p}" title="block ${i + 1}" loading="lazy" />`).join("");
+  $("vThumbs").querySelectorAll("img").forEach(im => im.onclick = () => { $("vZoom").querySelector("img").src = im.src; $("vZoom").style.display = "flex"; });
+}
+$("vZoom").onclick = () => $("vZoom").style.display = "none";
+
+// headless entry point: place everyone for one block instantly (no animation) so Playwright can screenshot it
+window.showBlock = async ({ personas, plan, groups, block, ratings, round }) => {
+  if (PERSONAS.map(p => p.id).join() !== personas.map(p => p.id).join()) await setPersonas(personas);
+  const b = plan.blocks[block];
+  renderAgenda(plan, block);
+  status(`<b>${round ? "Round " + round : "Baseline"}</b> · block ${block + 1}/${plan.blocks.length}: ${esc(b.title)} <span class="muted">(${b.format}, ${b.topic})</span><br><span class="muted">color = faction · ring = felt heard (green ≥8, yellow ≥6, red &lt;6)</span>`);
+  const R = Object.fromEntries((ratings || []).map(r => [r.id, r]));
+  for (const a of Object.values(AV)) a.ring.material.opacity = 0;
+  groups.forEach((g, gi) => {
+    const pos = slots(g.room, g.members.length, gi, groups.length);
+    g.members.forEach((m, k) => { const a = AV[m]; if (!a) return; a.target.copy(pos[k]); a.g.position.copy(pos[k]); a.bounce = 0; });
+  });
+  for (const [id, a] of Object.entries(AV)) if (R[id]) {
+    const fh = R[id].felt_heard; a.ring.material.opacity = 0.9;
+    a.ring.material.color.set(fh >= 8 ? "#81c995" : fh >= 6 ? "#fdd663" : "#f28b82"); a.ring.scale.setScalar(0.6 + fh / 10);
+  }
+  for (const l of lines.splice(0)) scene.remove(l.l);
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  return true;
+};
+
 // ---------- event handling (single code path for live + replay) ----------
 const Q = []; let busy = false;
 function enqueue(k, d) { Q.push([k, d]); pump(); }
@@ -298,6 +353,7 @@ async function handle(kind, d) {
     $("critRound").textContent = d.round ? `(round ${d.round})` : "(baseline)";
     $("critique").textContent = d.critique || "Baseline: the typical summit design. Plenary statements and breakouts grouped by faction.";
     $("changes").innerHTML = (d.changes || []).map(c => `<li>${c}</li>`).join("");
+    if (ROUNDS[d.round].visual) renderVisual(ROUNDS[d.round].visual, d.round);
     status(`<b>${d.round ? "Round " + d.round : "Baseline"}</b>: ${d.plan.name}`);
     feed(`<div class="room" style="margin-top:8px">━━ ${d.round ? "Round " + d.round : "Baseline"}: ${d.plan.name} ━━</div>`);
     await sleep(600);
@@ -339,6 +395,11 @@ async function handle(kind, d) {
     const s = d.score;
     status(`<b>${d.round ? "Round " + d.round : "Baseline"} score: ${s.total}/100</b> · least heard: ${(s.detail.least_heard || []).map(short).join(", ")} (${s.detail.min_heard}/10) · cross-faction pairs met ${s.detail.cross_pairs_met}/${s.detail.cross_pairs_total}`);
     await sleep(1400);
+  } else if (kind === "visual") {
+    ROUNDS[d.round] = { ...(ROUNDS[d.round] || {}), visual: d };
+    renderVisual(d, d.round);
+    if (!d.pending && !d.error) feed(`<div class="room" style="margin-top:6px">👁 Visual critic (round ${d.round}): ${d.score}/10 · ${(d.flaws || []).length} flaws</div>`);
+    await sleep(d.pending ? 200 : 900);
   } else if (kind === "done") {
     if (d.run_id) RUN_ID = d.run_id;
     BEST = d.best; PICK = null; approveLabel(); renderChart(); $("approveBtn").disabled = false; $("liveBtn").disabled = false;
@@ -355,12 +416,13 @@ async function replayRound(r) {
   enqueue("round_start", { round: r, plan: R.plan, critique: R.critique, changes: R.changes });
   R.blocks.forEach(b => b && enqueue("block", b));
   if (R.score) enqueue("round_done", { round: r, score: R.score, ratings: R.ratings });
+  if (R.visual && !R.visual.pending) enqueue("visual", R.visual);
 }
 function approveLabel() { const r = PICK ?? BEST; $("approveBtn").textContent = `✓ Approve ${r === null ? "plan" : r === 0 ? "baseline" : "round " + r}${r === BEST ? " (best)" : ""}`; }
-function reset() { if (es) es.close(); Q.length = 0; ROUNDS = {}; BEST = null; VIEW_ROUND = null; PICK = null; approveLabel(); $("feedBody").innerHTML = ""; $("approveBtn").disabled = true; renderChart(); }
+function reset() { if (es) es.close(); Q.length = 0; ROUNDS = {}; BEST = null; VIEW_ROUND = null; PICK = null; approveLabel(); $("feedBody").innerHTML = ""; $("approveBtn").disabled = true; renderChart(); renderVisual(undefined); }
 function listen(url) {
   es = new EventSource(url);
-  for (const k of ["round_start", "thinking", "block", "round_done", "done", "error"])
+  for (const k of ["round_start", "thinking", "block", "round_done", "visual", "done", "error"])
     es.addEventListener(k, ev => { enqueue(k, JSON.parse(ev.data)); if (k === "done" || k === "error") es.close(); });
   es.onerror = () => es.close();
 }
@@ -375,7 +437,7 @@ $("liveBtn").onclick = async () => {
   reset(); await setPersonas(await (await fetch("/api/personas")).json());
   $("liveBtn").disabled = true;
   const r = await (await fetch("/api/runs", { method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ rounds: +$("rounds").value, blocks: +$("blocks").value, thinking: $("thinking").value }) })).json();
+    body: JSON.stringify({ rounds: +$("rounds").value, blocks: +$("blocks").value, thinking: $("thinking").value, visual: $("visualChk").checked }) })).json();
   RUN_ID = r.run_id; status(`<span class="spinner"></span>Live run <b>${r.run_id}</b>${r.demo_mode ? " (demo mode)" : ""}: Flash is simulating the baseline summit…`);
   listen(`/api/runs/${r.run_id}/events`);
 };
@@ -435,6 +497,7 @@ async function loadRuns() {
 (async () => {
   META = await (await fetch("/api/meta")).json();
   resize(); requestAnimationFrame(loop);
+  if (STATIC) { window.summitReady = true; return; }
   await setPersonas(await (await fetch("/api/personas")).json());
   renderChart();
   const runs = await loadRuns();

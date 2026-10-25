@@ -32,13 +32,13 @@ def aclient():
     return client().aio
 
 
-async def structured(model: str, prompt: str, schema: type[T], thinking: str = "low",
+async def structured(model: str, prompt: str | list, schema: type[T], thinking: str = "low",
                      previous_interaction_id: str | None = None, retries: int = 2) -> T:
     out, _ = await structured_with_id(model, prompt, schema, thinking, previous_interaction_id, retries)
     return out
 
 
-async def structured_with_id(model: str, prompt: str, schema: type[T], thinking: str = "low",
+async def structured_with_id(model: str, prompt: str | list, schema: type[T], thinking: str = "low",
                              previous_interaction_id: str | None = None, retries: int = 2) -> tuple[T, str]:
     last: Exception | None = None
     for attempt in range(retries + 1):

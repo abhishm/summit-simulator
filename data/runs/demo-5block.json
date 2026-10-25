@@ -3891,7 +3891,43 @@
     "Fix open_weights_lead's 7.0 felt_heard rating and unlock open_weights stance movement in Block 3 by replacing blanket FLOP bans on frontier open weights with capability-gated release: permitting frontier open-weight distribution, distillation, and fine-tuning that pass accredited open-source and AISI pre-release evaluations for CBRN, autonomous cyber-offense, and self-replication (with no forced open-sourcing of proprietary weights, API/evaluator access, downstream modifier liability, and domestic 10^26-FLOP export review).",
     "Fix global_south_cso's and big_tech_policy's 7.0 felt_heard ratings in Blocks 4 and 5 by distinguishing bans on covert workplace surveillance, civilian real-time public biometric surveillance, social credit scoring, and un-supervised autonomous weapons from sovereign military/DoD procurement exemptions, and explicitly integrating federal technical preemption (preserving state labor laws) into the Block 5 synthesis prompt.",
     "Place lower-airtime delegates (china_policy 374w, uk_aisi 405w, safety_researcher 412w, open_weights_lead 421w) first in group arrays across Blocks 1\u20135 and eu_regulator (507w) last to further equalize word counts."
-   ]
+   ],
+   "visual": {
+    "round": 2,
+    "score": 6.5,
+    "flaws": [
+     {
+      "block": 1,
+      "issue": "Across all four breakout blocks (1-4), china_policy and us_natsec are permanently tethered to the exact same breakout room (Breakout B in blocks 1 & 3, Breakout A in blocks 2 & 4). Consequently, china_policy and us_natsec never once share a small-group room with safety_researcher or open_weights_lead properly separated from their bilateral dynamic.",
+      "fix": "Separate us_natsec and china_policy in Blocks 2 and 4 by swapping us_natsec with uk_aisi in Block 2 and china_policy with eu_regulator in Block 4 so other delegates can engage each superpower independently."
+     },
+     {
+      "block": 2,
+      "issue": "Breakout A in Block 2 is an exclusively 'high-power' room (china_policy, us_natsec, frontier_lab_ceo, open_weights_lead, labor_advocate), while all three medium-power delegates (uk_aisi, safety_researcher, global_south_cso) are segregated together into Breakout B.",
+      "fix": "Swap safety_researcher (medium power, Breakout B) with labor_advocate (high power, Breakout A) in Block 2 to balance power dynamics and give technical academia a voice in the high-power compute governance room."
+     },
+     {
+      "block": 3,
+      "issue": "In Block 3 Breakout B, medium-power global_south_cso is outnumbered by four high-power heavyweights (china_policy, us_natsec, frontier_lab_ceo, eu_regulator), while Breakout C, Breakout D, and the Lounge sit completely empty across every single block of the summit.",
+      "fix": "Split the two 5-person rooms in Block 3 into three smaller groups of 3-4 using Breakout C, or use the Lounge for 1-on-1 bilateral pairs so medium-power voices like global_south_cso aren't drowned out in 5-person rooms dominated by 4 high-power actors."
+     },
+     {
+      "block": 5,
+      "issue": "In the Block 5 Closing Plenary, guests are seated in strict faction clusters around the perimeter: all three industry reps (frontier_lab_ceo, open_weights_lead, big_tech_policy) form a red bloc at the top-left, all three government reps (china_policy, uk_aisi, us_natsec) form an orange line along the bottom-left, and civil society (global_south_cso, labor_advocate) clusters on the right.",
+      "fix": "Interleave the plenary seating arrangement by alternating factions around the circle (e.g., government, civil society, industry, academia, regulator) to visually and socially break up the monolithic faction blocs during synthesis."
+     }
+    ],
+    "summary": "While every guest achieves a strong felt-heard rating (8.0-9.0) via consistent 5-person breakouts, the matrix suffers from rigid pairing (us_natsec and china_policy are inseparable across all four breakouts), power segregation in Block 2, unused spaces (Breakouts C/D and Lounge are always empty), and stark faction clustering in the closing plenary.",
+    "images": [
+     "data/visual/demo-5block/r2-b0.jpg",
+     "data/visual/demo-5block/r2-b1.jpg",
+     "data/visual/demo-5block/r2-b2.jpg",
+     "data/visual/demo-5block/r2-b3.jpg",
+     "data/visual/demo-5block/r2-b4.jpg"
+    ],
+    "render_seconds": 1.2,
+    "seconds": 17.2
+   }
   },
   {
    "round": 3,

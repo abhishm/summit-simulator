@@ -37,6 +37,12 @@ labor) leave feeling unheard.
    changes groupings, formats, sequencing, chairs and facilitation prompts. The new plan is re-simulated and
    re-scored. Rounds are chained with `previous_interaction_id`, so Argon remembers what it tried, and the loop
    stops after 2 rounds without improvement.
+   **Render → watch → critique → fix (optional, `--visual`):** before each redesign, Playwright renders every
+   block of the round in the 3D venue and screenshots it, and `gemini-4-argon` critiques the images as an
+   adversarial *visual* critic (score /10 plus at least 3 specific flaws such as "us_natsec and china_policy are
+   inseparable across all four breakouts" or "Breakouts C/D and the Lounge sit empty all day"). Those flaws go
+   into the next `revise()` prompt, so what the plan *looks like* changes the plan. That's the **More
+   Dimensions** loop: the 3D world is an input to the model, not just an output.
 5. **You watch it in 3D and approve.** A Three.js isometric venue (plenary hall, four breakout rooms, a lounge)
    animates guests moving between rooms, talking (lines), and how heard they felt (halos). Dots on a stance strip
    visibly converge. A score chart compares the baseline with each Argon round. **Nothing is final until the
@@ -78,6 +84,7 @@ plan (round 2) is approved, and its Antigravity briefing packets are cached in
 
 ```bash
 uv sync
+uv run playwright install chromium            # only for the visual critic
 echo "GOOGLE_API_KEY=..." > .env
 uv run uvicorn app.server:app --port 8000      # open http://localhost:8000
 ```
@@ -85,6 +92,10 @@ uv run uvicorn app.server:app --port 8000      # open http://localhost:8000
 - **Replay** a saved run, such as the pre-run `demo-5block` (4 Argon rounds at high thinking).
 - **Run live:** 3 blocks, 1–3 rounds, medium thinking. That takes about 2 minutes per round.
 - **Add a guest:** start a live Deep Research job for a new role. The new persona joins the next run.
+- **👁 visual critic** checkbox (live runs) / `--visual` (CLI): screenshot + Argon visual critique before each
+  revision (about 5 s to render, 15–30 s for the critique). The "Visual critic" panel shows the score, flaws and
+  thumbnails (click to zoom); replays show stored critiques. `demo-5block` round 2 has one cached
+  (`uv run python scripts/visual_critic.py demo-5block 2` regenerates it; images in `data/visual/<run>/`).
 - `DEMO_MODE=1 uv run uvicorn app.server:app` makes "Run live" replay the best saved run (offline fallback).
 
 Rebuild the data:
@@ -106,7 +117,8 @@ Deep Research (x10, background) ──> data/personas/*.md ──Flash──> pe
           │   ▲                                                         │ score   │
           │   └── repair() <── Revision{critique, changes, plan} <── Gemini 4 Argon│
           └────────────────────────────────────────────────────────────────────────┘
-FastAPI (SSE events: round_start / block / thinking / round_done) ──> Three.js venue + chart
+  (--visual) Playwright screenshots each block ──> Argon visual critic {score/10, flaws} ──> next revise() prompt
+FastAPI (SSE events: round_start / block / thinking / round_done / visual) ──> Three.js venue + chart
 Approve ──> data/approved/<run>-r<round>.md (run of show) ──> Antigravity+Argon sandbox ──> per-guest packets (self-checked)
 ```
 
@@ -117,9 +129,10 @@ Approve ──> data/approved/<run>-r<round>.md (run of show) ──> Antigravit
 | `app/simulate.py` | World rules, per-room simulation, judge, scoring |
 | `app/optimize.py` | Baseline plan, constraint repair, Argon critique/revise loop |
 | `app/server.py` | API, live SSE runs, replay, approval export, packets, live Deep Research |
+| `app/visual.py` | Playwright block screenshots (`?static=1` render mode) + Argon multimodal visual critic |
 | `app/packets.py` | Antigravity briefing packets + in-sandbox and local verification |
 | `web/index.html` | Three.js venue, stance strip, score chart, critique panel |
-| `scripts/` | Persona research, CLI optimizer runs, API smoke test |
+| `scripts/` | Persona research, CLI optimizer runs, visual critique of a saved round, API smoke test |
 
 ## Built today
 

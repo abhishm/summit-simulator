@@ -6,10 +6,10 @@ Future steps, in priority order.
 
 A stretch goal in `docs/PLAN.md` (decision 8 and line 31). It's missing from the status checklist and isn't built yet. It's needed for the **More Dimensions** track, which expects "render → watch → critique → fix" (see the AI Studio guide *Building 3D Games and Procedural Worlds with Gemini 4 Argon*, workflow 3: Adversarial Critic).
 
-- [ ] Add Playwright (`uv add playwright`) and write a script that opens `web/index.html`, steps through each block of a run and takes a screenshot of each block.
-- [ ] Send the screenshots to `gemini-4-argon` as a multimodal critic. It should list at least 3 specific flaws (for example, a guest isolated in a corner or factions that never mix) and give a score out of 10.
-- [ ] Add that critique to the next `revise()` prompt in `app/optimize.py`, so the visual check affects the plan.
-- [ ] Show the critique in the UI and the demo (screenshot plus flaws, per round).
+- [x] Add Playwright (`uv add playwright`) and write a script that opens `web/index.html`, steps through each block of a run and takes a screenshot of each block.
+- [x] Send the screenshots to `gemini-4-argon` as a multimodal critic. It should list at least 3 specific flaws (for example, a guest isolated in a corner or factions that never mix) and give a score out of 10.
+- [x] Add that critique to the next `revise()` prompt in `app/optimize.py`, so the visual check affects the plan.
+- [x] Show the critique in the UI and the demo (screenshot plus flaws, per round).
 
 ## P1: Briefing packets (Antigravity)
 
