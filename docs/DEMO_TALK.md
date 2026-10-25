@@ -11,7 +11,9 @@ Click **Run live** on Tab A first (3 sessions, 1 round, medium thinking, visual 
 > yet we keep hearing that delegates walked out of a UN or G20 meeting. It happens when people feel they weren't
 > heard, or were pushed around by a stronger group.
 >
-> So we built **Summit Simulator**, powered by Gemini 4 Argon. It lets an organizer test a summit before holding it.
+> So we built **Summit Simulator**, powered by Gemini 4 Argon, all of it today. It's for the summit organizer, the
+> "sherpa" who designs the agenda: it lets them test a summit before holding it. The run on this screen just
+> started **live**.
 
 ## 2. The guests (0:25, Tab A, guest list and stance dots)
 
@@ -35,6 +37,9 @@ Click **Run live** on Tab A first (3 sessions, 1 round, medium thinking, visual 
 > Then **Gemini 4 Argon** reads the transcripts and the score, explains in plain English what went wrong, and
 > **redesigns the agenda**: who sits in which room, in what format, and what question the chair opens with. Then we
 > run it again. The first agenda scored 29. After Argon fixed it: 77.
+>
+> This needs Argon: it reads every room's full conversation at once, reasons about who moved and why, and redesigns
+> the whole day in one step.
 
 ## 5. Argon looks at the room (1:40, Tab C, point at the ✅/❌ list, click a picture)
 
@@ -51,9 +56,23 @@ Pick `global_south_cso` in the dropdown, then hover **Bundle**, then click **Clo
 
 ## 7. Close (2:45, back to Tab A)
 
-> And the summit we started three minutes ago just finished. Argon already made it better.
+> And the summit we started three minutes ago, live, just finished. Argon already made it better.
+>
+> Every step is checked: a skeptical judge scores the plan, Argon checks the screenshots to see if its fixes
+> worked, and the packets are verified before anything goes out. The same works for any meeting where sides
+> disagree: trade talks, union negotiations, a company offsite.
 >
 > **Summit Simulator: test your meeting before you hold it.**
+
+## Lines that score points
+
+Judging weights: live demo with a verification loop 50%, problem and usefulness 25%, "only possible with
+Argon" 15%, clarity 10%. Don't drop these lines, even if you're short on time:
+
+- **"live"** and **"built today"** (part 1 and part 7).
+- **"Every step is checked"**: judge, visual check, packet check (part 7). This is the verification loop.
+- **"for the summit organizer"** and the other uses (parts 1 and 7). This is the user and the product.
+- **"This needs Argon"** (part 4). This is originality.
 
 ## Say it right
 
