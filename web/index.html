@@ -112,7 +112,7 @@
     </div>
   </aside>
 </main>
-<div id="modal"><div class="box"><div class="hd"><b>Approved run of show</b><span style="flex:1"></span><button id="dl">⬇ Download .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
+<div id="modal"><div class="box"><div class="hd"><b>Approved run of show</b><span id="pkStatus" class="muted"></span><span style="flex:1"></span><select id="pkSel" style="display:none"></select><button id="pkBtn" title="Antigravity managed agent (Gemini 4 Argon) writes and self-checks one briefing packet per guest">📨 Briefing packets (Antigravity)</button><button id="dl">⬇ Download .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
 
 <script type="module">
 import * as THREE from "three";
@@ -384,10 +384,32 @@ let lastMd = "";
 $("approveBtn").onclick = async () => {
   const round = PICK ?? BEST;
   lastMd = await (await fetch("/api/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).text();
-  $("ros").textContent = lastMd; $("modal").style.display = "flex";
+  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkStatus").textContent = "";
+  const key = `${RUN_ID}-r${round}`; fetch(`/api/packets/${key}`).then(r => r.ok ? r.json() : null).then(j => { if (j && j.status === "done") showPackets(j); });
 };
 $("closeM").onclick = () => $("modal").style.display = "none";
-$("dl").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lastMd], { type: "text/markdown" })); a.download = `run-of-show-${RUN_ID}.md`; a.click(); };
+let PK = null, PKKEY = null;
+function showPackets(j) {
+  PK = j.packets || {}; const ids = Object.keys(PK);
+  const ok = (j.local_errors || []).length === 0;
+  $("pkStatus").innerHTML = ` · ${ids.length} packets · agent self-check: ${j.agent_checks_passed ? "✓ pass" : "✗"} · our re-check: ${ok ? "✓ pass" : "✗ " + j.local_errors.length + " issues"}${j.seconds ? " · " + j.seconds + "s" : ""}${j.tool_steps ? " · " + j.tool_steps + " sandbox tool calls" : ""}`;
+  $("pkSel").style.display = ""; $("pkSel").innerHTML = `<option value="">run of show</option>` + ids.map(i => `<option>${i}</option>`).join("");
+}
+$("pkSel").onchange = () => { const v = $("pkSel").value; $("ros").textContent = v ? PK[v] : lastMd; };
+$("pkBtn").onclick = async () => {
+  const round = PICK ?? BEST;
+  const { key } = await (await fetch("/api/packets", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).json();
+  PKKEY = key; $("pkBtn").disabled = true; const t0 = Date.now();
+  const poll = async () => {
+    const j = await (await fetch(`/api/packets/${key}`)).json();
+    if (j.status === "done") { $("pkBtn").disabled = false; showPackets(j); return; }
+    if (j.status === "error") { $("pkBtn").disabled = false; $("pkStatus").textContent = " · error: " + j.message.slice(0, 120); return; }
+    $("pkStatus").innerHTML = ` · <span class="spinner"></span>Antigravity agent writing + self-checking packets in its sandbox… ${Math.round((Date.now() - t0) / 1000)}s`;
+    setTimeout(poll, 4000);
+  };
+  poll();
+};
+$("dl").onclick = () => { const v = $("pkSel").value; const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([$("ros").textContent], { type: "text/markdown" })); a.download = v ? `packet-${v}.md` : `run-of-show-${RUN_ID}.md`; a.click(); };
 $("rBtn").onclick = async () => {
   const id = $("rId").value.trim().replace(/\W+/g, "_").toLowerCase(), desc = $("rDesc").value.trim(); if (!id || !desc) return;
   $("rStatus").innerHTML = `<span class="spinner"></span>starting Deep Research…`;

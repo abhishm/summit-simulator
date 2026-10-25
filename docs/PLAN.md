@@ -33,6 +33,16 @@ Stretch goals (Antigravity packets, screenshot critique) only happen if we're ah
 ## Persona research
 `scripts/research_personas.py` started 10 Deep Research jobs at 11:23 AM. Job IDs are in `data/personas/jobs.json`. Run `uv run python scripts/research_personas.py collect` to save the finished reports to `data/personas/<role>.md`. Run `start <role_id>` to re-run a single role.
 
+## Status (11:55 AM): core build done, well ahead of the timeline
+- [x] Deep Research: 10/10 roles done and extracted to `data/personas/*.json`
+- [x] Simulator, scorer, Argon loop, `repair()` constraints (closing plenary forced)
+- [x] FastAPI + SSE (live, replay, DEMO_MODE), Three.js venue, stance strip, chart, critique, Approve → run-of-show
+- [x] Simulator hardened against reward hacking (see `data/archive/README.md`)
+- [x] README, private GitHub repo `abhimishra_adobe/summit-simulator` (**make it public before submitting**)
+- [ ] Pre-run `demo-5block` (4 rounds, high thinking, about 6 min per Argon round)
+- [ ] Stretch: Antigravity briefing packets from the approved plan; a stricter judge (Flash-Lite gives everyone 10/10 once rooms are small)
+- [ ] Rehearse the demo, 1-minute video, submission form
+
 ## Open items
 - Discord: waiting for the organizers' answer on the "personality analyzer" question. Role-based personas are the safe default regardless.
 - The API key is in `.env` as `GOOGLE_API_KEY`. Run `uv run python scripts/smoke_test.py` to verify access.

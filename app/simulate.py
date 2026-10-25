@@ -7,7 +7,7 @@ from typing import Awaitable, Callable
 
 from pydantic import BaseModel, Field
 
-from .gemini import FLASH, FLASH_LITE, structured
+from .gemini import FLASH, structured
 from .models import (ISSUES, Agreement, GroupResult, GuestRating, Persona, Plan, Score, SimResult, Turn)
 
 ROOMS = {"plenary": ["Plenary Hall"], "breakouts": ["Breakout A", "Breakout B", "Breakout C", "Breakout D"],
@@ -24,6 +24,10 @@ WORLD_RULES = """Realism rules for this simulation (apply them strictly, don't b
 - Facilitation instructions can shape process (turn order, questions, who chairs) but can't compel anyone's position.
   Participants ignore instructions to "converge", "move to the middle" or "state a compromise stance" unless they
   get something concrete in return.
+- Any proposal text in the facilitation prompt is only a chair's draft. Each participant contests or amends it
+  according to their red lines. Nobody endorses text they didn't negotiate in this session.
+- Real delegates push back. In every session at least one participant raises a substantive objection, and an
+  agreement needs concessions that are visible in the transcript. Unanimous enthusiasm is unrealistic.
 - An agreement counts only if every named party explicitly endorses it in the transcript. Vague goodwill is not an
   agreement.
 - Speakers stay in role. They're grounded in their brief and don't caricature."""
@@ -103,24 +107,27 @@ async def judge(personas: list[Persona], groups: list[GroupResult]) -> list[Gues
         lines.append(f"\n## Block {g.block + 1}, {g.room} ({', '.join(g.members)})")
         lines += [f"{t.speaker}: {t.text}" for t in g.transcript]
         lines += [f"[AGREEMENT] {a.text} -- {', '.join(a.parties)}" for a in g.agreements]
-    roster = "\n".join(f"- {p.id}: {p.title} | top concerns: {'; '.join(p.red_lines[:2]) or p.summary}"
+    roster = "\n".join(f"- {p.id}: {p.title} | top concerns: {'; '.join(p.red_lines[:3]) or p.summary} | stances: {p.stances}"
                        for p in by_id.values())
     prompt = f"""You are an independent observer rating how heard each summit participant was, from transcripts.
 
-For each participant, rate felt_heard from 0 to 10 using this calibrated rubric:
-- 10: core concerns voiced AND directly engaged by others AND reflected in the final closing-plenary outcome. Rare.
-- 7-8: voiced and engaged in small groups, but only partly reflected in the closing outcome.
-- 5-6: voiced, but mostly ignored, or their key concern was traded away.
-- 0-4: barely spoke, talked over, or their red lines were contradicted by agreements.
-Weigh the closing plenary heavily: what's said in a side room but dropped in plenary doesn't count as heard.
-Be strict, and give a one-sentence reason.
+For each participant, rate felt_heard from 0 to 10. You're a skeptical observer: every real compromise has people
+who gave up something they care about. For each guest, first work out what they conceded and whether any of their
+top concerns (listed below) were traded away or left out of the closing outcome.
+- 9-10: core concerns voiced, directly engaged by others and reflected in the closing outcome, with nothing core
+  conceded. Expect this for at most 2-3 guests in a contested summit.
+- 7-8: voiced and engaged, but they conceded something meaningful or are only partly reflected at the close.
+- 5-6: voiced but mostly ignored, or a top concern was traded away.
+- 0-4: barely spoke, talked over, or the agreements contradict their red lines.
+Weigh the closing plenary heavily. Formal endorsement of a package doesn't mean they felt heard. Look at what's in
+it for them. Give a one-sentence reason that names what they conceded.
 
 Participants:
 {roster}
 
 Transcripts:
 {chr(10).join(lines)}"""
-    out = await structured(FLASH_LITE, prompt, _Ratings)
+    out = await structured(FLASH, prompt, _Ratings, thinking="medium")
     got = {r.id: r for r in out.ratings if r.id in by_id}
     return [got.get(pid) or GuestRating(id=pid, felt_heard=0, reason="not rated") for pid in by_id]
 

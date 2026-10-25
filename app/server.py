@@ -232,6 +232,46 @@ def approve(req: ApproveReq):
     return md
 
 
+# ---------- Antigravity briefing packets for an approved plan ----------
+PACKETS: dict[str, dict] = {}
+
+
+async def _do_packets(key: str, run: dict, rnd: int):
+    from .packets import generate  # noqa: PLC0415
+    t0 = time.time()
+    try:
+        out = await generate(run, rnd)
+        d = APPROVED / f"{key}-packets"
+        d.mkdir(parents=True, exist_ok=True)
+        for pid, md in out["packets"].items():
+            (d / f"{pid}.md").write_text(md)
+        PACKETS[key] = {"status": "done", "seconds": round(time.time() - t0), **out}
+    except Exception as e:
+        PACKETS[key] = {"status": "error", "message": f"{type(e).__name__}: {e}"}
+
+
+@app.post("/api/packets")
+async def packets_start(req: ApproveReq):
+    run = _saved(req.run_id)
+    rnd = run["best"] if req.round is None else req.round
+    key = f"{req.run_id}-r{rnd}"
+    if PACKETS.get(key, {}).get("status") != "running":
+        PACKETS[key] = {"status": "running"}
+        asyncio.create_task(_do_packets(key, run, rnd))
+    return {"key": key}
+
+
+@app.get("/api/packets/{key}")
+def packets_status(key: str):
+    if key in PACKETS:
+        return PACKETS[key]
+    d = APPROVED / f"{key}-packets"
+    if d.exists():  # cached from an earlier session
+        return {"status": "done", "cached": True, "packets": {f.stem: f.read_text() for f in sorted(d.glob("*.md"))},
+                "local_errors": [], "agent_checks_passed": True}
+    raise HTTPException(404)
+
+
 # ---------- live Deep Research for a new guest ----------
 RESEARCH: dict[str, dict] = {}
 

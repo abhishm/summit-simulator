@@ -9,6 +9,7 @@ from .simulate import simulate
 
 Emit = Callable[[str, dict], Awaitable[None]]
 TOPICS = list(ISSUES)
+PROMPT_WORDS = 60  # a facilitator's brief, not a pre-written treaty
 
 
 def baseline(personas: list[Persona], n_blocks: int = 5) -> Plan:
@@ -48,6 +49,10 @@ def repair(plan: Plan, personas: list[Persona]) -> tuple[Plan, list[str]]:
         plan.blocks[-1].format, plan.blocks[-1].topic = "plenary", "synthesis"
         fixes.append("last block forced to a closing plenary (public commitments happen in plenary)")
     for bi, b in enumerate(plan.blocks):
+        words = b.prompt.split()
+        if len(words) > PROMPT_WORDS:
+            b.prompt = " ".join(words[:PROMPT_WORDS]) + " …"
+            fixes.append(f"block {bi + 1}: facilitation prompt cut to {PROMPT_WORDS} words (was {len(words)})")
         seen: set[str] = set()
         groups = []
         for g in b.groups:
@@ -147,8 +152,11 @@ RESULT OF SIMULATING IT:
 
 Diagnose the specific failures: which guests were excluded, which stances didn't move, which factions never met.
 Then return a revised plan that fixes them with real facilitation design (groupings, sequencing, formats, chairs,
-tradeoff questions) that a human organizer could actually run. Don't game the simulator: telling guests to
-converge or to state compromise positions has no effect. Keep what worked. Name the plan briefly."""
+tradeoff questions) that a human organizer could actually run. Facilitation prompts must be at most
+{PROMPT_WORDS} words: a facilitator's brief, not a pre-written agreement. Longer prompts are truncated. Don't
+game the simulator: telling guests to converge, state compromise positions or endorse a pre-drafted package
+has no effect. The simulated delegates contest drafts according to their red lines. Keep what worked. Name the
+plan briefly."""
     rev, iid = await structured_with_id(ARGON, prompt, Revision, thinking=thinking, previous_interaction_id=prev_id)
     return rev, iid
 
