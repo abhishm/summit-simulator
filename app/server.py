@@ -237,17 +237,22 @@ PACKETS: dict[str, dict] = {}
 
 
 async def _do_packets(key: str, run: dict, rnd: int):
-    from .packets import generate  # noqa: PLC0415
+    from .packets import generate, save, score_openings  # noqa: PLC0415
     t0 = time.time()
     try:
-        out = await generate(run, rnd)
-        d = APPROVED / f"{key}-packets"
-        d.mkdir(parents=True, exist_ok=True)
-        for pid, md in out["packets"].items():
-            (d / f"{pid}.md").write_text(md)
-        PACKETS[key] = {"status": "done", "seconds": round(time.time() - t0), **out}
+        out = await generate(run, rnd, key=key)
+        meta = save(key, {**out, "seconds": round(time.time() - t0)})
+        PACKETS[key] = {"status": "done", **meta, "packets": out["packets"], "bundle": bool(out.get("bundle_bytes")),
+                        "openings_score": {"status": "running"}}
     except Exception as e:
         PACKETS[key] = {"status": "error", "message": f"{type(e).__name__}: {e}"}
+        return
+    try:  # optional: re-simulate the plan with vs. without the packets' openings
+        sc = await score_openings(run, rnd, out["packets"])
+        (APPROVED / f"{key}-openings.json").write_text(json.dumps(sc, indent=1))
+        PACKETS[key]["openings_score"] = sc
+    except Exception as e:
+        PACKETS[key]["openings_score"] = {"status": "error", "message": f"{type(e).__name__}: {e}"}
 
 
 @app.post("/api/packets")
@@ -263,13 +268,22 @@ async def packets_start(req: ApproveReq):
 
 @app.get("/api/packets/{key}")
 def packets_status(key: str):
+    from .packets import load  # noqa: PLC0415
     if key in PACKETS:
         return PACKETS[key]
-    d = APPROVED / f"{key}-packets"
-    if d.exists():  # cached from an earlier session
-        return {"status": "done", "cached": True, "packets": {f.stem: f.read_text() for f in sorted(d.glob("*.md"))},
-                "local_errors": [], "agent_checks_passed": True}
+    run_id = key.rsplit("-r", 1)[0]
+    cached = load(key, _saved(run_id) if (RUNS / f"{run_id}.json").exists() else None)  # re-verified strictly
+    if cached:
+        return cached
     raise HTTPException(404)
+
+
+@app.get("/api/packets/{key}/bundle")
+def packets_bundle(key: str):
+    f = APPROVED / f"{key}-bundle.zip"
+    if not f.exists():
+        raise HTTPException(404)
+    return FileResponse(f, media_type="application/zip", filename=f"{key}-delegate-bundle-DRAFT.zip")
 
 
 # ---------- live Deep Research for a new guest ----------

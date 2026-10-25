@@ -41,6 +41,7 @@ Stretch goals (Antigravity packets, screenshot critique) only happen if we're ah
 - [x] README, private GitHub repo `abhimishra_adobe/summit-simulator` (**make it public before submitting**)
 - [x] Pre-run `demo-5block` (4 rounds, high thinking, 32 min): 28.9 → 71.6 → **77.3** → 74.2 → 75.5. The best is round 2.
 - [x] Antigravity briefing packets for demo-5block round 2 (10 packets, verified); stricter Flash judge (medium thinking)
+- [x] P1 packets: strict packet check (same-line time/room, exact co-participants, openings/counterparts grounded in red lines, anti-template), sandbox-made `.ics` + PDF per guest, draft `bundle.zip` (organizer downloads; nothing sent), openings re-simulation
 - [ ] Rehearse the demo, 1-minute video, submission form
 
 ## Open items

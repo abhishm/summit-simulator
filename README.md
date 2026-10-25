@@ -42,12 +42,19 @@ labor) leave feeling unheard.
    visibly converge. A score chart compares the baseline with each Argon round. **Nothing is final until the
    organizer clicks Approve**, which exports a timed run of show: rooms, who sits where, facilitator prompts, the
    agreements reached in simulation and Argon's rationale.
-6. **Antigravity writes the briefing packets, and checks them.** After approval, the Antigravity managed agent
-   (`antigravity-preview-09-2026` running `gemini-4-argon`) works in a remote sandbox. It writes one packet per
-   delegate: their personal schedule, who they'll sit with, concrete openings that address each counterpart's
-   red lines, and a counterpart cheat sheet. It then writes and runs `check.py`, which confirms every packet
-   matches the approved schedule (times, rooms, co-participants), and fixes failures until the check passes.
-   The server re-verifies locally. (10/10 packets, both checks pass, about 5 minutes.)
+6. **Antigravity prepares a draft delegate bundle, and checks it.** After approval, the Antigravity managed agent
+   (`antigravity-preview-09-2026` running `gemini-4-argon`) works in a remote sandbox. Per delegate it writes a
+   markdown packet (personal schedule, who they'll sit with, concrete openings that address each counterpart's
+   red lines and tradeoffs, a counterpart cheat sheet), an `.ics` calendar invite and a PDF. It then writes and runs
+   `check.py` and fixes failures until it passes. The check is strict: each `HH:MM-HH:MM | room | title` line must
+   match its block on the same line, co-participants must be exactly the group (missing *and* extra ids are
+   flagged), openings and counterparts must engage the right people's red lines and tradeoffs without templated or
+   pasted text, the `.ics` files must parse with `icalendar` and the PDFs with `pypdf`. It zips everything with a
+   manifest; we download the zip from the sandbox (`environments.files.download`) and re-verify it locally
+   (`app/packets.py: verify, verify_artifacts`; offline tests in `tests/test_packets_verify.py`). **Nothing is
+   sent**: the bundle is a draft the organizer reviews and downloads ("⬇ Bundle (draft)" in the Approve modal).
+   Optionally we re-simulate the approved plan with each guest's openings added to their brief, to see whether the
+   openings move consensus (`score_openings`, one Flash run each way, noisy).
 
 ## Why Argon
 
@@ -72,7 +79,9 @@ After both rounds of hardening, the `demo-5block` pre-run (4 Argon rounds, high 
 **28.9 → 71.6 → 77.3 → 74.2 → 75.5**. Argon's first redesign fixes faction-segregated rooms (cross-faction
 pairs met: 5/38 → 38/38). After that, gains are incremental and it trades consensus against inclusion. The best
 plan (round 2) is approved, and its Antigravity briefing packets are cached in
-`data/approved/demo-5block-r2-packets/`.
+`data/approved/demo-5block-r2-packets/`, with the draft bundle in `data/approved/demo-5block-r2-bundle.zip` and the
+openings re-simulation in `data/approved/demo-5block-r2-openings.json`. Regenerate with
+`uv run python scripts/make_packets.py demo-5block 2` (about 4-10 minutes plus 2 minutes of scoring).
 
 ## Run it
 
@@ -107,7 +116,7 @@ Deep Research (x10, background) ──> data/personas/*.md ──Flash──> pe
           │   └── repair() <── Revision{critique, changes, plan} <── Gemini 4 Argon│
           └────────────────────────────────────────────────────────────────────────┘
 FastAPI (SSE events: round_start / block / thinking / round_done) ──> Three.js venue + chart
-Approve ──> data/approved/<run>-r<round>.md (run of show) ──> Antigravity+Argon sandbox ──> per-guest packets (self-checked)
+Approve ──> data/approved/<run>-r<round>.md (run of show) ──> Antigravity+Argon sandbox ──> draft bundle.zip (packets, .ics, PDFs; self-checked, re-verified)
 ```
 
 | File | Purpose |
@@ -117,7 +126,7 @@ Approve ──> data/approved/<run>-r<round>.md (run of show) ──> Antigravit
 | `app/simulate.py` | World rules, per-room simulation, judge, scoring |
 | `app/optimize.py` | Baseline plan, constraint repair, Argon critique/revise loop |
 | `app/server.py` | API, live SSE runs, replay, approval export, packets, live Deep Research |
-| `app/packets.py` | Antigravity briefing packets + in-sandbox and local verification |
+| `app/packets.py` | Antigravity draft bundle (packets, .ics, PDFs, manifest), strict in-sandbox + local verification, openings re-simulation |
 | `web/index.html` | Three.js venue, stance strip, score chart, critique panel |
 | `scripts/` | Persona research, CLI optimizer runs, API smoke test |
 
