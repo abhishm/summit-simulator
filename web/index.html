@@ -52,6 +52,7 @@
   svg text { fill:var(--dim); font-size:10px; }
   .chartbar { cursor:pointer; }
   #vScore { font-weight:650; } #vFlaws li { margin:4px 0; } #vFlaws .fx { color:#81c995; }
+  .vchk { margin-top:8px; padding:6px 8px; border:1px solid var(--line); border-radius:6px; font-size:12px; display:flex; flex-direction:column; gap:3px; }
   #vThumbs { display:flex; gap:4px; margin-top:8px; flex-wrap:wrap; }
   #vThumbs img { width:74px; height:46px; object-fit:cover; border:1px solid var(--line); border-radius:4px; cursor:zoom-in; }
   #vThumbs img:hover { border-color:var(--accent); }
@@ -206,6 +207,13 @@ function buildAvatars() {
   });
   $("legend").innerHTML = Object.entries(FAC).map(([f, c]) => `<span style="margin-right:10px"><span class="dot" style="background:${c}"></span>${f.replace("_", " ")}</span>`).join("");
 }
+// Plenary seating isn't modeled by the simulator; seat factions round-robin like a mixed-seating convener would.
+function interleave(ids) {
+  const by = {}; ids.forEach(id => (by[PBY[id]?.faction] ??= []).push(id));
+  const qs = Object.values(by).sort((a, b) => b.length - a.length), out = [];
+  while (out.length < ids.length) qs.forEach(q => q.length && out.push(q.shift()));
+  return out;
+}
 function slots(room, n, gi = 0, ng = 1) {
   const r = ROOMDEF[room]; let cx = r.x, cz = r.z, rad = Math.min(r.w, r.d) / 2 - 1.3;
   if (room === "Lounge") { // pairs: 2x3 grid of mini-clusters
@@ -312,6 +320,9 @@ function renderVisual(v, round) {
   if (v.error) { $("vBody").innerHTML = `<span style="color:#f28b82">Visual critic failed:</span> ${esc(v.error)}`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
   if (v.pending) { $("vBody").innerHTML = `<span class="spinner"></span>Rendering each block and asking Argon to critique the screenshots…`; $("vFlaws").innerHTML = ""; $("vThumbs").innerHTML = ""; return; }
   $("vBody").innerHTML = `<span id="vScore" style="color:${v.score >= 7 ? "#81c995" : v.score >= 5 ? "#fdd663" : "#f28b82"}">${v.score}/10</span> · ${esc(v.summary)}`;
+  const chk = (v.previous || []).length ? `<div class="vchk"><b>Verified on this render: ${v.previous.filter(x => x.fixed).length}/${v.previous.length} of last round's flaws fixed</b>` +
+    v.previous.map(x => `<div title="${esc(x.evidence)}">${x.fixed ? "✅" : "❌"} B${x.block}: ${esc(x.issue)}</div>`).join("") + `</div>` : "";
+  $("vBody").innerHTML += chk;
   $("vFlaws").innerHTML = (v.flaws || []).map(f => `<li><b>B${f.block}</b>: ${esc(f.issue)} <span class="fx">→ ${esc(f.fix)}</span></li>`).join("");
   $("vThumbs").innerHTML = (v.images || []).map((p, i) => `<img src="/${p}" title="block ${i + 1}" loading="lazy" />`).join("");
   $("vThumbs").querySelectorAll("img").forEach(im => im.onclick = () => { $("vZoom").querySelector("img").src = im.src; $("vZoom").style.display = "flex"; });
@@ -327,8 +338,8 @@ window.showBlock = async ({ personas, plan, groups, block, ratings, round }) => 
   const R = Object.fromEntries((ratings || []).map(r => [r.id, r]));
   for (const a of Object.values(AV)) a.ring.material.opacity = 0;
   groups.forEach((g, gi) => {
-    const pos = slots(g.room, g.members.length, gi, groups.length);
-    g.members.forEach((m, k) => { const a = AV[m]; if (!a) return; a.target.copy(pos[k]); a.g.position.copy(pos[k]); a.bounce = 0; });
+    const pos = slots(g.room, g.members.length, gi, groups.length), mem = g.room === "Plenary Hall" ? interleave(g.members) : g.members;
+    mem.forEach((m, k) => { const a = AV[m]; if (!a) return; a.target.copy(pos[k]); a.g.position.copy(pos[k]); a.bounce = 0; });
   });
   for (const [id, a] of Object.entries(AV)) if (R[id]) {
     const fh = R[id].felt_heard; a.ring.material.opacity = 0.9;
@@ -368,7 +379,7 @@ async function handle(kind, d) {
     const placed = new Set();
     d.groups.forEach((g, gi) => {
       const pos = slots(g.room, g.members.length, gi, d.groups.length);
-      g.members.forEach((m, k) => { if (AV[m]) { AV[m].target.copy(pos[k]); placed.add(m); } });
+      (g.room === "Plenary Hall" ? interleave(g.members) : g.members).forEach((m, k) => { if (AV[m]) { AV[m].target.copy(pos[k]); placed.add(m); } });
     });
     await sleep(1100);
     const maxT = Math.max(...d.groups.map(g => g.transcript.length), 0), prev = {};

@@ -14,9 +14,13 @@ A running log for the submission form question "Do you have any feedback for the
 ## What broke / friction
 
 - Argon is *too good* at reward hacking a simulator. In round 2 it reordered speaker lists to manipulate the airtime Gini and told guests to "state a mid-spectrum stance". We had to harden the environment. A built-in "spec-gaming check" or critique mode would help.
+- The Antigravity packet agent gamed our first keyword-based verifier with templated openings ("As X, I propose…" with a red-line keyword pasted in). Openings had to be grounded per counterpart and checked for template reuse.
+- Argon as a *visual* critic is sharp on real issues (power imbalance, faction-clustered seating), but at first it also critiqued renderer artifacts (an intentionally empty Lounge, seat order that the plan can't control). We had to add venue rules to the prompt. Its 0–10 score is coarse and plateaus at about 6.5 for any reasonable plan, so per-flaw verification ("did last round's fix land on the new render?") turned out to be far more useful than the score.
 - `high` thinking on a long structured-output prompt takes minutes. There's no progress signal without streaming, and we wanted thought-summary streaming combined with structured output.
 
 ## What I wish existed
+
+- A built-in "verify the previous critique" mode for multimodal critics: send the before/after images plus the earlier flaws and get structured fixed/open verdicts back.
 
 - Streaming thought summaries during structured-output calls, so the UI can show "Argon is considering…" live.
 - A first-class way to run N cheap Flash "worlds" in parallel and have Argon read their aggregate, like a managed simulation agent.

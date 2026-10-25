@@ -68,7 +68,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 - **"Are these real people?"** No. Personas are *roles* grounded in public positions, with cited Deep Research briefs. They aren't psychological profiles.
 - **"How noisy is the score?"** Each plan is scored from one stochastic run, so ±3 points is noise. The 29 → 72 jump (segregated rooms → full mixing) is structural. Next step: average 3 runs per plan.
 - **"Real product?"** It's a pre-mortem for any high-stakes multistakeholder meeting: summits, standards bodies, union negotiations, or co-design workshops. Swap the personas and the issue axes.
-- **"Does the visual critic change anything?"** Yes. Its flaws are injected into the next `revise()` prompt, and in the `visual-test` run Argon's critique cited it directly: *"confirmed by both simulation metrics and the visual critic"*. It's a second, independent signal: it catches spatial and power imbalances that the numeric score doesn't measure.
+- **"Does the visual critic change anything?"** Yes. Its flaws are injected into the next `revise()` prompt, and in the `visual-test` run Argon's critique cited it directly: *"confirmed by both simulation metrics and the visual critic"*. It's a second, independent signal: it catches spatial and power imbalances that the numeric score doesn't measure. It also **closes the loop**: each new render is checked against the previous round's flaws, giving per-flaw ✅/❌ with evidence In `visual-loop-v3` (venue rules plus verification) the visual score rose every round, **2.0 → 7.5 → 8.0 → 8.2**, alongside a total of **32 → 68 → 72 → 74**, and Argon verified 2/3, 1/3 and 2/3 of its own fixes on the new renders. Before those changes (v1/v2) it plateaued at 6.5.
 - **"Cost / time?"**
   - a 5-block simulation takes about 90s
   - an Argon revision takes about 1 min at medium thinking and 6–10 min at high
@@ -78,5 +78,6 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 
 | Time | Config | Result | Notes |
 |---|---|---|---|
+| 14:07 | visual-loop-v3: 5 blocks, 3 rounds, medium, visual critic plus verification | total 32→68→72→74; visual 2.0→7.5→8.0→8.2; fixed 2/3, 1/3, 2/3 | 1355s. Best showcase run for the visual critic beat |
 | 13:12 | 1-min video draft v2 (scripted) | 53.5s | Playwright recording + `gemini-3.8-flash-tts` (voice Kore) + ffmpeg. At `~/Desktop/summit-simulator-1min-draft.mp4` |
 | 12:57 | live: 3 blocks, 2 rounds, medium | 26.3 → 60.0 → 62.4 | Round 1 ends at 168s, round 2 at 264s. Too long for 2 rounds, so use **1 round** live. Argon's critique named 10 missing cross-faction pairs (saved as `rehearsal-live`) |

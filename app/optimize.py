@@ -190,7 +190,8 @@ async def optimize(personas: list[Persona], rounds: int = 4, n_blocks: int = 5, 
             r0 = rnd - 1
             await e("visual", {"round": r0, "pending": True})
             try:
-                vis = await visual_round(personas, res.plan, res.groups, res.ratings, run_id, r0, visual_thinking)
+                pv = (history[-2].get("visual") or {}).get("flaws") if len(history) > 1 else None
+                vis = await visual_round(personas, res.plan, res.groups, res.ratings, run_id, r0, visual_thinking, pv)
             except Exception as ex:  # the visual check is advisory; never sink the run
                 vis_err = {"round": r0, "error": f"{type(ex).__name__}: {ex}"[:300]}
                 history[-1]["visual"] = vis_err
@@ -212,4 +213,14 @@ async def optimize(personas: list[Persona], rounds: int = 4, n_blocks: int = 5, 
             best = rnd
         elif rnd >= 2 and rnd - best >= 2:
             break  # two rounds without improvement
+    if visual:  # close the loop: verify the final plan's render against the last round's flaws
+        r0 = history[-1]["round"]
+        await e("visual", {"round": r0, "pending": True})
+        try:
+            pv = (history[-2].get("visual") or {}).get("flaws") if len(history) > 1 else None
+            vis = await visual_round(personas, res.plan, res.groups, res.ratings, run_id, r0, visual_thinking, pv)
+        except Exception as ex:
+            vis = {"round": r0, "error": f"{type(ex).__name__}: {ex}"[:300]}
+        history[-1]["visual"] = vis
+        await e("visual", vis)
     return {"personas": [p.model_dump() for p in personas], "history": history, "best": best}

@@ -27,7 +27,16 @@ class Flaw(BaseModel):
     fix: str = Field(description="A concrete change to groupings, format or facilitation that fixes it")
 
 
+class FlawCheck(BaseModel):
+    block: int = Field(description="1-based block of the previous round's flaw")
+    issue: str = Field(description="The previous flaw, restated in under 15 words")
+    fixed: bool = Field(description="True only if the NEW screenshots show the flaw is gone")
+    evidence: str = Field(description="What the new screenshots/plan show, naming guests and rooms")
+
+
 class VisualCritique(BaseModel):
+    previous: list[FlawCheck] = Field(default_factory=list,
+                                      description="One check per flaw from the previous round (empty if none given)")
     score: float = Field(description="0-10: how well the rendered seating actually mixes, includes and balances guests")
     flaws: list[Flaw] = Field(description="At least 3 specific flaws, most damaging first")
     summary: str = Field(description="One or two sentences: the overall visual verdict")
@@ -103,7 +112,7 @@ def _describe(personas, plan, groups, ratings) -> str:
 
 
 async def critique(personas, plan, groups, ratings, images: list[Path], rnd: int,
-                   thinking: str = "medium") -> VisualCritique:
+                   thinking: str = "medium", prev_flaws: list[dict] | None = None) -> VisualCritique:
     personas, plan = [_d(p) for p in personas], _d(plan)
     groups, ratings = [_d(g) for g in groups], [_d(r) for r in ratings]
     prompt = f"""You are an adversarial visual critic for an AI-safety summit agenda. Below are screenshots of a 3D
@@ -111,6 +120,11 @@ render of the venue, one per agenda block (round {rnd}). Each avatar is one gues
 regulator, orange government, red industry, teal academia, green civil society). The ring under each guest is how
 heard the judge says they felt over the day (green >= 8, yellow >= 6, red < 6; bigger = more heard). Rooms: Plenary
 Hall, Lounge (pairs), Breakouts A-D.
+
+Venue rules the plan cannot change, so do NOT report them as flaws: the last block is always a full plenary; plenary
+seating is assigned by the venue (the simulator doesn't model it); breakout blocks use at most Breakouts A-D; the
+Lounge is only used by the "pairs" format, so it is empty in other blocks by design. Only report flaws the agenda
+can fix: who is grouped with whom, room sizes, formats, topics, sequencing and repetition across blocks.
 
 Look at the images. Find what an experienced convener would object to: guests isolated or stuck at the edge of a
 huge plenary circle, factions that cluster together or never share a room across the day, the same people
@@ -121,6 +135,11 @@ concrete fix a human organizer could make. Score 0-10 (10 = every block visibly 
 inclusive groups).
 
 {_describe(personas, plan, groups, ratings)}"""
+    if prev_flaws:
+        prompt += "\n\nVERIFY FIRST. The previous round's agenda was revised to fix these flaws you reported. For each one, " \
+                  "check the NEW screenshots and plan and return it in `previous` with fixed=true only if it is really " \
+                  "gone (a renamed room or a moved problem is not fixed). Then report the new round's flaws as usual " \
+                  "(do not repeat fixed ones):\n" + "\n".join(f"- block {f['block']}: {f['issue']}" for f in prev_flaws)
     content: list[dict] = [{"type": "text", "text": prompt}]
     for i, p in enumerate(images):
         content.append({"type": "text", "text": f"Screenshot of block {i + 1}:"})
@@ -128,20 +147,29 @@ inclusive groups).
     return await structured(ARGON, content, VisualCritique, thinking=thinking)
 
 
-async def visual_round(personas, plan, groups, ratings, run_id: str, rnd: int, thinking: str = "medium") -> dict:
+async def visual_round(personas, plan, groups, ratings, run_id: str, rnd: int, thinking: str = "medium",
+                       prev_flaws: list[dict] | None = None) -> dict:
     """Render + critique one round. Returns the dict stored as history[rnd]["visual"] and emitted as an SSE event."""
     t0 = time.time()
     paths = await render_round(personas, plan, groups, ratings, run_id, rnd)
     t1 = time.time()
-    c = await critique(personas, plan, groups, ratings, paths, rnd, thinking)
-    return {"round": rnd, **c.model_dump(), "images": [str(p.relative_to(ROOT)) for p in paths],
+    c = await critique(personas, plan, groups, ratings, paths, rnd, thinking, prev_flaws)
+    if not prev_flaws:
+        c.previous = []
+    resolved = {"fixed": sum(x.fixed for x in c.previous), "total": len(c.previous)} if c.previous else None
+    return {"round": rnd, **c.model_dump(), "resolved": resolved, "images": [str(p.relative_to(ROOT)) for p in paths],
             "render_seconds": round(t1 - t0, 1), "seconds": round(time.time() - t0, 1)}
 
 
 def for_prompt(v: dict) -> str:
     """Compact text of a visual critique for the next revise() prompt."""
     flaws = "\n".join(f"- block {f['block']}: {f['issue']} -> fix: {f['fix']}" for f in v["flaws"])
-    return f"visual score {v['score']}/10. {v['summary']}\n{flaws}"
+    out = f"visual score {v['score']}/10. {v['summary']}\n{flaws}"
+    still = [x for x in v.get("previous") or [] if not x["fixed"]]
+    if still:
+        out += "\nSTILL UNFIXED from your previous revision (verified on the new render):\n" + "\n".join(
+            f"- block {x['block']}: {x['issue']} ({x['evidence']})" for x in still)
+    return out
 
 
 if __name__ == "__main__":  # quick render check: uv run python -m app.visual demo-5block 2

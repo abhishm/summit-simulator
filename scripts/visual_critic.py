@@ -26,13 +26,18 @@ async def main():
     run = json.loads(f.read_text())
     rnd = run["best"] if a.round is None else a.round
     h = run["history"][rnd]
+    pv = (run["history"][rnd - 1].get("visual") or {}).get("flaws") if rnd > 0 else None
     v = await visual_round(run["personas"], h["plan"], h["result"]["groups"], h["result"]["ratings"], a.run, rnd,
-                           a.thinking)
+                           a.thinking, pv)
     run = json.loads(f.read_text())  # re-read in case it changed meanwhile
     run["history"][rnd]["visual"] = v
     f.write_text(json.dumps(run, indent=1))
     print(f"{a.run} round {rnd}: visual score {v['score']}/10 (render {v['render_seconds']}s, total {v['seconds']}s)")
     print(v["summary"])
+    if v.get("resolved"):
+        print(f"previous flaws fixed: {v['resolved']['fixed']}/{v['resolved']['total']}")
+        for x in v["previous"]:
+            print(f"  {'FIXED' if x['fixed'] else 'OPEN '} B{x['block']}: {x['issue']} | {x['evidence']}")
     for fl in v["flaws"]:
         print(f"- B{fl['block']}: {fl['issue']}\n    fix: {fl['fix']}")
     print("images:", *v["images"])

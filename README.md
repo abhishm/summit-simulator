@@ -43,6 +43,9 @@ labor) leave feeling unheard.
    inseparable across all four breakouts" or "Breakouts C/D and the Lounge sit empty all day"). Those flaws go
    into the next `revise()` prompt, so what the plan *looks like* changes the plan. That's the **More
    Dimensions** loop: the 3D world is an input to the model, not just an output.
+   The critic also **verifies its own previous flaws** on each new render (✅ fixed / ❌ open, with evidence), so
+   the loop is closed. In `visual-loop-v3`: total 32 → 68 → 72 → 74, visual 2.0 → 7.5 → 8.0 → 8.2, and Argon
+   verified 2/3, 1/3, 2/3 of the previous round's flaws as fixed.
 5. **You watch it in 3D and approve.** A Three.js isometric venue (plenary hall, four breakout rooms, a lounge)
    animates guests moving between rooms, talking (lines), and how heard they felt (halos). Dots on a stance strip
    visibly converge. A score chart compares the baseline with each Argon round. **Nothing is final until the

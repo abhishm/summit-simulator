@@ -45,6 +45,8 @@ async def main():
                 print(f"[{time.time() - t0:6.0f}s] visual critic round {data['round']}: {data['score']}/10 "
                       f"(render {data['render_seconds']}s, total {data['seconds']}s) {data['summary'][:300]}",
                       flush=True)
+                if data.get("resolved"):
+                    print(f"    previous flaws fixed: {data['resolved']['fixed']}/{data['resolved']['total']}", flush=True)
                 for f in data["flaws"]:
                     print(f"    - B{f['block']}: {f['issue'][:160]}", flush=True)
         elif kind == "thinking":
