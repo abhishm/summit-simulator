@@ -269,14 +269,15 @@ function setStances(st) {
 const COMP = [["consensus", 40, "#8ab4f8"], ["inclusion", 30, "#81c995"], ["airtime", 15, "#fdd663"], ["cross_faction", 15, "#c58af9"]];
 function renderChart() {
   const svg = $("chart"), W = svg.clientWidth || 400, H = 170, rs = Object.keys(ROUNDS).map(Number).filter(r => ROUNDS[r].score).sort((a, b) => a - b);
-  const bw = Math.min(56, (W - 40) / Math.max(rs.length, 1) - 12), y = v => H - 22 - v / 100 * (H - 40);
+  const bw = Math.min(56, (W - 40) / Math.max(rs.length, 1) - 12), y = v => H - 22 - v / 100 * (H - 52);
   let s = [0, 25, 50, 75, 100].map(v => `<line x1="28" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="#222a38"/><text x="2" y="${y(v) + 3}">${v}</text>`).join("");
   rs.forEach((r, i) => {
     const x = 36 + i * (bw + 12), sc = ROUNDS[r].score; let acc = 0;
     s += `<g class="chartbar" data-r="${r}">` + COMP.map(([k, , c]) => { const v = sc[k]; const rect = `<rect x="${x}" y="${y(acc + v)}" width="${bw}" height="${y(acc) - y(acc + v)}" fill="${c}" opacity="${VIEW_ROUND === r ? 1 : .75}"><title>${k}: ${v}</title></rect>`; acc += v; return rect; }).join("") +
       `<text x="${x + bw / 2 - 10}" y="${y(sc.total) - 4}" style="fill:#e6e9ef;font-weight:600">${sc.total}</text><text x="${x + bw / 2 - 12}" y="${H - 6}">${r === 0 ? "base" : "R" + r}${r === BEST ? " ★" : ""}</text></g>`;
   });
-  s += COMP.map(([k, m, c], i) => `<rect x="${W - 92}" y="${6 + i * 12}" width="8" height="8" fill="${c}"/><text x="${W - 80}" y="${14 + i * 12}">${k.replace("_", "-")} /${m}</text>`).join("");
+  let lx = 2;
+  s += COMP.map(([k, m, c]) => { const t = `${k.replace("_", "-")} /${m}`, g = `<rect x="${lx}" y="2" width="8" height="8" fill="${c}"/><text x="${lx + 11}" y="10">${t}</text>`; lx += t.length * 5.4 + 16; return g; }).join("");
   svg.innerHTML = s;
   svg.querySelectorAll(".chartbar").forEach(g => g.onclick = () => replayRound(+g.dataset.r));
 }

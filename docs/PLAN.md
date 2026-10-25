@@ -33,14 +33,14 @@ Stretch goals (Antigravity packets, screenshot critique) only happen if we're ah
 ## Persona research
 `scripts/research_personas.py` started 10 Deep Research jobs at 11:23 AM. Job IDs are in `data/personas/jobs.json`. Run `uv run python scripts/research_personas.py collect` to save the finished reports to `data/personas/<role>.md`. Run `start <role_id>` to re-run a single role.
 
-## Status (11:55 AM): core build done, well ahead of the timeline
+## Status (12:50 PM): build complete, demo assets ready
 - [x] Deep Research: 10/10 roles done and extracted to `data/personas/*.json`
 - [x] Simulator, scorer, Argon loop, `repair()` constraints (closing plenary forced)
 - [x] FastAPI + SSE (live, replay, DEMO_MODE), Three.js venue, stance strip, chart, critique, Approve → run-of-show
 - [x] Simulator hardened against reward hacking (see `data/archive/README.md`)
 - [x] README, private GitHub repo `abhimishra_adobe/summit-simulator` (**make it public before submitting**)
-- [ ] Pre-run `demo-5block` (4 rounds, high thinking, about 6 min per Argon round)
-- [ ] Stretch: Antigravity briefing packets from the approved plan; a stricter judge (Flash-Lite gives everyone 10/10 once rooms are small)
+- [x] Pre-run `demo-5block` (4 rounds, high thinking, 32 min): 28.9 → 71.6 → **77.3** → 74.2 → 75.5. The best is round 2.
+- [x] Antigravity briefing packets for demo-5block round 2 (10 packets, verified); stricter Flash judge (medium thinking)
 - [ ] Rehearse the demo, 1-minute video, submission form
 
 ## Open items

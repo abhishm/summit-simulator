@@ -68,6 +68,12 @@ It is also a very good reward hacker. Hardening the simulator became part of the
 
 Both runs are kept in `data/archive/` as evidence.
 
+After both rounds of hardening, the `demo-5block` pre-run (4 Argon rounds, high thinking) shows a realistic curve:
+**28.9 → 71.6 → 77.3 → 74.2 → 75.5**. Argon's first redesign fixes faction-segregated rooms (cross-faction
+pairs met: 5/38 → 38/38). After that, gains are incremental and it trades consensus against inclusion. The best
+plan (round 2) is approved, and its Antigravity briefing packets are cached in
+`data/approved/demo-5block-r2-packets/`.
+
 ## Run it
 
 ```bash

@@ -1,0 +1,114 @@
+{
+ "name": "Stance-Balanced Cross-Faction Matrix",
+ "rationale": "Preserves 100% (38/38) cross-faction pair coverage while rebalancing every breakout room to have symmetric stance opposition (2 hawks vs. 2 moderates vs. 1 dove on compute; 2 positive vs. 1 neutral vs. 2 negative on open weights) and resolving the red-line conflicts that held open_weights_lead, big_tech_policy, and global_south_cso to 7.0.",
+ "blocks": [
+  {
+   "title": "Co-Regulatory Architecture, Preemption & Safe Harbors",
+   "format": "breakouts",
+   "topic": "regulation",
+   "prompt": "Round-robin; medium-power and civil-society speakers open. Negotiate a middle-ground regulatory model: What rigid statutory mandates and strict pre-harm liability will regulators, researchers, and labor trade for independent chair-led co-regulatory codes, embedded AISI access, qualified compliance safe harbors, and federal preemption of state technical rules\u2014while preserving Article 91 backstops, incident watermarking, and state worker-protection floors?",
+   "groups": [
+    [
+     "uk_aisi",
+     "global_south_cso",
+     "open_weights_lead",
+     "frontier_lab_ceo",
+     "eu_regulator"
+    ],
+    [
+     "china_policy",
+     "safety_researcher",
+     "labor_advocate",
+     "big_tech_policy",
+     "us_natsec"
+    ]
+   ]
+  },
+  {
+   "title": "Compute Governance, Crisis Hotlines & Public Infrastructure",
+   "format": "breakouts",
+   "topic": "compute_controls",
+   "prompt": "Equal turn-taking; technical and civil-society speakers open. What unilateral export chokeholds and Defense Production Act restrictions will compute hawks relax in exchange for sovereign 10^26-FLOP reporting, internal kill-switches, bilateral U.S.-China crisis hotlines, and bans on autonomous replication and nuclear AI delegation? How can regional data-sharing unlock shared Global South public compute infrastructure?",
+   "groups": [
+    [
+     "china_policy",
+     "open_weights_lead",
+     "labor_advocate",
+     "frontier_lab_ceo",
+     "us_natsec"
+    ],
+    [
+     "uk_aisi",
+     "safety_researcher",
+     "global_south_cso",
+     "big_tech_policy",
+     "eu_regulator"
+    ]
+   ]
+  },
+  {
+   "title": "Capability-Gated Open Weights, Distillation & Liability",
+   "format": "breakouts",
+   "topic": "open_weights",
+   "prompt": "Structured turn-taking; equal floor time. Instead of blanket compute bans or forced open-sourcing, can delegates agree on capability-gated release: permitting open-weight frontier distribution, distillation, and fine-tuning that pass accredited open-source and AISI evaluations for CBRN, cyber-offense, and self-replication, paired with API/evaluator access, downstream modifier liability, domestic 10^26-FLOP export review, and creator consent/residuals?",
+   "groups": [
+    [
+     "uk_aisi",
+     "safety_researcher",
+     "open_weights_lead",
+     "labor_advocate",
+     "big_tech_policy"
+    ],
+    [
+     "china_policy",
+     "global_south_cso",
+     "frontier_lab_ceo",
+     "us_natsec",
+     "eu_regulator"
+    ]
+   ]
+  },
+  {
+   "title": "Workforce Transitions, Surveillance Bans & Tech Transfer",
+   "format": "breakouts",
+   "topic": "benefit_sharing",
+   "prompt": "Civil-society and medium-power speakers open. Negotiate a two-way benefit-sharing compact: Will labor and Global South delegates endorse assistive/generative AI deployment, regional data-sharing, and commercial IP frameworks (respecting defense procurement) if industry and governments commit to funded retraining/severance, creator residuals, anti-ethics-dumping parity, Global South compute/tech-transfer funds, and bans on workplace, civilian public biometric, and social-credit surveillance?",
+   "groups": [
+    [
+     "china_policy",
+     "uk_aisi",
+     "global_south_cso",
+     "big_tech_policy",
+     "us_natsec"
+    ],
+    [
+     "safety_researcher",
+     "open_weights_lead",
+     "labor_advocate",
+     "frontier_lab_ceo",
+     "eu_regulator"
+    ]
+   ]
+  },
+  {
+   "title": "Closing Plenary: Unified Four-Pillar Synthesis",
+   "format": "plenary",
+   "topic": "synthesis",
+   "prompt": "Round-robin starting with open-weights, Global South, Big Tech, labor, and researchers. Each delegate states their concessions and verifies the synthesis integrates all four breakout compacts: (1) co-regulation, federal technical preemption preserving state labor laws, and safe harbors; (2) capability-gated frontier open-weight distribution/distillation; (3) 10^26-FLOP reporting, crisis hotlines, and nuclear/replication bans; (4) retraining, tech-transfer, and workplace/civilian biometric surveillance bans.",
+   "groups": [
+    [
+     "eu_regulator",
+     "us_natsec",
+     "uk_aisi",
+     "china_policy",
+     "frontier_lab_ceo",
+     "open_weights_lead",
+     "big_tech_policy",
+     "safety_researcher",
+     "global_south_cso",
+     "labor_advocate"
+    ]
+   ]
+  }
+ ]
+}
