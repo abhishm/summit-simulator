@@ -328,6 +328,7 @@ function renderVisual(v, round) {
   $("vThumbs").querySelectorAll("img").forEach(im => im.onclick = () => { $("vZoom").querySelector("img").src = im.src; $("vZoom").style.display = "flex"; });
 }
 $("vZoom").onclick = () => $("vZoom").style.display = "none";
+window.showVisual = renderVisual; // lets scripted recordings show a critique from another run
 
 // headless entry point: place everyone for one block instantly (no animation) so Playwright can screenshot it
 window.showBlock = async ({ personas, plan, groups, block, ratings, round }) => {

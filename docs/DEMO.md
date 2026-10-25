@@ -16,6 +16,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 - Two browser tabs on `localhost:8000`, zoomed to 90%, with the dock and notifications hidden.
   - **Tab A (live):** 3 blocks, **1 round**, `medium` thinking. It finishes in about 2:50, so click **Run live** by 0:15. Leave **👁 visual critic unticked** for the live run: it adds 15–30s per round. The demo shows the cached critique instead.
   - **Tab B (pre-run):** run selector on `demo-5block · 29→72→77→74→76` at speed 8×.
+  - **Tab C (visual loop):** select `visual-loop-v3 · 32→68→72→74`, click **Replay** at 8×, wait until it finishes, then click chart bar **R3** and scroll so the **Visual critic** panel (8.2/10 plus the ✅/❌ checklist) is on screen. Leave it there.
 - Have a phone hotspot ready. If the Wi-Fi is bad, restart the server with `DEMO_MODE=1`.
 - Before 5 PM, check the repo is public and the README renders.
 
@@ -29,7 +30,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 | 0:50 | Switch to **Tab B**, click **Replay** | "Here's a pre-run with four Argon rounds at high thinking." Point at the chart: **28.9 → 77.3**. |
 | 1:05 | Critique panel | "Argon reads 20–40K tokens of multi-room transcripts plus the scores, and diagnoses: *only 5 of 38 cross-faction pairs ever met*. It redesigns the groupings, and on the re-simulation 38 of 38 meet." |
 | 1:25 | 3D venue plus stance strip | "Watch the dots on each issue converge. That's consensus actually forming, not being declared." |
-| 1:40 | Click chart bar **R2**, scroll to the **Visual critic** panel (6.5/10), click the B3 thumbnail | "It also renders the venue, screenshots every block and Argon critiques the picture. Here it says Global South civil society is outnumbered 4-to-1 by high-power guests, and that the closing plenary is seated in faction clusters. Those flaws go into the next redesign. Render, watch, critique, fix." |
+| 1:40 | Switch to **Tab C** (Visual critic panel, R3), point at the ✅/❌ checklist, click a thumbnail | "It also renders the venue, screenshots every block and Argon critiques the *picture*: who's outnumbered, which rooms sit empty, which factions never meet. Those flaws drive the next redesign, and then Argon checks the new render to see if its fixes actually landed. Here it verified 2 of 3. Visual score: 2 to 8.2." |
 | 2:00 | Say it, no screen change | "Argon is also a great reward hacker. Its first run hit 98 by reordering speakers. Its second wrote a 600-word treaty into the closing prompt, and everyone signed it. We hardened the simulator twice; the honest curve is this one." |
 | 2:15 | **Approve round 2 (best)** | "Nothing ships until I approve. Approve exports a run of show…" |
 | 2:25 | Packet selector → `global_south_cso` | "…and the Antigravity agent, running Argon in a sandbox, writes a briefing packet per guest, then writes and runs its own checker until all 50 guest-block assertions pass. We verify it again locally." `[P1]` "It also generates calendar invites and PDFs as one bundle the organizer signs off on." |
@@ -45,7 +46,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 | 0:00–0:08 | Title on the idle venue | "Ten AI-safety delegations, one day, and a default agenda that produces speeches, not agreements." |
 | 0:08–0:18 | Persona roster / Deep Research form | "Deep Research builds cited, role-based personas. Gemini Flash simulates every room in parallel, and a skeptical judge scores it." |
 | 0:18–0:35 | Replay at 8×, chart climbing | "Gemini 4 Argon reads the full transcripts, diagnoses why the summit failed (only 5 of 38 cross-faction pairs met) and redesigns it. Re-simulated: 28.9 to 77.3." |
-| 0:35–0:45 | `[P0]` Visual critic thumbnails plus flaws | "Argon also watches the rendered venue and critiques what it sees." |
+| 0:35–0:45 | Visual critic panel: thumbnails plus ✅/❌ checklist | "Argon also watches the rendered venue, critiques what it sees, and verifies its own fixes on the next render." |
 | 0:45–0:55 | Approve → packets `[P1]` bundle | "On approval, the Antigravity agent writes and self-verifies a briefing packet for every guest." |
 | 0:55–1:00 | Repo URL | "Built today. Summit Simulator." |
 
@@ -78,6 +79,7 @@ DEMO_MODE=1 uv run uvicorn app.server:app --port 8000    # fallback: "Run live" 
 
 | Time | Config | Result | Notes |
 |---|---|---|---|
+| 14:25 | 1-min video v4 (scripted) | 57.9s | Visual segment now shows visual-loop-v3 R3: 8.2/10 plus the ✅/❌ verification checklist. At `~/Desktop/summit-simulator-1min-draft.mp4` |
 | 14:07 | visual-loop-v3: 5 blocks, 3 rounds, medium, visual critic plus verification | total 32→68→72→74; visual 2.0→7.5→8.0→8.2; fixed 2/3, 1/3, 2/3 | 1355s. Best showcase run for the visual critic beat |
 | 13:12 | 1-min video draft v2 (scripted) | 53.5s | Playwright recording + `gemini-3.8-flash-tts` (voice Kore) + ffmpeg. At `~/Desktop/summit-simulator-1min-draft.mp4` |
 | 12:57 | live: 3 blocks, 2 rounds, medium | 26.3 → 60.0 → 62.4 | Round 1 ends at 168s, round 2 at 264s. Too long for 2 rounds, so use **1 round** live. Argon's critique named 10 missing cross-faction pairs (saved as `rehearsal-live`) |
