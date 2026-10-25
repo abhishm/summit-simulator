@@ -98,7 +98,7 @@
       <h3>Summit score by round (click a bar to replay that round)</h3>
       <svg id="chart" width="100%" height="170"></svg>
       <div class="row" style="margin-top:6px">
-        <button id="showBase">Baseline</button><button id="showBest">Best plan</button>
+        <button id="showBase">Baseline</button><button id="showBest">Best plan</button><button id="viewPlan" title="Full run of show for the selected round, without approving">📋 View plan</button>
         <span class="sp" style="flex:1"></span>
         <button class="approve" id="approveBtn" disabled>✓ Approve plan</button>
       </div>
@@ -459,10 +459,16 @@ let lastMd = "";
 $("approveBtn").onclick = async () => {
   const round = PICK ?? BEST;
   lastMd = await (await fetch("/api/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).text();
-  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkZip").style.display = "none"; $("pkStatus").textContent = "";
+  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkZip").style.display = "none"; $("pkBtn").style.display = ""; $("pkStatus").textContent = "";
   const key = `${RUN_ID}-r${round}`; PKKEY = key; fetch(`/api/packets/${key}`).then(r => r.ok ? r.json() : null).then(j => { if (j && j.status === "done") showPackets(j); });
 };
-$("closeM").onclick = () => $("modal").style.display = "none";
+$("viewPlan").onclick = async () => {
+  const round = PICK ?? BEST; if (!RUN_ID || round === null) return;
+  lastMd = await (await fetch(`/api/runs/${RUN_ID}/plan/${round}`)).text();
+  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkZip").style.display = "none"; $("pkBtn").style.display = "none";
+  $("pkStatus").textContent = " · draft preview, click Approve to finalize";
+};
+$("closeM").onclick = () => { $("modal").style.display = "none"; $("pkBtn").style.display = ""; };
 let PK = null, PKKEY = null;
 function showPackets(j) {
   PK = j.packets || {}; const ids = Object.keys(PK); const sel = $("pkSel").value;

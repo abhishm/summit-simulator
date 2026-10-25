@@ -1,0 +1,128 @@
+{
+ "name": "Four-Room Balanced Airtime & Empirical Red-Line Accord",
+ "rationale": "Activating Breakout D across Blocks 2, 3, and 4 keeps open_weights_lead and safety_researcher out of 4-person rooms, balances word counts across all 10 delegates, eliminates back-to-back repeated pairings while hitting 35/38 cross-faction pairs, and reconciles open-weight fine-tuning/distribution rights and strict red-line breach liability with narrow federal technical preemption.",
+ "blocks": [
+  {
+   "title": "Equitable Benefit Sharing, Surveillance Bans & Audit Compute",
+   "format": "breakouts",
+   "topic": "benefit_sharing",
+   "prompt": "Structured turn-taking. Negotiate a benefit-sharing compact: can industry and states ban cross-border ethics dumping, public biometric surveillance, and covert workplace tracking\u2014plus fund worker transitions, independent alignment audit compute, and Global South compute/tech transfer\u2014in exchange for regional data-sharing, IP respect, assistive AI workflows, and defense procurement autonomy?",
+   "groups": [
+    [
+     "eu_regulator",
+     "us_natsec",
+     "big_tech_policy",
+     "labor_advocate"
+    ],
+    [
+     "china_policy",
+     "open_weights_lead",
+     "safety_researcher"
+    ],
+    [
+     "uk_aisi",
+     "frontier_lab_ceo",
+     "global_south_cso"
+    ]
+   ]
+  },
+  {
+   "title": "Empirical Open-Weight Red Lines & Safe Harbor Compact",
+   "format": "breakouts",
+   "topic": "open_weights",
+   "prompt": "Equal turns. Design tiered open-weight governance without arbitrary FLOP bans or arms-control restrictions: how can open-source evaluation harnesses protect the right to distribute, distill, and fine-tune open weights\u2014earning statutory safe harbor below empirical CBRN, autonomous cyber, and self-replication red lines\u2014while respecting EU Article 91 RFIs and state labor laws?",
+   "groups": [
+    [
+     "eu_regulator",
+     "china_policy",
+     "global_south_cso"
+    ],
+    [
+     "us_natsec",
+     "frontier_lab_ceo",
+     "safety_researcher"
+    ],
+    [
+     "uk_aisi",
+     "big_tech_policy"
+    ],
+    [
+     "open_weights_lead",
+     "labor_advocate"
+    ]
+   ]
+  },
+  {
+   "title": "High-Tier Compute Telemetry, Hotlines & Sovereign Access",
+   "format": "breakouts",
+   "topic": "compute_controls",
+   "prompt": "Each delegate offers one concession. How can >10^26 FLOP supplier telemetry, sovereign cluster registries, and bilateral crisis hotlines prevent CBRN proliferation and autonomous nuclear escalation, while guaranteeing non-discriminatory export licensing for Global South public compute infrastructure and exempting open-weight architectures and academic research from arms-control restrictions?",
+   "groups": [
+    [
+     "eu_regulator",
+     "uk_aisi",
+     "open_weights_lead"
+    ],
+    [
+     "china_policy",
+     "frontier_lab_ceo",
+     "labor_advocate"
+    ],
+    [
+     "us_natsec",
+     "global_south_cso"
+    ],
+    [
+     "big_tech_policy",
+     "safety_researcher"
+    ]
+   ]
+  },
+  {
+   "title": "Pre-Deployment Evaluations, Red-Line Liability & Preemption",
+   "format": "breakouts",
+   "topic": "evals_liability",
+   "prompt": "Equal airtime. Negotiate an evaluation and liability compact: can labs grant embedded AISI/independent auditor access, watermarking, and binding EU Article 91 RFI compliance for federal preemption of state technical licensing and a downstream-misuse safe harbor\u2014while keeping strict liability for red-line breaches and preserving state workplace, civil-rights, and anti-dumping laws?",
+   "groups": [
+    [
+     "uk_aisi",
+     "safety_researcher",
+     "labor_advocate"
+    ],
+    [
+     "china_policy",
+     "big_tech_policy",
+     "global_south_cso"
+    ],
+    [
+     "eu_regulator",
+     "frontier_lab_ceo"
+    ],
+    [
+     "us_natsec",
+     "open_weights_lead"
+    ]
+   ]
+  },
+  {
+   "title": "Closing Synthesis: The Five-Pillar Global AI Accord",
+   "format": "plenary",
+   "topic": "synthesis",
+   "prompt": "Hear safety_researcher, open_weights_lead, global_south_cso, and big_tech_policy first. Synthesize one accord: (1) embedded AISI red-line evals, binding Article 91 RFIs, and strict liability for unverified CBRN/cyber/replication breaches; (2) open-weight distribution/fine-tuning safe harbors without arms-control restrictions; (3) downstream-misuse safe harbor and federal technical preemption preserving state labor laws; (4) surveillance/ethics-dumping/nuclear bans and compute transfer.",
+   "groups": [
+    [
+     "eu_regulator",
+     "us_natsec",
+     "uk_aisi",
+     "china_policy",
+     "frontier_lab_ceo",
+     "open_weights_lead",
+     "big_tech_policy",
+     "safety_researcher",
+     "global_south_cso",
+     "labor_advocate"
+    ]
+   ]
+  }
+ ]
+}

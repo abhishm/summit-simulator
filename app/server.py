@@ -194,13 +194,13 @@ async def events(run_id: str, speed: float = 1.0):
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
-def _run_of_show(run: dict, rnd: int) -> str:
+def _run_of_show(run: dict, rnd: int, draft: bool = False) -> str:
     h = run["history"][rnd]
     plan, res = h["plan"], h["result"]
     titles = {p["id"]: p["title"] for p in run["personas"]}
     s = res["score"]
     lines = [f"# Run of show: {plan['name']}", "",
-             f"Approved from run `{run.get('id')}` round {rnd}. Simulated score **{s['total']}/100** "
+             f"{'DRAFT (not approved) from' if draft else 'Approved from'} run `{run.get('id')}` round {rnd}. Simulated score **{s['total']}/100** "
              f"(consensus {s['consensus']}/40, inclusion {s['inclusion']}/30, airtime {s['airtime']}/15, "
              f"cross-faction {s['cross_faction']}/15).", "", f"_{plan.get('rationale', '')}_", ""]
     t = 9 * 60
@@ -223,6 +223,14 @@ def _run_of_show(run: dict, rnd: int) -> str:
     lines += ["## Predicted felt-heard", ""] + [f"- {titles.get(r['id'], r['id'])}: {r['felt_heard']}/10 — {r['reason']}"
                                                 for r in res["ratings"]]
     return "\n".join(lines) + "\n"
+
+
+@app.get("/api/runs/{run_id}/plan/{rnd}", response_class=PlainTextResponse)
+def plan_preview(run_id: str, rnd: int):
+    run = _saved(run_id)
+    if not 0 <= rnd < len(run["history"]):
+        raise HTTPException(404, "no such round")
+    return _run_of_show(run, rnd, draft=True)
 
 
 @app.post("/api/approve", response_class=PlainTextResponse)
