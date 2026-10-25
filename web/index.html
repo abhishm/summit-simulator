@@ -46,7 +46,7 @@
   #modal { position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; z-index:10; }
   #modal .box { background:var(--panel); border:1px solid var(--line); border-radius:12px; width:min(860px,92vw); max-height:86vh; display:flex; flex-direction:column; }
   #modal pre { margin:0; padding:14px 18px; overflow:auto; white-space:pre-wrap; font:12px/1.5 ui-monospace, Menlo, monospace; }
-  #modal .hd { padding:10px 14px; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:center; white-space:nowrap; } #modal .hd button { white-space:nowrap; } #pkStatus { white-space:normal; font-size:12px; }
+  #modal .hd { padding:10px 14px; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:center; white-space:nowrap; } #modal .hd button { white-space:nowrap; } #pkStatus { white-space:normal; font-size:12px; } #modal .hd { flex-wrap:wrap; } #pkStatus:not(:empty) { order:9; flex-basis:100%; }
   .spinner { display:inline-block; width:10px; height:10px; border:2px solid var(--accent); border-right-color:transparent; border-radius:50%; animation:spin .8s linear infinite; vertical-align:middle; margin-right:6px; }
   @keyframes spin { to { transform:rotate(360deg); } }
   svg text { fill:var(--dim); font-size:10px; }
@@ -127,7 +127,7 @@
     </div>
   </aside>
 </main>
-<div id="modal"><div class="box"><div class="hd"><b style="white-space:nowrap">Run of show</b><span id="pkStatus" class="muted"></span><span style="flex:1"></span><select id="pkSel" style="display:none"></select><button id="pkBtn" title="Antigravity managed agent (Gemini 4 Argon) writes and self-checks one briefing packet per guest">📨 Packets (Antigravity)</button><button id="dl">⬇ .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
+<div id="modal"><div class="box"><div class="hd"><b style="white-space:nowrap">Run of show</b><span id="pkStatus" class="muted"></span><span style="flex:1"></span><select id="pkSel" style="display:none"></select><button id="pkBtn" title="Antigravity managed agent (Gemini 4 Argon) writes and self-checks one briefing packet per guest">📨 Packets (Antigravity)</button><button id="pkZip" style="display:none" title="Draft bundle (packets .md + .ics invites + PDFs + manifest). The organizer reviews it before anything is sent; nothing is sent automatically.">⬇ Bundle (draft)</button><button id="dl">⬇ .md</button><button id="closeM">Close</button></div><pre id="ros"></pre></div></div>
 
 <div id="vZoom"><img alt="block screenshot" /></div>
 <script type="module">
@@ -447,16 +447,19 @@ let lastMd = "";
 $("approveBtn").onclick = async () => {
   const round = PICK ?? BEST;
   lastMd = await (await fetch("/api/approve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ run_id: RUN_ID, round }) })).text();
-  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkStatus").textContent = "";
-  const key = `${RUN_ID}-r${round}`; fetch(`/api/packets/${key}`).then(r => r.ok ? r.json() : null).then(j => { if (j && j.status === "done") showPackets(j); });
+  $("ros").textContent = lastMd; $("modal").style.display = "flex"; $("pkSel").style.display = "none"; $("pkZip").style.display = "none"; $("pkStatus").textContent = "";
+  const key = `${RUN_ID}-r${round}`; PKKEY = key; fetch(`/api/packets/${key}`).then(r => r.ok ? r.json() : null).then(j => { if (j && j.status === "done") showPackets(j); });
 };
 $("closeM").onclick = () => $("modal").style.display = "none";
 let PK = null, PKKEY = null;
 function showPackets(j) {
-  PK = j.packets || {}; const ids = Object.keys(PK);
-  const ok = (j.local_errors || []).length === 0;
-  $("pkStatus").innerHTML = ` · ${ids.length} packets · agent self-check: ${j.agent_checks_passed ? "✓ pass" : "✗"} · our re-check: ${ok ? "✓ pass" : "✗ " + j.local_errors.length + " issues"}${j.seconds ? " · " + j.seconds + "s" : ""}${j.tool_steps ? " · " + j.tool_steps + " sandbox tool calls" : ""}`;
-  $("pkSel").style.display = ""; $("pkSel").innerHTML = `<option value="">run of show</option>` + ids.map(i => `<option>${i}</option>`).join("");
+  PK = j.packets || {}; const ids = Object.keys(PK); const sel = $("pkSel").value;
+  const errs = j.local_errors || [], ok = errs.length === 0, o = j.openings_score;
+  const os = !o ? "" : o.status === "running" ? ` · <span class="spinner"></span>re-simulating with the packets' openings…` : o.with ? ` · openings re-sim: consensus ${o.without.consensus} → <b>${o.with.consensus}</b> (${o.delta_consensus >= 0 ? "+" : ""}${o.delta_consensus}), total ${o.without.total} → ${o.with.total}` : "";
+  $("pkStatus").innerHTML = ` · ${ids.length} packets${j.bundle ? " + .ics + PDF each" : ""} · agent self-check: ${j.agent_checks_passed ? "✓ pass" : "✗"} · <span title="${errs.slice(0, 8).join("\n").replace(/"/g, "&quot;")}">our strict re-check: ${ok ? "✓ pass" : "✗ " + errs.length + " issues"}</span>${j.seconds ? " · " + j.seconds + "s" : ""}${j.tool_steps ? " · " + j.tool_steps + " sandbox tool calls" : ""}${os}${j.bundle ? " · <i>draft: organizer approves before anything is sent</i>" : ""}`;
+  $("pkSel").style.display = ""; $("pkSel").innerHTML = `<option value="">run of show</option>` + ids.map(i => `<option>${i}</option>`).join(""); $("pkSel").value = sel;
+  $("pkZip").style.display = j.bundle ? "" : "none"; $("pkZip").onclick = () => { location.href = `/api/packets/${PKKEY}/bundle`; };
+  if (o && o.status === "running") setTimeout(() => fetch(`/api/packets/${PKKEY}`).then(r => r.json()).then(j2 => { if ($("modal").style.display !== "none") showPackets(j2); }), 5000);
 }
 $("pkSel").onchange = () => { const v = $("pkSel").value; $("ros").textContent = v ? PK[v] : lastMd; };
 $("pkBtn").onclick = async () => {
@@ -467,7 +470,7 @@ $("pkBtn").onclick = async () => {
     const j = await (await fetch(`/api/packets/${key}`)).json();
     if (j.status === "done") { $("pkBtn").disabled = false; showPackets(j); return; }
     if (j.status === "error") { $("pkBtn").disabled = false; $("pkStatus").textContent = " · error: " + j.message.slice(0, 120); return; }
-    $("pkStatus").innerHTML = ` · <span class="spinner"></span>Antigravity agent writing + self-checking packets in its sandbox… ${Math.round((Date.now() - t0) / 1000)}s`;
+    $("pkStatus").innerHTML = ` · <span class="spinner"></span>Antigravity agent writing packets, .ics invites + PDFs and self-checking them in its sandbox… ${Math.round((Date.now() - t0) / 1000)}s`;
     setTimeout(poll, 4000);
   };
   poll();

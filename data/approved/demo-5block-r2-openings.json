@@ -1,0 +1,25 @@
+{
+ "without": {
+  "total": 73.4,
+  "consensus": 22.8,
+  "inclusion": 21.0,
+  "airtime": 14.6,
+  "cross_faction": 15.0,
+  "cross_agreements": 9,
+  "spread_after": 2.43
+ },
+ "with": {
+  "total": 77.3,
+  "consensus": 26.8,
+  "inclusion": 21.0,
+  "airtime": 14.5,
+  "cross_faction": 15.0,
+  "cross_agreements": 9,
+  "spread_after": 2.27
+ },
+ "delta_consensus": 4.0,
+ "delta_total": 3.9,
+ "saved_round_score": 77.3,
+ "seconds": 112,
+ "note": "one Flash simulation each; single-sample, noisy"
+}
